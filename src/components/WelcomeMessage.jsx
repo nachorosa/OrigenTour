@@ -1,13 +1,5 @@
-import React from 'react'
-
-class WelcomeMessage extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Origen Tour Sitio En Construccion</h1>
-      </div>
-    )
-  }
+export const WelcomeMessage = () => {
+  return (
+    <div>Atrévete a ir más lejos con Origen Viajes</div>
+  )
 }
-
-export default WelcomeMessage
