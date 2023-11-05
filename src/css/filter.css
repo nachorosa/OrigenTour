@@ -1,0 +1,67 @@
+*{
+    font-size: 10px;
+}
+
+.filter {
+    background-color: white;
+    padding: 1rem;
+}
+
+.filter h2 {
+    color: black;
+    font-size: 1.6rem;
+}
+
+.container-filter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.multi-select {
+    width: 48% !important;
+    max-width: 200px;
+}
+
+span {
+    color: black;
+    font-size: 14px;
+}
+
+.filter-selected {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+.filter-selected-item {
+    padding: 5px 10px 5px 16px;
+    border-radius: 65px;
+    border: 1px solid #C1917D;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+button {
+    color: black !important;
+    border-radius: 0 !important;
+    border: none !important;
+    font-size: 1.4rem !important;
+    background-color: white !important;
+    padding: 0.6rem !important;
+}
+
+/*! ##### TABLETS & LARGER SMARTPHONES #####*/
+@media (min-width: 530px) {  
+    .container-filter {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1rem;
+    }    
+    
+}
+
+/*! ############### LAPTOPS ###############*/
+@media (min-width: 950px) {
+}
