@@ -3,8 +3,7 @@
 }
 
 .filter {
-    background-color: white;
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 .filter h2 {
@@ -53,7 +52,12 @@ button {
 }
 
 /*! ##### TABLETS & LARGER SMARTPHONES #####*/
-@media (min-width: 530px) {  
+@media (min-width: 530px) { 
+    
+    .filter {
+        padding: 1rem 2rem;
+    }
+    
     .container-filter {
         display: flex;
         justify-content: flex-start;

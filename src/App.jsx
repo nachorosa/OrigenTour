@@ -2,7 +2,6 @@ import React from 'react'
 import Nav from './components/Nav'
 import { Home } from './pages/Home';
 import { Destiny } from './pages/Destiny';
-import { Home } from './pages/Home';
 import Contact from './pages/Contact';
 
 class App extends React.Component {
@@ -12,7 +11,7 @@ class App extends React.Component {
         <Nav/>
         <Destiny/>
         {/* <Home/> */}
-        <Contact/>
+        {/* <Contact/> */}
       </div>
     );
   }
