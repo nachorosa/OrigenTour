@@ -1,7 +1,9 @@
 import React from 'react'
 import Nav from './components/Nav'
+import { Home } from './pages/Home';
 import { Destiny } from './pages/Destiny';
 import { Home } from './pages/Home';
+import Contact from './pages/Contact';
 
 class App extends React.Component {
   render() {
@@ -9,6 +11,8 @@ class App extends React.Component {
       <div>
         <Nav/>
         <Destiny/>
+        {/* <Home/> */}
+        <Contact/>
       </div>
     );
   }
