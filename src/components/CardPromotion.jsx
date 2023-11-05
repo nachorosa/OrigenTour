@@ -1,7 +1,8 @@
 import "../css/promotion.css"
 
-export const Promotion = () => {
-  return (
+export const CardPromotion = () => {
+  
+    return (
     <section>
         <div className="container-promotion">
             <div className="container-promotion-image">
