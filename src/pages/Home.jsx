@@ -1,15 +1,19 @@
-import { Carousel } from "../components/Carousel"
+import { CarouselComponent } from "../components/CarouselComponent"
 import { CardPromotion } from "../components/CardPromotion"
 import { WelcomeMessage } from "../components/WelcomeMessage"
+import { CardMainDestination } from "../components/CardMainDestination"
 
 export const Home = () => {
   return (
     <div>
-        <Carousel/>
+        {/* <CarouselComponent/> */}
         <WelcomeMessage/>
         <div className="flex">
-          <CardPromotion/>
+        <CardPromotion/>
+        <CardPromotion/>
+        <CardPromotion/>
         </div>
+        <CardMainDestination/>
     </div>
   )
 }

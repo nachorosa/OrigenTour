@@ -1,3 +1,4 @@
+import "../css/nav.css"
 import { Disclosure} from '@headlessui/react'
 import { Bars3Icon, XMarkIcon,  } from '@heroicons/react/24/outline'
 
@@ -15,13 +16,15 @@ function classNames(...classes) {
 
 export default function Nav() {
   return (
-    <Disclosure as="nav" className="bg-white w-screen ">
+
+      
+    <Disclosure as="nav" className="clase1">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-24 items-center justify-between flex-row-reverse">
-              <div className="inset-y-0 left-0 flex items-center sm:hidden ">
-                <Disclosure.Button className="relative inline-flex items-center justify-between rounded-md p-2 text-orange-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+          <div className="clase2">
+            <div className="clase3">
+              <div className="clase4 ">
+                <Disclosure.Button className="clase5">
                   <span className=" -inset-0.5" />
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -30,24 +33,23 @@ export default function Nav() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className=" flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
-                <div className="flex flex-shrink-0 items-center">
-                <img className="h-10 w-auto  hidden sm:block" src="/src/img/logo-desktop.svg" alt="ORIGEN TOUR"/>
+              <div className="clase6">
+                <div className="clase7">
+                <img className="clase8" src="/src/img/logo-desktop.svg" alt="ORIGEN TOUR"/>
                   <div className='sm:hidden flex'>
                     <img className="h-10" src="/src/img/logo-mobile-1.svg" alt="ORIGEN TOUR"/>
                     <img className="h-10" src="/src/img/logo-mobile-2.svg" alt="ORIGEN TOUR"/>
                   </div>
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex space-x-4">
+                <div className="clase9">
+                  <div className="clase10">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'text-2xl  text-orange-500 underline' : 'text-2xl text-orange-800 hover:text-orange-500 hover:underline',
-                          'rounded-md px-3 py-2 text-sm font-medium',
-                          item.name === 'Contacto' ? 'bg-orange-500 text-white hover:text-white' : ''
+                          item.current ? 'clase20' : '', 'clase22',
+                          item.name === 'Contacto' ? 'clase23' : ''
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -68,9 +70,9 @@ export default function Nav() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'text-orange-500' : 'text-orange-800 hover:text-orange-500',
-                    'block rounded-md px-3 py-2 text-base font-medium',
-                    item.name === 'Contacto' ? 'bg-orange-500 text-white text-center hover:text-white' : ''
+                    item.current ? 'clase24' : 'clase24',
+                    'clase26',
+                    item.name === 'Contacto' ? 'clase27' : ''
                   )}
                   aria-current={item.current ? 'page' : undefined}
                 >
@@ -82,5 +84,7 @@ export default function Nav() {
         </>
       )}
     </Disclosure>
+    
+
   )
 }
