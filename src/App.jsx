@@ -1,17 +1,13 @@
 import React from 'react'
 import Nav from './components/Nav'
-import { Home } from './pages/Home';
-import { Destiny } from './pages/Destiny';
-import Contact from './pages/Contact';
+import { Experience } from './pages/Experience';
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <Nav/>
-        <Destiny/>
-        {/* <Home/> */}
-        {/* <Contact/> */}
+        <Experience/>
       </div>
     );
   }

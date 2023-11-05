@@ -1,0 +1,89 @@
+*{
+    font-size: 10px;
+}
+
+.container-title {
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0em;
+    font-size: 2.8rem;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .container-destination-card {
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .card-destination {
+    position: relative;
+    width: 45%;
+  }
+  
+  .card-destination-detail {
+    height: 15rem;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 2.4rem;
+  }
+
+  .card-destination-detail:hover {
+    opacity: 0.75; 
+  }
+
+  .card-destination-detail img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; 
+    object-position:center;
+  }
+
+  .card-destination-detail-text {
+    bottom: 75%;  
+    position: absolute;
+    left: 0;
+    width: 100%; 
+    padding: 0.5rem; 
+    color: #fff;  
+    z-index: 10;  
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+    letter-spacing: 0em;
+    text-shadow: 0.2rem 0.2rem 0.1rem black;
+    text-align: center;
+    padding-left: 5%;
+  }
+
+  .card-destination-detail-text-province {
+    bottom: 0%;
+  }
+
+/*! ############### LAPTOPS ###############*/
+@media (min-width: 950px) {
+
+  .card-destination {
+    position: relative;
+    width: 23%;
+  }
+
+    .card-destination-detail {
+        height: 24rem;
+      }
+
+      .card-destination-detail-text {
+        bottom: 25%;  
+        font-size: 2.2rem;
+        text-align: start;
+      }
+
+      .card-destination-detail-text-province {
+        bottom: 5%;  
+    }
+      
+}
