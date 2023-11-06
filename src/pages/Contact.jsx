@@ -1,7 +1,30 @@
+import { useEffect, useState } from 'react';
 import ContactForm from '../components/ContactForm'
 import '../css/contact.css'
 
 const Contact = () => {
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 1024) {
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+
+    }, []);
+
     return (
         <>
             <div className="contact-container flex justify-center sm:flex-col 2xl:flex-row xl:flex-row">
@@ -14,6 +37,10 @@ const Contact = () => {
                             ¿Necesitas más información sobre nuestros emocionantes viajes en Argentina? Estamos a solo un mensaje de distancia. Pregunta sobre destinos, fechas o lo que necesites saber. Estamos aquí para asegurarnos de que tengas la mejor experiencia de viaje.
                         </p>
                     </div>
+                    {isMobile ?
+                        <ContactForm />
+                        : null
+                    }
                     <div className="contact-socials flex w-full justify-center flex-col items-center">
                         <div className='flex w-full justify-evenly'>
                             <div className='contact-socials-item flex items-center gap-6'>
@@ -41,7 +68,10 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <ContactForm />
+                {isMobile ?
+                    null
+                    : <ContactForm />
+                }
             </div>
 
         </>
