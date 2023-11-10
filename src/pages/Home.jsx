@@ -9,9 +9,9 @@ export const Home = () => {
         {/* <CarouselComponent/> */}
         <WelcomeMessage/>
         <div className="flex">
+        {/* <CardPromotion/>
         <CardPromotion/>
-        <CardPromotion/>
-        <CardPromotion/>
+        <CardPromotion/> */}
         </div>
         <CardMainDestination/>
     </div>

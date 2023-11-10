@@ -38,7 +38,7 @@ export default function Nav() {
                 <img className="clase8" src="/src/img/logo-desktop.svg" alt="ORIGEN TOUR"/> 
                   <div className='sm:hidden flex'>
                     <img className="h-10" src="/src/img/logo-mobile-1.svg" alt="ORIGEN TOUR"/>
-                    <img className="h-10" src="/src/img/logo-mobile-2.svg" alt="ORIGEN TOUR"/>
+                    <img className="h-10 w-full" src="/src/img/logo-mobile-2.svg" alt="ORIGEN TOUR"/>
                   </div>
                 </div>
                 <div className="clase9">
