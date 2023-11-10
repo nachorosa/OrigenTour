@@ -1,0 +1,193 @@
+*{
+    font-size: 10px;
+}
+
+.contenedorAbout {
+    display: block;
+    width: 100%;
+    height: 500px;
+}
+
+.sectionAbout {
+    width: 100%;
+}
+
+.sectionAbout img {
+    width: 100%;
+    max-height: 390px;
+}
+
+.textAbout {
+    padding: 2rem;
+}
+
+.textAbout h2 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-bottom: 1rem;
+}
+
+.textAbout span {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.textAbout p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.textAbout h2 span {
+    display: block;
+}
+
+.containerInfoAbout{
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse
+}
+
+.containerMisionVision {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.p-accordion-tab {
+    padding-bottom: 2rem;
+}
+
+.containerMisionVisionAccordion{
+    background-color: #C1917D;
+    border-radius: 1rem;
+}
+
+ .p-accordion-header-link {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 100%;
+ }
+
+ .p-accordion-toggle-icon {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+ }
+
+.p-accordion-header-text {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: white;
+}
+
+.textContainerMisionVision {
+    background-color: white;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 2rem;
+}
+
+.mapContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.titleAbout {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+  
+.titleAbout h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.titleAbout h3 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 1rem 0;
+}
+
+.itemAbout {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.itemAbout img{
+    width: 30px;
+}
+
+.itemAbout span{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+/*! ##### TABLETS & LARGER SMARTPHONES #####*/
+@media (min-width: 530px) {  
+    .sectionAbout {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .containerInfoAbout {
+        flex-direction: row;
+    }
+
+    .sectionAbout img {
+        width: 45%;
+        max-height: 390px;
+        padding: 2rem;
+    }
+
+    .containerCollapse {
+        width: 55%;
+    }
+
+    .titleAbout {
+        width: 55%;
+    }
+
+    .containerMapAbout{
+        width: 45%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mapContainer{
+        border-radius: 1rem;
+    }
+
+}

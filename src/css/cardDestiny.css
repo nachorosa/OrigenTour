@@ -50,7 +50,7 @@
     color: black;
     font-size: 1.6rem;
     font-weight: 600;
-    line-height: 2rem;
+    line-height: 4rem;
     letter-spacing: 0em;
     text-align: left;
   }
@@ -98,7 +98,7 @@
 @media (min-width: 530px) {  
   
   *{
-    font-size: 104px;
+    /* font-size: 104px; */
   }
   
   .prueba002 {

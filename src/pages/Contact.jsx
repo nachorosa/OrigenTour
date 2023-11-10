@@ -10,9 +10,7 @@ const Contact = () => {
                         <h1>Contactanos!</h1>
                     </div>
                     <div className="contatc-description text-center">
-                        <p>
-                            ¿Necesitas más información sobre nuestros emocionantes viajes en Argentina? Estamos a solo un mensaje de distancia. Pregunta sobre destinos, fechas o lo que necesites saber. Estamos aquí para asegurarnos de que tengas la mejor experiencia de viaje.
-                        </p>
+                        <p>¿Necesitas más información sobre nuestros emocionantes viajes en Argentina? Estamos a solo un mensaje de distancia. Pregunta sobre destinos, fechas o lo que necesites saber. Estamos aquí para asegurarnos de que tengas la mejor experiencia de viaje.</p>
                     </div>
                     <div className="contact-socials flex w-full justify-center flex-col items-center">
                         <div className='flex w-full justify-evenly'>
