@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom"
 import "../css/cardDestiny.css"
 
 const destinations = [
@@ -86,6 +87,13 @@ const destinations = [
 ]
 
 export const CardDestiny = () => {
+
+  const {id} = useParams()
+
+  console.log(id);
+
+  fetch("http://localhost:8080/api/destinos/1" + id)
+
   return (
 
     <div className="prueba001">
@@ -103,7 +111,7 @@ export const CardDestiny = () => {
                         </div>
                         <div className="card-destiny-price">
                           <h3 className="card-destiny-price-h3" >${destiny.precio}</h3>
-                          <a className="card-destiny-price-a" href="#">Mas Informacion</a>
+                          <a className="card-destiny-price-a" href={`destiny/${destiny.id}`}>Mas Informacion</a>
                         </div>
                       </div>
                     </div>

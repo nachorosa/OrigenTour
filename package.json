@@ -20,6 +20,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-multi-select-component": "^4.3.4",
+    "react-router-dom": "^6.18.0",
     "react-tailwindcss-select": "^1.8.5",
     "tw-elements-react": "^1.0.0-alpha2"
   },

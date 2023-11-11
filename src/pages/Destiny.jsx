@@ -10,3 +10,5 @@ export const Destiny = () => {
     </div>
   )
 }
+
+export default Destiny
