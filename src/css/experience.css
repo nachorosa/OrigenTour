@@ -64,6 +64,85 @@
     bottom: 0%;
   }
 
+  .trigger{
+    cursor: pointer;
+  }
+
+  .dropdown{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    height: 90vh;
+    z-index: 100;
+    border-radius: 40px 40px 0 0;
+    overflow: auto;
+    animation: slide-in 800ms ease-in-out;
+  }
+
+  .dropdown.visible {
+    transform: translateY(0);
+    animation: slide-in 800ms ease-in-out;
+  }
+  
+  .dropdown.dropdown-hidden {
+    transform: translateY(100%); 
+    animation: slide-out 800ms ease-in-out;
+  }
+
+
+  @keyframes slide-in {
+    0% {
+      transform: translateY(100%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+
+  }
+
+  @keyframes slide-out {
+    0% {
+      transform: translateY(0);
+    }
+  
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  .dropdown-title h2{
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: 0em;
+    text-align: left; 
+  }
+
+  .dropdown-title img{
+    cursor: pointer;
+  }
+
+  .dropdown-gallery{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .dropdown-gallery img{
+    width: 280px;
+    height: 360px;
+    margin-bottom: 40px;
+  }
+
+
+
+
 /*! ############### LAPTOPS ###############*/
 @media (min-width: 950px) {
 

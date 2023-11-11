@@ -34,9 +34,9 @@ export default function Nav() {
                 </Disclosure.Button>
               </div>
               <div className="clase6">
-                <div className="clase7">
-                <img className="clase8" src="/src/img/logo-desktop.svg" alt="ORIGEN TOUR"/> 
-                  <div className='sm:hidden flex'>
+                <div className="clase7 w-full lg:w-auto">
+                <img className="clase8 w-full lg:w-auto" src="/src/img/logo-desktop.svg" alt="ORIGEN TOUR"/> 
+                  <div className='sm:hidden flex w-full lg:w-auto'>
                     <img className="h-10" src="/src/img/logo-mobile-1.svg" alt="ORIGEN TOUR"/>
                     <img className="h-10 w-full" src="/src/img/logo-mobile-2.svg" alt="ORIGEN TOUR"/>
                   </div>

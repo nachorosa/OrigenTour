@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Destiny from './pages/Destiny';
+import Experience from './pages/Experience';
 
 class App extends React.Component {
     render() {
@@ -14,9 +15,10 @@ class App extends React.Component {
                 <BrowserRouter>
                     <Routes>
                         <Route path={"/"} element={<Home />} />
-                        <Route path={"/about"} element={<AboutUs />} />
+                        <Route path={"/nosotros"} element={<AboutUs />} />
                         <Route path={"/destiny"} element={<Destiny/>} />
                         <Route path={"/destiny/:id"} element={<Destiny/>} />
+                        <Route path={"/experience"} element={<Experience />} />
                     </Routes>
                 </BrowserRouter>
                 <Footer />
