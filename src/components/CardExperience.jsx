@@ -90,15 +90,15 @@ export const CardExperience = () => {
     ]
 
     return (
-        <div >
-            <h2 className="container-title">Nuestros Viajes</h2>
-            <div className="container-destination-card" >
+        <div  >
+            <h2 className="containerExperience">Nuestros Viajes</h2>
+            <div className="containerExperienceDetail" >
                 {destinations.map((destiny) => (
-                    <div onClick={() => {toggleContenedor(), setViaje(destiny)}} key={destiny.id} className="card-destination trigger">
-                        <div className="card-destination-detail">
+                    <div onClick={() => {toggleContenedor(), setViaje(destiny)}} key={destiny.id} className="ExperienceDetail trigger">
+                        <div className="ExperienceDetail-detail">
                             <img src={destiny.imageSrc} alt={destiny.imageAlt} />
-                            <p className="card-destination-detail-text">{destiny.lugar} </p>
-                            <p className="card-destination-detail-text card-destination-detail-text-province">{destiny.fecha} </p>
+                            <p className="ExperienceDetail-detail-text">{destiny.lugar} </p>
+                            <p className="ExperienceDetail-detail-text ExperienceDetail-detail-text-province">{destiny.fecha} </p>
                         </div>
                     </div>
                 ))}

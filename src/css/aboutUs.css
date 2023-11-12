@@ -5,7 +5,6 @@
 .contenedorAbout {
     display: block;
     width: 100%;
-    height: 500px;
 }
 
 .sectionAbout {
@@ -160,10 +159,12 @@
     .sectionAbout {
         display: flex;
         flex-direction: row-reverse;
+        min-height: 650px;
     }
 
     .containerInfoAbout {
         flex-direction: row;
+        padding-bottom: 2rem;
     }
 
     .sectionAbout img {

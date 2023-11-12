@@ -11,19 +11,19 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Nav />
-                <BrowserRouter>
-                    <Routes>
-                        <Route path={"/"} element={<Home />} />
-                        <Route path={"/nosotros"} element={<AboutUs />} />
-                        <Route path={"/destiny"} element={<Destiny/>} />
-                        <Route path={"/destiny/:id"} element={<Destiny/>} />
-                        <Route path={"/experience"} element={<Experience />} />
-                    </Routes>
-                </BrowserRouter>
-                <Footer />
+                <Nav/>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path={"/"} element={<Home />} />
+                            <Route path={"/nosotros"} element={<AboutUs />} />
+                            <Route path={"/destinos"} element={<Destiny/>} />
+                            <Route path={"/destinos/:id"} element={<Destiny/>}/>
+                            <Route path={"/experiencias"} element={<Experience/>}/>
+                        </Routes>
+                    </BrowserRouter>
+                <Footer/>
             </div>
-        );
+        )
     }
 }
 

@@ -1,6 +1,6 @@
 footer {
     background-color: #3A312B;
-    height: 25vh;
+    padding: 16px 0;
 }
 
 .socials-footer-item span,
@@ -20,7 +20,6 @@ footer {
 
     footer {
         height: auto;
-        padding: 14px;
     }
 
     .footer-nav {
@@ -34,6 +33,14 @@ footer {
     .socials-footer-item span,
     .footer-nav-item a {
         font-size: 16px;
+    }
+
+    .footerContainer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2;
     }
 
 }

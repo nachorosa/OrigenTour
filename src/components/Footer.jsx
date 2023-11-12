@@ -1,9 +1,8 @@
-import React from 'react'
 import '../css/footer.css'
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className='footerContainer'>
             <div className="footer-main flex items-center justify-around h-full lg:justify-center lg:gap-16">
                 <div className='footer-socials-container flex flex-col justify-between lg:flex-row lg:items-center lg:gap-16 lg:h-full'>
                     <div className="logo-footer">
