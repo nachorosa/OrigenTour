@@ -2,7 +2,7 @@
     font-size: 10px;
 }
 
-.container-title {
+.containerExperience {
     font-weight: 600;
     line-height: 36px;
     letter-spacing: 0em;
@@ -12,7 +12,7 @@
     justify-content: center;
   }
 
-  .container-destination-card {
+  .containerExperienceDetail {
     margin: 2rem 0;
     display: flex;
     flex-wrap: wrap;
@@ -20,30 +20,30 @@
     gap: 2rem;
   }
 
-  .card-destination {
+  .ExperienceDetail {
     position: relative;
     width: 45%;
   }
   
-  .card-destination-detail {
+  .ExperienceDetail-detail {
     height: 15rem;
     width: 100%;
     overflow: hidden;
     border-radius: 2.4rem;
   }
 
-  .card-destination-detail:hover {
+  .ExperienceDetail-detail:hover {
     opacity: 0.75; 
   }
 
-  .card-destination-detail img {
+  .ExperienceDetail-detail img {
     height: 100%;
     width: 100%;
     object-fit: cover; 
     object-position:center;
   }
 
-  .card-destination-detail-text {
+  .ExperienceDetail-detail-text {
     bottom: 75%;  
     position: absolute;
     left: 0;
@@ -60,7 +60,7 @@
     padding-left: 5%;
   }
 
-  .card-destination-detail-text-province {
+  .ExperienceDetail-detail-text-province {
     bottom: 0%;
   }
 
@@ -146,22 +146,22 @@
 /*! ############### LAPTOPS ###############*/
 @media (min-width: 950px) {
 
-  .card-destination {
+  .ExperienceDetail {
     position: relative;
     width: 23%;
   }
 
-    .card-destination-detail {
+    .ExperienceDetail-detail {
         height: 24rem;
       }
 
-      .card-destination-detail-text {
+      .ExperienceDetail-detail-text {
         bottom: 25%;  
         font-size: 2.2rem;
         text-align: start;
       }
 
-      .card-destination-detail-text-province {
+      .ExperienceDetail-detail-text-province {
         bottom: 5%;  
     }
       
