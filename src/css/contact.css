@@ -1,63 +1,108 @@
-.contact-main,.contact-form-main{
-    height: 680px;
-}
-
-.contatc-description p{
-    font-size: 28px;
-    line-height: 36px;
-    max-width: 840px;
-}
-
-.contact-title h1{
-    font-weight: 600;
-    font-size: 64px;
-}
-
-.contact-socials-item{
-    max-width: 420px;
-}
-
-.contact-socials-item span{
-    font-size: 18px;
-    line-height: 28px;
-}
-
-.contact-form-main{
-    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.35);
+.contact-form-container {
+    width: 90%;
+    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.35);
     border-radius: 20px;
-    padding: 20px;
-    width: 40%;
 }
 
-.input-contact input, textarea{
+.contact-form-input input,
+textarea {
+    border-radius: 10px;
+    border: 1px solid #D1D5DB;
     background-color: #F3F4F6;
     outline: none;
-    border-radius: 16px;
-    border: 1px solid #D1D5DB;
+    padding: 5px;
 }
 
-.input-contact#nombre, .input-contact#apellido{
-    width: 45%;
-}
-
-.input-contact input{
-    padding: 30px 0;
-}
-
-.input-contact label{
-    color: #C1917D;
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 36px;
-}
-
-.submit-button{
+.submit-button button {
     color: #fff !important;
-    font-size: 20px !important;
-    line-height: 28px !important;
-    font-weight: 600 !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
+    font-weight: 500 !important;
     background-color: #FF821C !important;
-    padding: 18px 27px !important;
+    padding: 10px 24px !important;
     border-radius: 16px !important;
 }
 
+.socials-container {
+    width: 90%;
+}
+
+.socials-item {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.input-contact label {
+    color: #C1917D;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.socials-item img {
+    width: 20px;
+}
+
+@media (min-width: 1024px) {
+
+    .contact-title h1 {
+        font-size: 64px;
+        font-weight: 600;
+        line-height: 76px;
+        letter-spacing: 0em;
+        text-align: center;
+    }
+
+    .contact-title p {
+        max-width: 840px;
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: 0em;
+        text-align: center;
+    }
+
+    .socials-item {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 28px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    #socials-item-location {
+        max-width: 50%;
+    }
+
+    #socials-item-second-block {
+        width: 95%;
+    }
+
+    .socials-item img {
+        width: 50px;
+    }
+
+    .input-contact#input-contact-name,
+    .input-contact#input-contact-surname {
+        width: 45%;
+    }
+
+    .input-contact input {
+        padding: 25px 0;
+    }
+
+    .input-contact label {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .submit-button button {
+        font-size: 20px !important;
+        line-height: 28px !important;
+        font-weight: 600 !important;
+        padding: 18px 27px !important;
+    }
+}
