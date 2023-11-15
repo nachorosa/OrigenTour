@@ -97,8 +97,8 @@ export const CardExperience = () => {
                     <div onClick={() => {toggleContenedor(), setViaje(destiny)}} key={destiny.id} className="ExperienceDetail trigger">
                         <div className="ExperienceDetail-detail">
                             <img src={destiny.imageSrc} alt={destiny.imageAlt} />
-                            <p className="ExperienceDetail-detail-text">{destiny.lugar} </p>
-                            <p className="ExperienceDetail-detail-text ExperienceDetail-detail-text-province">{destiny.fecha} </p>
+                            <p className="ExperienceDetail-detail-text">{destiny.lugar}</p>
+                            <p className="ExperienceDetail-detail-text ExperienceDetail-detail-text-province">{destiny.fecha}</p>
                         </div>
                     </div>
                 ))}

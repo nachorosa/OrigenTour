@@ -27,18 +27,18 @@ export default function Nav() {
                 <Disclosure.Button className="clase5">
                   <span className=" -inset-0.5" />
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className="block h-12 w-12" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon className="block h-12 w-12" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
               <div className="clase6">
                 <div className="clase7 w-full lg:w-auto">
-                <img className="clase8 w-full lg:w-auto" src="/src/img/logo-desktop.svg" alt="ORIGEN TOUR"/> 
+                <a href="/"><img className="clase8 w-full lg:w-auto" src="/src/img/logo-desktop.svg" alt="ORIGEN TOUR"/></a>
                   <div className='sm:hidden flex w-full lg:w-auto'>
-                    <img className="h-10" src="/src/img/logo-mobile-1.svg" alt="ORIGEN TOUR"/>
-                    <img className="h-10 w-full" src="/src/img/logo-mobile-2.svg" alt="ORIGEN TOUR"/>
+                  <a href="/"><img className="h-12" src="/src/img/logo-mobile-1.svg" alt="ORIGEN TOUR"/></a>
+                  <a href="/"><img className="h-12 w-full" src="/src/img/logo-mobile-2.svg" alt="ORIGEN TOUR"/></a>
                   </div>
                 </div>
                 <div className="clase9">
@@ -48,7 +48,7 @@ export default function Nav() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? 'clase20' : '', 'clase22',
+                          item.current ? 'clase20' : 'clase21', 'clase22',
                           item.name === 'Contacto' ? 'clase23' : ''
                         )}
                         aria-current={item.current ? 'page' : undefined}
@@ -70,7 +70,7 @@ export default function Nav() {
                   as="a"
                   href={item.href}
                   className={classNames(
-                    item.current ? 'clase24' : 'clase24',
+                    item.current ? 'clase24' : '',
                     'clase26',
                     item.name === 'Contacto' ? 'clase27' : ''
                   )}
