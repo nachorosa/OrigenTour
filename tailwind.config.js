@@ -9,7 +9,8 @@ export default {
     "./node_modules/tw-elements-react/dist/js/**/*.js",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/primereact/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/primereact/**/*.{js,ts,jsx,tsx}",
+    "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
     extend: {},

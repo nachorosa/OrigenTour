@@ -8,6 +8,7 @@ import Destiny from './pages/Destiny';
 import Experience from './pages/Experience';
 import WhatsappButton from './components/WhatsappButton';
 import Contact from './pages/Contact'
+import { DestinyDetail } from './pages/DestinyDetail';
 
 class App extends React.Component {
     render() {
@@ -21,6 +22,8 @@ class App extends React.Component {
                             <Route path={"/destinos"} element={<Destiny/>} />
                             <Route path={"/destinos/:id"} element={<Destiny/>}/>
                             <Route path={"/experiencias"} element={<Experience/>}/>
+                            <Route path={"/destinos/detalle"} element={<DestinyDetail/>}/>
+                            
                         </Routes>
                     </BrowserRouter>
                 <Footer/>

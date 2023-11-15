@@ -6,12 +6,10 @@ import { CardMainDestination } from "../components/CardMainDestination"
 export const Home = () => {
   return (
     <div>
-        {/* <CarouselComponent/> */}
+        <CarouselComponent/>
         <WelcomeMessage/>
         <div className="flex">
-        {/* <CardPromotion/>
         <CardPromotion/>
-        <CardPromotion/> */}
         </div>
         <CardMainDestination/>
     </div>

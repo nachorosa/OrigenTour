@@ -1,0 +1,134 @@
+*{
+    font-size: 10px;
+}
+
+.detailDestiny {
+    width: 100%;
+}
+
+.detailDestiny1{
+    display: flex;
+    width: 100%;
+}
+
+.detailDestiny2 {
+    padding:  0 2rem;
+}
+
+.detailDestiny2 h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 3.6rem;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.detailDestiny2 h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.detailDestiny2 h4 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0em;
+    text-align: left;
+;
+}
+
+.detailDestiny3 {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0 ;
+}
+
+.detailDestiny4 {
+    padding: 0 1rem;
+}
+
+.detailDestiny5 {
+    padding: 2rem 0;
+    display: flex;
+}
+
+.detailDestiny5 p {
+    padding: 0 1rem;
+}
+
+.detailDestiny6 {
+    height: 350px;
+    width: 100%;
+}
+
+.detailDescription {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 4rem 2rem;
+}
+
+.detailDestiny7{
+    width: 100%;
+    padding: 2rem 0px;
+    border-radius: 32px;
+    background-color: #796151;
+    color: #FCFCFC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.detailDestiny8{
+    width: 100%;
+    padding: 2rem 0px;
+    border-radius: 32px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+
+
+/*! ############### LAPTOPS ###############*/
+@media (min-width: 950px) {
+    
+.detailDestiny9 {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.detailDestiny6 {
+    height: 350px;
+    width: 35%;
+    padding: 5rem;
+}
+
+.detailDestiny2 {
+    padding: 0 2rem;
+    width: 65%;
+    padding: 5rem;
+    color: black;
+}
+
+.detailDestiny3 {
+    flex-direction: column;
+}
+
+.detailDestiny3 h2 {
+    font-size: 4rem;
+}
+
+.detailDestiny10 {
+    width: 35%;
+    padding: 5rem;
+}
+
+}
