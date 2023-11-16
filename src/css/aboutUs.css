@@ -81,11 +81,10 @@
  .p-accordion-toggle-icon {
     font-size: 18px;
     font-weight: bold;
-    color: white;
  }
 
 .p-accordion-header-text {
-    font-size: 18px;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 36px;
     letter-spacing: 0em;
@@ -95,7 +94,7 @@
 
 .textContainerMisionVision {
     background-color: white;
-    font-size: 14px;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 28px;
     letter-spacing: 0em;
@@ -147,7 +146,7 @@
 }
 
 .itemAbout span{
-    font-size: 16px;
+    font-size: 1.4rem;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: 0em;

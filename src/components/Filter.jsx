@@ -47,8 +47,14 @@ export const Filter = () => {
     ]
   
     const destinys = [
-        { label: "NuevoDestino", value: "NuevoDestino" },
-        { label: "NuevoDestino2", value: "NuevoDestino2" }
+      { label: "NuevoDestino", value: "NuevoDestino" },
+      { label: "NuevoDestino2", value: "NuevoDestino2" },
+      { label: "NuevoDestino", value: "NuevoDestino" },
+      { label: "NuevoDestino2", value: "NuevoDestino2" },
+      { label: "NuevoDestino", value: "NuevoDestino" },
+      { label: "NuevoDestino2", value: "NuevoDestino2" },
+      { label: "NuevoDestino", value: "NuevoDestino" },
+      { label: "NuevoDestino2", value: "NuevoDestino2" },
     ]
       
 

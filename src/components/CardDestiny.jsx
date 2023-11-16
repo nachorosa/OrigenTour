@@ -111,7 +111,8 @@ export const CardDestiny = () => {
                         </div>
                         <div className="card-destiny-price">
                           <h3 className="card-destiny-price-h3" >${destiny.precio}</h3>
-                          <a className="card-destiny-price-a" href={`#/${destiny.id}`}>Mas Informacion</a>
+                          <a className="card-destiny-price-a" href={`destinos/detalle`}>Mas Informacion</a>
+                          {/* <a className="card-destiny-price-a" href={`destinos/detalle/${destiny.id}`}>Mas Informacion</a> */}
                         </div>
                       </div>
                     </div>

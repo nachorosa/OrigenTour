@@ -127,11 +127,11 @@ export const DestinyDetail = () => {
     return (
 
         <div className="detailDestiny w-full">
-            <i className="fas fa-arrow-left flex w-full">Retroceder</i>
+            <img className="detailDestiny1" src="/src/img/arrow_back.svg" alt="" />
             <div className="detailDestiny9 flex flex-col md:flex-row-reverse md:justify-around">
                 <div className="detailDestiny2 px-8">
                     <div className="destiny-title flex items-center justify-between py-8 md:flex-col md:items-start">
-                        <h1 className="font-bold md:mb-4">Salta</h1>
+                        <h2 className="titlePage">Salta</h2>
                         <h3>3 Noches</h3>
                     </div>
                     <div className="detailDestiny4">

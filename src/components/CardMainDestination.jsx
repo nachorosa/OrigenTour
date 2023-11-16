@@ -5,7 +5,7 @@ const destinations = [
         id: 1,
         provincia: 'Misisones',
         lugar: "Cataratas del iguazu",
-        href: '#',
+        href: '/destinos/detalle',
         imageSrc: '/src/img/cataratas.jpg',
         imageAlt: "cataratas",
       },
@@ -51,20 +51,22 @@ const destinations = [
   
   export const CardMainDestination = () => {
     return (
-        <div className="container-destination">
-          <h2>Principales Destinos</h2>
-            <div className="container-destination-card">
-                {destinations.map((destiny) => (
-                    <div key={destiny.id} className="card-destination">
-                        <div className="card-destination-detail">
-                            <img src={destiny.imageSrc} alt={destiny.imageAlt}/>
-                            <p className="card-destination-detail-text">{destiny.lugar} </p>
-                            <p className="card-destination-detail-text card-destination-detail-text-province">{destiny.provincia} </p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
+      <a href={`/destinos?&salta`}>
+          <div className="container-destination">
+            <h2>Principales Destinos</h2>
+              <div className="container-destination-card">
+                  {destinations.map((destiny) => (
+                      <div key={destiny.id} className="card-destination">
+                          <div className="card-destination-detail">
+                              <img src={destiny.imageSrc} alt={destiny.imageAlt}/>
+                              <p className="card-destination-detail-text">{destiny.lugar} </p>
+                              <p className="card-destination-detail-text card-destination-detail-text-province">{destiny.provincia} </p>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+        </a>
     )
   }
   
