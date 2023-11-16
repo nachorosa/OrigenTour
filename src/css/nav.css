@@ -4,6 +4,10 @@
 
 .clase1 {
     background-color: white;
+    position: sticky;
+    top: 0;
+    /* padding: 1rem; */
+    z-index: 100;
   }
 
   .clase2 {
@@ -60,9 +64,19 @@
     gap: 5rem;
 }
 
-/* .clase20 {
+.clase20 {
     text-decoration: underline;
-  } */
+  }
+
+  .clase21 {
+    font-size: 2rem;
+    color: #C1917D !important;
+  }
+
+  .clase21:hover {
+    color: #FF821C !important;  
+    text-decoration: underline;  
+  }
 
   .clase22 {
     font-weight: 500;
@@ -74,7 +88,7 @@
 
   .clase23 {
     background-color: #FFA500;
-    color: #fff;
+    color: #fff !important;
     padding: 0.75rem;
     border-radius: 16px;
   }
@@ -84,7 +98,7 @@
   }
   
   .clase24 {
-    color: #FFA500;
+    color: #FFA500 !important;
   }
   
   .clase26 {
@@ -93,6 +107,7 @@
     padding: 0.75rem 1.5rem;
     font-size: 1.4rem;
     font-weight: 500;
+    color: #C1917D;
   }
 
   .clase27 {
