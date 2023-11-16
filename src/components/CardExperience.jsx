@@ -60,8 +60,6 @@ const destinations = [
         imageAlt: "cataratas",
         imgs: []
     },
-
-
     // More experience...
 ]
 
@@ -90,15 +88,15 @@ export const CardExperience = () => {
     ]
 
     return (
-        <div  >
-            <h2 className="containerExperience">Nuestros Viajes</h2>
-            <div className="containerExperienceDetail" >
+        <div>
+            <h2 className="containerExperience font-semibold tracking-normal py-4 flex justify-center">Nuestros Viajes</h2>
+            <div className="my-8 flex flex-wrap justify-center gap-8" >
                 {destinations.map((destiny) => (
-                    <div onClick={() => {toggleContenedor(), setViaje(destiny)}} key={destiny.id} className="ExperienceDetail trigger">
-                        <div className="ExperienceDetail-detail">
-                            <img src={destiny.imageSrc} alt={destiny.imageAlt} />
-                            <p className="ExperienceDetail-detail-text">{destiny.lugar}</p>
-                            <p className="ExperienceDetail-detail-text ExperienceDetail-detail-text-province">{destiny.fecha}</p>
+                    <div onClick={() => {toggleContenedor(), setViaje(destiny)}} key={destiny.id} className="ExperienceDetail relative cursor-pointer">
+                        <div className="ExperienceDetailContainer w-full overflow-hidden hover:opacity-75">
+                            <img className="w-full h-full object-cover object-center" src={destiny.imageSrc} alt={destiny.imageAlt} />
+                            <p className="bottom-3/4 absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal text-center ExperienceDetailText lg:bottom-1/4 lg:text-start">{destiny.lugar}</p>
+                            <p className="bottom-0 absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal text-center ExperienceDetailText ExperienceDetailTextProvince">{destiny.fecha}</p>
                         </div>
                     </div>
                 ))}

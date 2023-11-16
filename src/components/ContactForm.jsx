@@ -2,10 +2,7 @@ import '../css/contact.css'
 
 const ContactForm = ({isMobile}) => {
     return (
-
         <div className='w-full lg:w-1/2'>
-
-
             <div className='p-6 contact-form-container mx-auto'>
                 <div className=''>
                     <div className='mb-4 flex lg:flex-row flex-col lg:justify-between'>

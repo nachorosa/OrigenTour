@@ -1,168 +1,91 @@
 *{
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .containerExperience {
-    font-weight: 600;
-    line-height: 36px;
-    letter-spacing: 0em;
-    font-size: 2.8rem;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-  }
+  line-height: 3.6rem;
+  font-size: 2.8rem;
+}
 
-  .containerExperienceDetail {
-    margin: 2rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-  }
-
-  .ExperienceDetail {
-    position: relative;
-    width: 45%;
-  }
+.ExperienceDetail {
+  width: 45%;
+}
   
-  .ExperienceDetail-detail {
-    height: 15rem;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 2.4rem;
+.ExperienceDetailContainer {
+  height: 15rem;
+  border-radius: 2.4rem;
+}
+
+.ExperienceDetailText {
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  text-shadow: 0.2rem 0.2rem 0.1rem black;
+  padding-left: 5%;
+}
+
+.dropdown{
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+  height: 90vh;
+  border-radius: 40px 40px 0 0;
+  animation: slide-in 800ms ease-in-out;
   }
 
-  .ExperienceDetail-detail:hover {
-    opacity: 0.75; 
-  }
+.dropdown.visible {
+  transform: translateY(0);
+  animation: slide-in 800ms ease-in-out;
+}
+  
+.dropdown.dropdown-hidden {
+  transform: translateY(100%); 
+  animation: slide-out 800ms ease-in-out;
+}
 
-  .ExperienceDetail-detail img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover; 
-    object-position:center;
+@keyframes slide-in {
+  0% {
+    transform: translateY(100%);
   }
-
-  .ExperienceDetail-detail-text {
-    bottom: 75%;  
-    position: absolute;
-    left: 0;
-    width: 100%; 
-    padding: 0.5rem; 
-    color: #fff;  
-    z-index: 10;  
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 2.4rem;
-    letter-spacing: 0em;
-    text-shadow: 0.2rem 0.2rem 0.1rem black;
-    text-align: center;
-    padding-left: 5%;
-  }
-
-  .ExperienceDetail-detail-text-province {
-    bottom: 0%;
-  }
-
-  .trigger{
-    cursor: pointer;
-  }
-
-  .dropdown{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
-    height: 90vh;
-    z-index: 100;
-    border-radius: 40px 40px 0 0;
-    overflow: auto;
-    animation: slide-in 800ms ease-in-out;
-  }
-
-  .dropdown.visible {
+  100% {
     transform: translateY(0);
-    animation: slide-in 800ms ease-in-out;
   }
-  
-  .dropdown.dropdown-hidden {
-    transform: translateY(100%); 
-    animation: slide-out 800ms ease-in-out;
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateY(0);
   }
-
-
-  @keyframes slide-in {
-    0% {
-      transform: translateY(100%);
-    }
-
-    100% {
-      transform: translateY(0);
-    }
-
+  100% {
+    transform: translateY(100%);
   }
+}
 
-  @keyframes slide-out {
-    0% {
-      transform: translateY(0);
-    }
-  
-    100% {
-      transform: translateY(100%);
-    }
-  }
+.dropdown-title h2 {
+  font-size: 2.8rem;
+  line-height: 4.4rem; 
+}
 
-  .dropdown-title h2{
-    font-size: 28px;
-    font-weight: 600;
-    line-height: 44px;
-    letter-spacing: 0em;
-    text-align: left; 
-  }
-
-  .dropdown-title img{
-    cursor: pointer;
-  }
-
-  .dropdown-gallery{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .dropdown-gallery img{
-    width: 280px;
-    height: 360px;
-    margin-bottom: 40px;
-  }
-
-
-
+.dropdownImg{
+  width: 28rem;
+  height: 36rem;
+  margin-bottom: 4rem;
+}
 
 /*! ############### LAPTOPS ###############*/
 @media (min-width: 950px) {
 
   .ExperienceDetail {
-    position: relative;
     width: 23%;
   }
 
-    .ExperienceDetail-detail {
-        height: 24rem;
-      }
+  .ExperienceDetailContainer {
+    height: 24rem;
+  }
 
-      .ExperienceDetail-detail-text {
-        bottom: 25%;  
-        font-size: 2.2rem;
-        text-align: start;
-      }
+  .ExperienceDetailText {
+    font-size: 2.2rem;
+  }
 
-      .ExperienceDetail-detail-text-province {
-        bottom: 5%;  
-    }
+  .ExperienceDetailTextProvince {
+    bottom: 5%;  
+  }
       
 }

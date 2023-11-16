@@ -52,15 +52,15 @@ const destinations = [
   export const CardMainDestination = () => {
     return (
       <a href={`/destinos?&salta`}>
-          <div className="container-destination">
-            <h2>Principales Destinos</h2>
-              <div className="container-destination-card">
+          <div className="bg-white py-12 px-6">
+            <h2 className="font-semibold tracking-normal destinationTitle" >Principales Destinos</h2>
+              <div className="mt-6 grid gap-6 containerCardDestination">
                   {destinations.map((destiny) => (
-                      <div key={destiny.id} className="card-destination">
-                          <div className="card-destination-detail">
-                              <img src={destiny.imageSrc} alt={destiny.imageAlt}/>
-                              <p className="card-destination-detail-text">{destiny.lugar} </p>
-                              <p className="card-destination-detail-text card-destination-detail-text-province">{destiny.provincia} </p>
+                      <div key={destiny.id} className="relative">
+                          <div className="w-full overflow-hidden cardDestination hover:opacity-75 ">
+                              <img className="w-full h-full object-cover object-center" src={destiny.imageSrc} alt={destiny.imageAlt}/>
+                              <p className="absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal cardDestinationPlace">{destiny.lugar} </p>
+                              <p className="absolute left-0	w-full p-2 text-white z-10 font-semibold tracking-normal cardDestinationPlace cardDestinationProvince">{destiny.provincia} </p>
                           </div>
                       </div>
                   ))}

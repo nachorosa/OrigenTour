@@ -3,26 +3,11 @@
 }
 
 .disabled\:opacity-50:disabled{
-    opacity: -1 !important;
-    z-index: -10 !important;
-  }
-  
-  
-  .disabled\:opacity-50{
-    opacity: -1 !important;
-    z-index: -10 !important;
-  }
-
-.carouselContainer {
-    padding: 2rem;
+  opacity: -1 !important;
+  z-index: -10 !important;
 }
-
-@media (min-width: 640px) {
-  }
   
-  @media (min-width: 1024px) {
-    .carouselContainer {
-        padding: 0.5rem 10rem;
-    }
-  }
-  
+.disabled\:opacity-50{
+  opacity: -1 !important;
+  z-index: -10 !important;
+}

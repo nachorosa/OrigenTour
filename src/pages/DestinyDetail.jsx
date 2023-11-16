@@ -1,7 +1,7 @@
-import { Accordion, Carousel } from "@material-tailwind/react"
+// import { Accordion, Carousel } from "@material-tailwind/react"
 import "../css/detailDestiny.css"
 import { useEffect, useState } from "react"
-import { AccordionTab } from "primereact/accordion"
+// import { AccordionTab } from "primereact/accordion"
 import DestinyIncludes from "../components/DestinyIncludes"
 import DestinyItinerary from "../components/DestinyItinerary"
 
@@ -127,7 +127,7 @@ export const DestinyDetail = () => {
     return (
 
         <div className="detailDestiny w-full">
-            <img className="detailDestiny1" src="/src/img/arrow_back.svg" alt="" />
+            <img className="detailDestiny1 cursor-pointer" src="/src/img/arrow_back.svg" alt="" />
             <div className="detailDestiny9 flex flex-col md:flex-row-reverse md:justify-around">
                 <div className="detailDestiny2 px-8">
                     <div className="destiny-title flex items-center justify-between py-8 md:flex-col md:items-start">
@@ -163,7 +163,7 @@ export const DestinyDetail = () => {
                 </div>
 
                 <div className="detailDestiny6">
-                    <Carousel className="rounded-xl" transition={{ duration: 2 }} autoplay={true} autoplayDelay={10000} loop={true}
+                    {/* <Carousel className="rounded-xl" transition={{ duration: 2 }} autoplay={true} autoplayDelay={10000} loop={true}
                         navigation={({ setActiveIndex, activeIndex, length }) => (
                             <div className="absolute bottom-5 left-2/4 z-50 flex -translate-x-2/4 gap-5">
                                 {new Array(length).fill("").map((_, i) => (
@@ -174,7 +174,7 @@ export const DestinyDetail = () => {
                         <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
                         <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
                         <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
-                    </Carousel>
+                    </Carousel> */}
                     {isMobile ? null : <div className="detailDestiny10 md:w-full md:mt-12">
                         <div className="detailDestiny7">
                             <p>Precio por persona</p>
@@ -206,8 +206,8 @@ export const DestinyDetail = () => {
                         </div>
                         <div className="itinerario_incluye w-full flex flex-col">
                             <div className="flex justify-around text-2xl">
-                                <h2 className={`${content ? "destiny-item-active" : null}`} onClick={toggleContent}>¿Qué incluye?</h2>
-                                <h2 className={`${content ? null : "destiny-item-active"}`} onClick={toggleContent}>Itinerario</h2>
+                                <h2 className={`${content ? "destiny-item-active cursor-pointer" : null}`} onClick={toggleContent}>¿Qué incluye?</h2>
+                                <h2 className={`${content ? null : "destiny-item-active cursor-pointer"}`} onClick={toggleContent}>Itinerario</h2>
                             </div>
                             <div className="text-center">
                                 {content ?

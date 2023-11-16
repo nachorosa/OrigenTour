@@ -1,104 +1,60 @@
 *{
-    font-size: 10px;
+  font-size: 10px;
 }
 
-.container-destination {
-    background-color: white;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+
+.destinationTitle {
+  line-height: 36px;
+  font-size: 2rem;
 }
 
-.container-destination h2 {
-    font-weight: 600;
-    line-height: 36px;
-    letter-spacing: 0em;
-    font-size: 2rem;
-    color: black;
-  }
-
-  .container-destination-card {
-    margin-top: 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 1.5rem 1.5rem;
-  }
-
-  .card-destination {
-    position: relative;
-  }
+.containerCardDestination {
+  grid-template-columns: repeat(2, 1fr); 
+}
   
-  .card-destination-detail {
-    height: 15rem;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 2.4rem;
-  }
+.cardDestination {
+  height: 15rem;
+  border-radius: 2.4rem;
+}
 
-  .card-destination-detail:hover {
-    opacity: 0.75; 
-  }
+.cardDestinationPlace {
+  bottom: 30%;  
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  text-shadow: 0.2rem 0.2rem 0.1rem black;
+}
 
-  .card-destination-detail img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover; 
-    object-position:center;
-  }
-
-  .card-destination-detail-text {
-    bottom: 30%;  
-    position: absolute;
-    left: 0;
-    width: 100%; 
-    padding: 0.5rem; 
-    color: #fff;  
-    z-index: 10;  
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 2.4rem;
-    letter-spacing: 0em;
-    text-shadow: 0.2rem 0.2rem 0.1rem black;
-  }
-
-  .card-destination-detail-text-province {
-    bottom: 5%;
-  }
-
-  
+.cardDestinationProvince {
+  bottom: 5%;
+}
 
 /*! ##### TABLETS & LARGER SMARTPHONES #####*/
 @media (min-width: 530px) {   
 
-    .card-destination-detail {
-        height: 24rem;
-      }
+  .cardDestination {
+    height: 24rem;
+  }
 
-      .card-destination-detail-text {
-        bottom: 20%;  
-        font-size: 2rem;
-      }
-
-      .card-destination-detail-text-province {
-        bottom: 5%;  
-    }
+  .cardDestinationPlace {
+    bottom: 20%;  
+    font-size: 2rem;
+  }
       
-    .container-destination-card {
-        grid-template-columns: repeat(3, 1fr);
-      }
+  .containerCardDestination {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
 }
 
 /*! ############### LAPTOPS ###############*/
 @media (min-width: 950px) {
     
-    .card-destination-detail {
-        height: 31rem;
-      }
+  .cardDestination {
+    height: 31rem;
+  }
 
-    .container-destination-card {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .containerCardDestination {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
 }

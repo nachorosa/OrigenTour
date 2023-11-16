@@ -56,12 +56,10 @@ export const Filter = () => {
       { label: "NuevoDestino", value: "NuevoDestino" },
       { label: "NuevoDestino2", value: "NuevoDestino2" },
     ]
-      
 
   const [selectedMonth, setSelectedMonth] = useState([])
   const [selectedProvince, setSelectedProvince] = useState([])
   const [selectedDestinys, setSelectedDestiny] = useState([])
-
 
   const removeMonth = (value) => {
     setSelectedMonth(selectedMonth.filter((item) => item.value !== value))
@@ -76,33 +74,31 @@ export const Filter = () => {
   }
 
   return (
-    <div className="filter">
-      <h2>Filtros</h2>
-      <div className="container-filter">
+    <div className="px-4 md:py-4 md:px-8">
+      <h2 className="titleFilter">Filtros</h2>
+      <div className="flex flex-col gap-4 md:justify-start md:flex-row">
         <MultiSelect options={months} value={selectedMonth} onChange={setSelectedMonth} valueRenderer={() => "Meses"}/>
         <MultiSelect options={provinces} value={selectedProvince} onChange={setSelectedProvince} valueRenderer={() =>"Provincias"}/>
- 
         <MultiSelect options={destinys} value={selectedDestinys} onChange={setSelectedDestiny} valueRenderer={() => "Destinos"}/>
-
       </div>
 
-      <div className="filter-selected">    
+      <div className="font-semibold flex flex-wrap gap-4 py-4">    
               {selectedMonth.map((item) => (
-                <div className="filter-selected-item" key={item.value}>
+                <div className="selectedItem" key={item.value}>
                   <span>{item.label}</span>
                   <button onClick={() => removeMonth(item.value)}>X</button>
                 </div>
               ))}
     
               {selectedProvince.map((item) => (
-                        <div className="filter-selected-item"  key={item.value} >
+                        <div className="selectedItem"  key={item.value} >
                           <span>{item.label}</span>
                           <button onClick={() => removeProvince(item.value)}>X</button>
                         </div>
               ))}
 
               {selectedDestinys.map((item) => (
-                            <div className="filter-selected-item"  key={item.value} >
+                            <div className="selectedItem"  key={item.value} >
                               <span>{item.label}</span>
                               <button onClick={() => removeDestiny(item.value)}>X</button>
                             </div>

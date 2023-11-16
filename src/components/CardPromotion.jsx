@@ -41,24 +41,24 @@ const listPromotionDestiny = [
  
     return (
             <div>
-                <h2 className="titlePromotion">Principales Destinos</h2>
-                <div className="promotionSection">
+                <h2 className="font-semibold tracking-normal px-8 titlePromotion">Principales Destinos</h2>
+                <div className="p-8 flex flex-nowrap justify-center items-center gap-8">
                     {listPromotionDestiny.map((destinyPromotion) => (
                         <>
                         <a href={`/destinos/detalle`}>
-                        <div className="container-promotion">
-                            <div className="container-promotion-image">
-                                <img src={destinyPromotion.imageSrc} alt={destinyPromotion.imageSrc} />
+                        <div className="rounded-2xl flex w-full bg-white containerPromotion">
+                            <div className="containerPromotionImg">
+                                <img className="w-full h-full object-cover rounded-l-2xl" src={destinyPromotion.imageSrc} alt={destinyPromotion.imageSrc} />
                             </div>
-                            <div className="text-promotion">
-                                <div className="title-promotion">
+                            <div className="promotionText p-4">
+                                <div className="flex justify-between items-center">
                                     <p>{destinyPromotion.provincia}</p>
-                                    <h2>{destinyPromotion.descuento}% OFF</h2>
+                                    <h2 className="flex text-white items-center justify-center w-24 h-10 promotionOff" >{destinyPromotion.descuento}% OFF</h2>
                                 </div>
-                                <h2 className="text-promotion-title">{destinyPromotion.lugar}</h2>
-                                <div className="text-promotion-info">
-                                    <h3>{destinyPromotion.precio}</h3>
-                                    <h4>{destinyPromotion.fecha}</h4>
+                                <h2 className="promotionTitle font-bold mt-4 my-2">{destinyPromotion.lugar}</h2>
+                                <div className="flex flex-col justify-between	 promotionInfo">
+                                    <h3 className="font-bold tracking-normal" >{destinyPromotion.precio}</h3>
+                                    <h4 className="font-thin tracking-normal">{destinyPromotion.fecha}</h4>
                                 </div>
                             </div>
                         </div>
