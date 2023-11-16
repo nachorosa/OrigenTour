@@ -1,18 +1,5 @@
-*{
-    font-size: 10px;
-}
-
-.detailDestiny {
-    width: 100%;
-}
-
-.detailDestiny1{
-    display: flex;
-    width: 100%;
-}
-
-.detailDestiny2 {
-    padding:  0 2rem;
+.collapsable-arrow, .itinerario-incluye-headers h2{
+    cursor: pointer;
 }
 
 .detailDestiny2 h2 {
@@ -37,17 +24,6 @@
     line-height: 2rem;
     letter-spacing: 0em;
     text-align: left;
-;
-}
-
-.detailDestiny3 {
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem 0 ;
-}
-
-.detailDestiny4 {
-    padding: 0 1rem;
 }
 
 .detailDestiny5 {
@@ -57,6 +33,11 @@
 
 .detailDestiny5 p {
     padding: 0 1rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0em;
+    text-align: left;
 }
 
 .detailDestiny6 {
@@ -65,7 +46,7 @@
 }
 
 .detailDescription {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 2.4rem;
     letter-spacing: 0em;
@@ -73,8 +54,9 @@
     padding: 4rem 2rem;
 }
 
-.detailDestiny7{
-    width: 100%;
+.detailDestiny7 {
+    width: 90%;
+    margin: 0 auto;
     padding: 2rem 0px;
     border-radius: 32px;
     background-color: #796151;
@@ -84,8 +66,23 @@
     align-items: center;
 }
 
+.detailDestiny7 p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+}
 
-.detailDestiny8{
+.detailDestiny7 h3 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+
+.detailDestiny8 {
     width: 100%;
     padding: 2rem 0px;
     border-radius: 32px;
@@ -94,41 +91,168 @@
     flex-direction: column;
     align-items: center;
 }
- 
 
-
-/*! ############### LAPTOPS ###############*/
-@media (min-width: 950px) {
-    
-.detailDestiny9 {
-    display: flex;
-    flex-direction: row-reverse;
+.detailDestiny8 p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
 }
 
-.detailDestiny6 {
-    height: 350px;
-    width: 35%;
-    padding: 5rem;
+.detailDestiny8 h3 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 10px;
 }
 
-.detailDestiny2 {
-    padding: 0 2rem;
-    width: 65%;
-    padding: 5rem;
-    color: black;
+.itinerario_incluye h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
 }
 
-.detailDestiny3 {
-    flex-direction: column;
+.destiny-item-active {
+    color: #FF821C;
+    border-bottom: 2px solid #FF821C;
+    transition: all .3s ease-in-out;
 }
 
-.detailDestiny3 h2 {
-    font-size: 4rem;
+.colapsable-header {
+    border-bottom: 2px solid #C1917D;
 }
 
-.detailDestiny10 {
-    width: 35%;
-    padding: 5rem;
+.colapsable-header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
 }
+
+.colapsable-content ul li {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    max-width: 80%;
+    margin: 10px auto;
+    list-style: disc;
+}
+
+
+@media (min-width: 768px) {
+
+    .destiny-title h1 {
+        font-size: 6.4rem;
+        font-weight: 600;
+        line-height: 7.6rem;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .destiny-title h3 {
+        font-size: 3.6rem;
+        font-weight: 600;
+        line-height: 4.4rem;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .itinerario-incluye-headers h2 {
+        font-size: 2.8rem;
+        font-weight: 500;
+        line-height: 3.6rem;
+        letter-spacing: 0em;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .detailDestiny5 p {
+        font-size: 2rem;
+        font-weight: 400;
+        line-height: 2.8rem;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .detailDescription {
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 2.8rem;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .colapsable-header h2 {
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 2.8rem;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .colapsable-content li,
+    p {
+        font-size: 1.8rem;
+        font-weight: 400;
+        line-height: 2.8rem;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .detailDestiny6 {
+        height: 350px;
+        width: 45%;
+        padding: 2rem;
+        max-width: 43rem;
+    }
+
+    .detailDestiny2 {
+        padding: 0 2rem;
+        width: 55%;
+        color: black;
+    }
+
+    .detailDestiny3 {
+        flex-direction: column;
+    }
+
+    .detailDestiny3 h2 {
+        font-size: 4rem;
+    }
+
+    .detailDestiny7 {
+        width: 100%;
+        margin: 0 auto;
+        padding: 2rem 0px;
+        border-radius: 32px;
+        background-color: #796151;
+        color: #FCFCFC;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detailDestiny7 p {
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .detailDestiny7 h3 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        letter-spacing: 0em;
+        text-align: left;
+    }
 
 }

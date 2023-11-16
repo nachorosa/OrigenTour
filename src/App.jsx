@@ -23,7 +23,7 @@ class App extends React.Component {
                             <Route path={"/destinos/:id"} element={<Destiny/>}/>
                             <Route path={"/experiencias"} element={<Experience/>}/>
                             <Route path={"/destinos/detalle"} element={<DestinyDetail/>}/>
-                            
+                            <Route path={"/contacto"} element={<Contact/>}/>
                         </Routes>
                     </BrowserRouter>
                 <Footer/>

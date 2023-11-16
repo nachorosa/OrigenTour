@@ -68,9 +68,6 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-
-
-
                 {isMobile ? null : <ContactForm isMobile={isMobile}/>}
             </div>
         </>
