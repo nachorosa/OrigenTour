@@ -8,14 +8,12 @@ const navigation = [
   { name: 'Destinos', href: '/destinos', },
   { name: 'Experiencias', href: '/experiencias', },
   { name: 'Nosotros', href: '/nosotros', },
-  { name: 'Contacto', href: '/contacto', },
+  { name: 'Contacto', href: '/contacto', }
 ]
 
 export default function Nav() {
   return (
-
-      
-    <Disclosure as="nav" className="bg-white sticky top-0	z-10">
+    <Disclosure as="nav" className="bg-white sticky top-0	z-50">
       {({ open }) => (
         <>
           <div className="px-4 md:p-4">
@@ -41,18 +39,13 @@ export default function Nav() {
                 <div className="hidden md:block">
                   <div className="flex gap-20 md:gap-12 lg:gap-20">
                   {navigation.map((item) => ( 
-                      // <a
-                      //   key={item.name}
-                      //   href={item.href}
-                      //   className={item.current ? "text-blue-300" : "text-red-400"}
-                      //   aria-current={item.current ? 'page' : undefined}
-                      // >
-                      //   {item.name}
-                      // </a>
-                    <NavLink key={item.name} to={item.href} className={({isActive}) => isActive ? "text-blue-300" : "text-red-400"}>{item.name} </NavLink>
+                    <NavLink key={item.name} to={item.href} className={({isActive}) => isActive ? item.name === "Contacto"
+                    ? "navContactActive"
+                    : "navActive"
+                  : item.name === "Contacto"
+                  ? "navContact"
+                  : "navInactive"}> {item.name} </NavLink>
                     ))}
-                    
-
                   </div>
                 </div>
               </div>
@@ -60,18 +53,15 @@ export default function Nav() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={item.current ? "" : ""}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
+            <div className="space-y-1 px-2 pb-3 pt-2 ">
+            {navigation.map((item) => ( 
+                    <NavLink key={item.name} to={item.href} className={({isActive}) => isActive ? item.name === "Contacto"
+                    ? "navContactActive"
+                    : "navActive"
+                  : item.name === "Contacto"
+                  ? "navContact"
+                  : "navInactive"}> {item.name} </NavLink>
+                    ))}
             </div>
           </Disclosure.Panel>
         </>

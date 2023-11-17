@@ -15,5 +15,9 @@ export const paths = {
 //   deskList: '/desk-list',
 //   index: '',
 home: '/',
-destinos: '/destinos'
+destinos: '/destinos',
+experiencias: '/experiencias',
+nosotros: '/nosotros',
+contacto: '/contacto',
+detalle: '/detalle'
 };

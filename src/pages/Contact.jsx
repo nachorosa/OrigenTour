@@ -40,27 +40,25 @@ const Contact = () => {
                                 <div className="socials-item flex justify-start items-center gap-4 flex-wrap mb-4 lg:justify-evenly">
                                     <div className='flex items-center gap-4'>
                                         <img src="./src/img/instagram-logo.svg" alt="" />
-                                        <span>origen.viajes</span>
+                                        <span className='text-2xl' >origen.viajes</span>
                                     </div>
                                     <div className='flex items-center gap-4'>
                                         <img src="./src/img/whatsapp.svg" alt="" />
-                                        <span>11 2880 - 8745</span>
+                                        <span className='text-2xl'>11 2880 - 8745</span>
                                     </div>
                                     <div className='flex items-center gap-4'>
                                         <img src="./src/img/gmail.svg" alt="" />
-                                        <span>origenviajes@gmail.com</span>
+                                        <span className='text-2xl'>origenviajes@gmail.com</span>
                                     </div>
                                 </div>
                                 <div id='socials-item-second-block' className='flex flex-wrap lg:flex-nowrap lg:justify-evenly lg:items-center'>
                                     <div id='socials-item-location' className="socials-item flex justify-start lg:w-3/4 lg:justify-center items-center gap-6 mb-4">
                                         <img src="./src/img/location.svg" alt="" />
-                                        <span>Bartolomé Mitre 3362, San Martín, Provincia de Buenos Aires
-                                            Piso 1 - Oficina 26</span>
+                                        <span className='text-2xl'>Bartolomé Mitre 3362, San Martín, Provincia de Buenos Aires Piso 1 - Oficina 26</span>
                                     </div>
                                     <div className="socials-item flex justify-start lg:w-1/4 lg:justify-center items-center gap-6 mb-4 w-1/2">
                                         <img src="./src/img/clock.svg" alt="" />
-                                        <span>Lunes a viernes
-                                            10:00 a 18:00hs</span>
+                                        <span className='text-2xl'>Lunes a viernes  10:00 a 18:00hs</span>
                                     </div>
                                 </div>
                             </div>

@@ -1,41 +1,75 @@
 import "../css/promotion.css"
 
 const listPromotionDestiny = [
+  {
+      id: 1,
+      provincia: 'Cordoba',
+      lugar: "Villa General Belgrano",
+      href: '#',
+      imageSrc: '/src/img/cordoba.svg',
+      imageAlt: "cordoba",
+      precio: "10.000",
+      fecha: "26 Ago - 30 Ago",
+      descuento: "30"
+    },
     {
-        id: 1,
-        provincia: 'Cordoba',
-        lugar: "Villa General Belgrano",
-        href: '#',
-        imageSrc: '/src/img/cordoba.svg',
-        imageAlt: "cordoba",
-        precio: "10.000",
-        fecha: "26 Ago - 30 Ago",
-        descuento: "30"
-      },
-      {
-        id: 1,
-        provincia: 'Cordoba',
-        lugar: "Villa General Belgrano",
-        href: '#',
-        imageSrc: '/src/img/cordoba.svg',
-        imageAlt: "cordoba",
-        precio: "10.000",
-        fecha: "26 Ago - 30 Ago",
-        descuento: "30"
-      },
-      {
-        id: 1,
-        provincia: 'Cordoba',
-        lugar: "Villa General Belgrano",
-        href: '#',
-        imageSrc: '/src/img/cordoba.svg',
-        imageAlt: "cordoba",
-        precio: "10.000",
-        fecha: "26 Ago - 30 Ago",
-        descuento: "30"
-      }
-    // More promotion...
-  ]
+      id: 2,
+      provincia: 'Buenos Aires',
+      lugar: "Villa Gessel",
+      href: '#',
+      imageSrc: '/src/img/cordoba.svg',
+      imageAlt: "cordoba",
+      precio: "200.000",
+      fecha: "10 Ago - 29 Ago",
+      descuento: "10"
+    },
+    {
+      id: 3,
+      provincia: 'Chubut',
+      lugar: "Rawson",
+      href: '#',
+      imageSrc: '/src/img/cordoba.svg',
+      imageAlt: "cordoba",
+      precio: "100.000",
+      fecha: "1 Ago - 10 Ago",
+      descuento: "15"
+    },
+    {
+      id: 4,
+      provincia: 'Salta',
+      lugar: "Capital De Salta",
+      href: '#',
+      imageSrc: '/src/img/cordoba.svg',
+      imageAlt: "cordoba",
+      precio: "50.000",
+      fecha: "12 Ago - 22 Ago",
+      descuento: "20"
+    },
+    {
+      id: 5,
+      provincia: 'Mendoza',
+      lugar: "Capital de Mendoza",
+      href: '#',
+      imageSrc: '/src/img/cordoba.svg',
+      imageAlt: "cordoba",
+      precio: "29.000",
+      fecha: "6 Ago - 12 Ago",
+      descuento: "60"
+    },
+    {
+      id: 6,
+      provincia: 'Entre Rios',
+      lugar: "Parana",
+      href: '#',
+      imageSrc: '/src/img/cordoba.svg',
+      imageAlt: "cordoba",
+      precio: "120.000",
+      fecha: "22 Ago - 29 Ago",
+      descuento: "10"
+    },
+
+  // More promotion...
+]
   
   export const CardPromotion = () => {
  

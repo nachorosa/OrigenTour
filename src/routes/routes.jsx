@@ -4,32 +4,24 @@
 
 const Home = lazy(() => import('../pages/Home'))
 const Destiny = lazy(() => import('../pages/Destiny'))
+const Experience = lazy(() => import('../pages/Experience'))
+const AboutUs = lazy(() => import('../pages/AboutUs'))
+const Contact = lazy(() => import('../pages/Contact'))
+const DestinyDetail = lazy(() => import('../pages/DestinyDetail'))
 
  const AppRoutes = () => {
     const location = useLocation()
     
     return (
         <Routes location={location} key={location.pathname}>
-            <Route path={paths.home} element={<Home />}/>
+            <Route path={paths.home} element={<Home/>}/>
             <Route path={paths.destinos} element={<Destiny/>}/>
+            <Route path={paths.experiencias} element={<Experience/>}/>
+            <Route path={paths.nosotros} element={<AboutUs/>}/>
+            <Route path={paths.contacto} element={<Contact/>}/>
+            <Route path={paths.detalle} element={<DestinyDetail/>}/>
         </Routes>
     )
  }
 
  export default AppRoutes
- 
- 
-//  <div>
-//                 <Nav/>
-//                         <Routes location={location} key={this.location.pathname}>
-//                             <Route path={"/"} element={<Home />} />
-//                             <Route path={"/nosotros"} element={<AboutUs />} />
-//                             <Route path={"/destinos"} element={<Destiny/>} />
-//                             <Route path={"/destinos/:id"} element={<Destiny/>}/>
-//                             <Route path={"/experiencias"} element={<Experience/>}/>
-//                             <Route path={"/destinos/detalle"} element={<DestinyDetail/>}/>
-//                             <Route path={"/contacto"} element={<Contact/>}/>
-//                         </Routes>
-//                 <Footer/>
-//             </div>
-//             const location = useLocation()    

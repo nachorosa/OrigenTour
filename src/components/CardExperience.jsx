@@ -54,7 +54,7 @@ const destinations = [
     {
         id: 6,
         lugar: 'Misisones',
-        fecha: "21 de Septiembre 2023",
+        fecha: "22 de Septiembre 2023",
         href: '#',
         imageSrc: '/src/img/cataratas.jpg',
         imageAlt: "cataratas",
@@ -96,13 +96,13 @@ export const CardExperience = () => {
                         <div className="ExperienceDetailContainer w-full overflow-hidden hover:opacity-75">
                             <img className="w-full h-full object-cover object-center" src={destiny.imageSrc} alt={destiny.imageAlt} />
                             <p className="bottom-3/4 absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal text-center ExperienceDetailText lg:bottom-1/4 lg:text-start">{destiny.lugar}</p>
-                            <p className="bottom-0 absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal text-center ExperienceDetailText ExperienceDetailTextProvince">{destiny.fecha}</p>
+                            <p className="bottom-0 absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal text-center ExperienceDetailText ExperienceDetailTextProvince lg:text-start">{destiny.fecha}</p>
                         </div>
                     </div>
                 ))}
             </div>
             {contenedorVisible && (
-            <Dropdown contenedorVisible={contenedorVisible} toggleContenedor={toggleContenedor} imgs={imgs} onCloseAnimation={onCloseAnimation} ></Dropdown>
+            <Dropdown contenedorVisible={contenedorVisible} toggleContenedor={toggleContenedor} imgs={imgs} onCloseAnimation={onCloseAnimation}></Dropdown>
             )}
         </div>
     )

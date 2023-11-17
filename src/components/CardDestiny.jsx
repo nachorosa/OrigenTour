@@ -5,98 +5,98 @@ const destinations = [
   {
     id: 1,
     destino: 'Salta',
-    tiempo: "4",
+    noches: "4",
     hotel: "Hotel Posada Del Sol Salta",
     precio: "40.000",
     href: '#',
     imageSrc: '/src/img/cataratas.jpg',
     imageAlt: "cataratas",
     mes: "enero",
-    dias: "3"
+    dias: "5"
   },
   {
     id: 1,
     destino: 'Salta',
-    tiempo: "4",
+    noches: "4",
     hotel: "Hotel Posada Del Sol Salta",
     precio: "40.000",
     href: '#',
     imageSrc: '/src/img/cataratas.jpg',
     imageAlt: "cataratas",
     mes: "enero",
-    dias: "3"
+    dias: "5"
   },
   {
     id: 1,
     destino: 'Salta',
-    tiempo: "4",
+    noches: "4",
     hotel: "Hotel Posada Del Sol Salta",
     precio: "40.000",
     href: '#',
     imageSrc: '/src/img/cataratas.jpg',
     imageAlt: "cataratas",
     mes: "enero",
-    dias: "3"
+    dias: "5"
   },
   {
     id: 1,
     destino: 'Salta',
-    tiempo: "4",
+    noches: "4",
     hotel: "Hotel Posada Del Sol Salta",
     precio: "40.000",
     href: '#',
     imageSrc: '/src/img/cataratas.jpg',
     imageAlt: "cataratas",
     mes: "enero",
-    dias: "3"
+    dias: "5"
   },
   {
     id: 1,
     destino: 'Salta',
-    tiempo: "4",
+    noches: "4",
     hotel: "Hotel Posada Del Sol Salta",
     precio: "40.000",
     href: '#',
     imageSrc: '/src/img/cataratas.jpg',
     imageAlt: "cataratas",
     mes: "enero",
-    dias: "3"
+    dias: "5"
   },
   {
     id: 1,
     destino: 'Salta',
-    tiempo: "4",
+    noches: "4",
     hotel: "Hotel Posada Del Sol Salta",
     precio: "40.000",
     href: '#',
     imageSrc: '/src/img/cataratas.jpg',
     imageAlt: "cataratas",
     mes: "enero",
-    dias: "3"
+    dias: "5"
   },
   {
     id: 1,
     destino: 'Salta',
-    tiempo: "4 noches",
+    noches: "4 noches",
     hotel: "Hotel Posada Del Sol Salta",
     precio: "40.000",
     href: '#',
     imageSrc: '/src/img/cataratas.jpg',
     imageAlt: "cataratas",
     mes: "enero",
-    dias: "3"
+    dias: "5"
   },
   {
     id: 1,
     destino: 'Salta',
-    tiempo: "4 noches",
+    noches: "4 noches",
     hotel: "Hotel Posada Del Sol Salta",
     precio: "40.000",
     href: '#',
     imageSrc: '/src/img/cataratas.jpg',
     imageAlt: "cataratas",
     mes: "enero",
-    dias: "3"
+    dias: "5"
   },
 
   // More destinations...
@@ -115,7 +115,7 @@ export const CardDestiny = () => {
       <div className="flex flex-wrap justify-center gap-8">
       {destinations.map((destiny) => (
                       <div key={destiny.id} className="relative containerCardDestiny">
-                        <p className="absolute top-1/2 text-center text-white cardDetailNight ">{destiny.dias} Dias - {destiny.tiempo} Noches</p>
+                        <p className="absolute top-1/2 text-center text-white cardDetailNight ">{destiny.dias} Dias - {destiny.noches} Noches</p>
                         <img className="rounded-t-lg w-full h-1/2 -z-1" src={destiny.imageSrc} alt={destiny.imageAlt}/>
                         <div className="h-52 font-semibold tracking-normal cardDestinyData">
                           <div className="flex flex-row justify-between cardDestinyText ">
@@ -127,11 +127,11 @@ export const CardDestiny = () => {
                           </div>
                           <div className="flex items-center	py-2">
                             <img className="iconHotel" src="/src/img/bed.svg" alt="" />
-                            <p className="cardDestinyHotelText py-2" >{destiny.hotel}</p>
+                            <p className="cardDestinyHotelText p-2" >{destiny.hotel}</p>
                           </div>
                           <div className="flex items-center justify-between px-2">
                             <h3 className="cardDestinyPrice">${destiny.precio}</h3>
-                            <a className="cardDestinyDetail" href={`destinos/detalle`}>Mas Informacion</a>   {/* href={`destinos/detalle/${destiny.id}`} */}
+                            <a className="cardDestinyDetail" href={`destinos/detalle/${destiny.id}`}>Mas Informacion</a>
                           </div>
                         </div>
                       </div>
