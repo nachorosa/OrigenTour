@@ -1,9 +1,11 @@
  import { Route, Routes, useLocation} from 'react-router-dom'
  import { lazy } from 'react';
  import { paths } from './paths';
+import FormViaje from '../components/FormViaje';
+import Destiny from '../pages/Destiny'
 
 const Home = lazy(() => import('../pages/Home'))
-const Destiny = lazy(() => import('../pages/Destiny'))
+// const Destiny = lazy(() => import('../pages/Destiny'))
 const Experience = lazy(() => import('../pages/Experience'))
 const AboutUs = lazy(() => import('../pages/AboutUs'))
 const Contact = lazy(() => import('../pages/Contact'))
@@ -19,7 +21,8 @@ const DestinyDetail = lazy(() => import('../pages/DestinyDetail'))
             <Route path={paths.experiencias} element={<Experience/>}/>
             <Route path={paths.nosotros} element={<AboutUs/>}/>
             <Route path={paths.contacto} element={<Contact/>}/>
-            <Route path={paths.detalle} element={<DestinyDetail/>}/>
+            <Route path={paths.destinoDetalle} element={<DestinyDetail/>}/>
+            <Route path={paths.form} element={<FormViaje/>}/>
         </Routes>
     )
  }

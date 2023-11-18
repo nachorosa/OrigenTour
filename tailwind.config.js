@@ -12,6 +12,9 @@ export default {
     "./node_modules/primereact/**/*.{js,ts,jsx,tsx}",
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}"
   ],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
   theme: {
     extend: {},
   },

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 // import { AccordionTab } from "primereact/accordion"
 import DestinyIncludes from "../components/DestinyIncludes"
 import DestinyItinerary from "../components/DestinyItinerary"
+import { Carousel } from "flowbite-react"
 
 // const destinationDetail = [
 //     {
@@ -163,7 +164,7 @@ export const DestinyDetail = () => {
                 </div>
 
                 <div className="detailDestiny6">
-                    {/* <Carousel className="rounded-xl" transition={{ duration: 2 }} autoplay={true} autoplayDelay={10000} loop={true}
+                    <Carousel className="rounded-xl" transition={{ duration: 2 }} autoplay={true} autoplayDelay={10000} loop={true}
                         navigation={({ setActiveIndex, activeIndex, length }) => (
                             <div className="absolute bottom-5 left-2/4 z-50 flex -translate-x-2/4 gap-5">
                                 {new Array(length).fill("").map((_, i) => (
@@ -174,7 +175,7 @@ export const DestinyDetail = () => {
                         <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
                         <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
                         <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
-                    </Carousel> */}
+                    </Carousel>
                     {isMobile ? null : <div className="detailDestiny10 md:w-full md:mt-12">
                         <div className="detailDestiny7">
                             <p>Precio por persona</p>
@@ -222,3 +223,5 @@ export const DestinyDetail = () => {
         </div>
     )
 }
+
+export default DestinyDetail

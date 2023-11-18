@@ -19,5 +19,7 @@ destinos: '/destinos',
 experiencias: '/experiencias',
 nosotros: '/nosotros',
 contacto: '/contacto',
-detalle: '/detalle'
+detalle: '/detalle',
+destinoDetalle: '/destinos/detalle',
+form: '/form'
 };
