@@ -1,10 +1,8 @@
-// import { Accordion, Carousel } from "@material-tailwind/react"
+import { Carousel } from "@material-tailwind/react"
 import "../css/detailDestiny.css"
 import { useEffect, useState } from "react"
-// import { AccordionTab } from "primereact/accordion"
 import DestinyIncludes from "../components/DestinyIncludes"
 import DestinyItinerary from "../components/DestinyItinerary"
-import { Carousel } from "flowbite-react"
 
 // const destinationDetail = [
 //     {

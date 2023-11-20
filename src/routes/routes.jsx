@@ -3,6 +3,7 @@
  import { paths } from './paths';
 import FormViaje from '../components/FormViaje';
 import Destiny from '../pages/Destiny'
+import Admin from '../pages/Admin';
 
 const Home = lazy(() => import('../pages/Home'))
 // const Destiny = lazy(() => import('../pages/Destiny'))
@@ -23,6 +24,7 @@ const DestinyDetail = lazy(() => import('../pages/DestinyDetail'))
             <Route path={paths.contacto} element={<Contact/>}/>
             <Route path={paths.destinoDetalle} element={<DestinyDetail/>}/>
             <Route path={paths.form} element={<FormViaje/>}/>
+            <Route path={paths.admin} element={<Admin/>}/>
         </Routes>
     )
  }

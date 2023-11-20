@@ -21,5 +21,6 @@ nosotros: '/nosotros',
 contacto: '/contacto',
 detalle: '/detalle',
 destinoDetalle: '/destinos/detalle',
-form: '/form'
+form: '/form',
+admin: '/admin'
 };
