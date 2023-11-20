@@ -1,6 +1,6 @@
-import { useState } from "react";
-import "../css/experience.css"
+import { useState } from "react"
 import Dropdown from './Dropdown'
+import "../css/experience.css"
 
 const destinations = [
     {

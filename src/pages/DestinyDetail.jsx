@@ -1,8 +1,9 @@
-import { Carousel } from "@material-tailwind/react"
+// import { Accordion, Carousel } from "@material-tailwind/react"
 import "../css/detailDestiny.css"
 import { useEffect, useState } from "react"
 import DestinyIncludes from "../components/DestinyIncludes"
 import DestinyItinerary from "../components/DestinyItinerary"
+import { Carousel } from "flowbite-react"
 
 // const destinationDetail = [
 //     {
@@ -125,22 +126,22 @@ export const DestinyDetail = () => {
 
     return (
 
-        <div className="detailDestiny w-full">
-            <img className="detailDestiny1 cursor-pointer" src="/src/img/arrow_back.svg" alt="" />
-            <div className="detailDestiny9 flex flex-col md:flex-row-reverse md:justify-around">
-                <div className="detailDestiny2 px-8">
+        <div className="w-full">
+            <img className="paddingImg cursor-pointer" src="/src/img/arrow_back.svg" alt="" />
+            <div className="flex flex-col md:flex-row-reverse md:justify-around">
+                <div className="md-w-55 px-8">
                     <div className="destiny-title flex items-center justify-between py-8 md:flex-col md:items-start">
                         <h2 className="titlePage">Salta</h2>
-                        <h3>3 Noches</h3>
+                        <h3 className="textNight">3 Noches</h3>
                     </div>
-                    <div className="detailDestiny4">
-                        <h3>Salidas:</h3>
-                        <h4>Enero: 1 - 2 - 4 - 5 </h4>
-                        <h4>Febrero: 7 - 12 - 22 - 29 </h4>
+                    <div>
+                        <h3 className="textNight">Salidas:</h3>
+                        <h4 className="textMonth">Enero: 1 - 2 - 4 - 5 </h4>
+                        <h4 className="textMonth">Febrero: 7 - 12 - 22 - 29 </h4>
                     </div>
-                    <div className="detailDestiny5">
+                    <div className="flex py-8">
                         <img src="/src/img/bed.svg" alt="" />
-                        <p>Hotel Posada Del Sol Salta, Alvarado 646, A4400 Salta</p>
+                        <p className="textHotel" >Hotel Posada Del Sol Salta, Alvarado 646, A4400 Salta</p>
                     </div>
                     {isMobile ? null :
                         <p className="detailDescription md:p-0">Descubre la belleza sin igual de Salta, conocida como 'La Linda'. Esta encantadora ciudad en el noroeste de Argentina te espera con sus paisajes impresionantes, su rica cultura y su deliciosa gastronomía.</p>
@@ -161,7 +162,7 @@ export const DestinyDetail = () => {
                     }
                 </div>
 
-                <div className="detailDestiny6">
+                <div className="containerCarrousel">
                     <Carousel className="rounded-xl" transition={{ duration: 2 }} autoplay={true} autoplayDelay={10000} loop={true}
                         navigation={({ setActiveIndex, activeIndex, length }) => (
                             <div className="absolute bottom-5 left-2/4 z-50 flex -translate-x-2/4 gap-5">
@@ -174,14 +175,14 @@ export const DestinyDetail = () => {
                         <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
                         <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
                     </Carousel>
-                    {isMobile ? null : <div className="detailDestiny10 md:w-full md:mt-12">
-                        <div className="detailDestiny7">
-                            <p>Precio por persona</p>
-                            <h3>$40.000</h3>
+                    {isMobile ? null : <div className="md:w-full md:mt-12">
+                        <div className="containerDetailPrice">
+                            <p className="textPriceTitle">Precio por persona</p>
+                            <h3 className="textPrice">$40.000</h3>
                         </div>
-                        <div className="detailDestiny8">
-                            <p>Consultas y reservas</p>
-                            <h3>11 2880 - 8745</h3>
+                        <div className="containerBooking">
+                            <p className="bookingTitle">Consultas y reservas</p>
+                            <h3 className="bookingNumber">11 2880 - 8745</h3>
                         </div>
                     </div>}
                 </div>
@@ -193,8 +194,8 @@ export const DestinyDetail = () => {
             <div>
                 {isMobile ?
                     <div>
-                        <div className="detailDestiny10">
-                            <div className="detailDestiny7">
+                        <div>
+                            <div className="containerDetailPrice">
                                 <p>Precio por persona</p>
                                 <h3>$40.000</h3>
                             </div>

@@ -2,11 +2,11 @@
     font-size: 10px;
 }
 
-.titleFilter {
+.text-1-6rem {
     font-size: 1.6rem;
 }
 
-span {
+.text-1-4rem {
     font-size: 1.4rem;
 }
 
@@ -14,18 +14,17 @@ span {
     padding: 5px 10px 5px 16px;
     border-radius: 6.5rem;
     border: 1px solid #C1917D;
-    font-weight: 600;
     line-height: 1.6rem;
 }
 
-/* button {
-    color: black !important;
-    border-radius: 0 !important;
-    border: none !important;
-    font-size: 1.4rem !important;
-    background-color: white !important;
-    padding: 0.6rem !important;
-} */
+.removeBtn {
+    color: black ;
+    border-radius: 0 ;
+    border: none ;
+    font-size: 1.4rem ;
+    background-color: white ;
+    padding: 0.6rem ;
+}
 
 .multi-select {
     width: 80% !important;
