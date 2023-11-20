@@ -1,6 +1,5 @@
-import { useParams } from "react-router-dom"
-import "../css/cardDestiny.css"
 import { useEffect, useState } from "react"
+import "../css/cardDestiny.css"
 
 const destinations = [
   {
@@ -118,7 +117,6 @@ export const CardDestiny = () => {
       .then(data => setViajes(data))
   }, [])
 
-
   return (
     <>
     <div className="px-8 pb-8">
@@ -126,7 +124,7 @@ export const CardDestiny = () => {
         {destinations.map((destiny) => (
           <div key={destiny.id} className="relative containerCardDestiny">
             <p className="absolute top-1/2 text-center text-white cardDetailNight ">{destiny.dias} Dias - {destiny.noches} Noches</p>
-            <img className="rounded-t-lg w-full h-1/2 -z-1" src={destiny.imageSrc} alt={destiny.imageAlt} />
+            <img className="rounded-t-lg w-full h-1/2 -z-1" src={destiny.imageSrc} alt={destiny.imageAlt}/>
             <div className="h-52 font-semibold tracking-normal cardDestinyData">
               <div className="flex flex-row justify-between cardDestinyText ">
                 <h2 className="py-2">{destiny.destino}</h2>

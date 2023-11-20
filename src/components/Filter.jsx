@@ -46,20 +46,20 @@ export const Filter = () => {
       { label: "Tucumán", value: "tucuman" }
     ]
   
-    const destinys = [
-      { label: "NuevoDestino", value: "NuevoDestino" },
-      { label: "NuevoDestino2", value: "NuevoDestino2" },
-      { label: "NuevoDestino", value: "NuevoDestino" },
-      { label: "NuevoDestino2", value: "NuevoDestino2" },
-      { label: "NuevoDestino", value: "NuevoDestino" },
-      { label: "NuevoDestino2", value: "NuevoDestino2" },
-      { label: "NuevoDestino", value: "NuevoDestino" },
-      { label: "NuevoDestino2", value: "NuevoDestino2" },
-    ]
+    // const destinys = [
+    //   { label: "NuevoDestino", value: "NuevoDestino" },
+    //   { label: "NuevoDestino2", value: "NuevoDestino2" },
+    //   { label: "NuevoDestino", value: "NuevoDestino" },
+    //   { label: "NuevoDestino2", value: "NuevoDestino2" },
+    //   { label: "NuevoDestino", value: "NuevoDestino" },
+    //   { label: "NuevoDestino2", value: "NuevoDestino2" },
+    //   { label: "NuevoDestino", value: "NuevoDestino" },
+    //   { label: "NuevoDestino2", value: "NuevoDestino2" },
+    // ]
 
   const [selectedMonth, setSelectedMonth] = useState([])
   const [selectedProvince, setSelectedProvince] = useState([])
-  const [selectedDestinys, setSelectedDestiny] = useState([])
+  // const [selectedDestinys, setSelectedDestiny] = useState([])
 
   const removeMonth = (value) => {
     setSelectedMonth(selectedMonth.filter((item) => item.value !== value))
@@ -69,40 +69,40 @@ export const Filter = () => {
     setSelectedProvince(selectedProvince.filter((item) => item.value !== value))
   }
 
-  const removeDestiny = (value) => {
-    setSelectedDestiny(selectedDestinys.filter((item) => item.value !== value))
-  }
+  // const removeDestiny = (value) => {
+  //   setSelectedDestiny(selectedDestinys.filter((item) => item.value !== value))
+  // }
 
   return (
     <div className="px-4 md:py-4 md:px-8">
-      <h2 className="titleFilter">Filtros</h2>
-      <div className="flex flex-col gap-4 md:justify-start md:flex-row">
+      <h2 className="text-1-6rem">Filtros</h2>
+      <div className="flex gap-4 justify-center	md:justify-start">
         <MultiSelect options={months} value={selectedMonth} onChange={setSelectedMonth} valueRenderer={() => "Meses"}/>
         <MultiSelect options={provinces} value={selectedProvince} onChange={setSelectedProvince} valueRenderer={() =>"Provincias"}/>
-        <MultiSelect options={destinys} value={selectedDestinys} onChange={setSelectedDestiny} valueRenderer={() => "Destinos"}/>
+        {/* <MultiSelect options={destinys} value={selectedDestinys} onChange={setSelectedDestiny} valueRenderer={() => "Destinos"}/> */}
       </div>
 
       <div className="font-semibold flex flex-wrap gap-4 py-4">    
               {selectedMonth.map((item) => (
-                <div className="selectedItem" key={item.value}>
-                  <span>{item.label}</span>
-                  <button onClick={() => removeMonth(item.value)}>X</button>
+                <div className="selectedItem font-semibold" key={item.value}>
+                  <span className="text-1-4rem">{item.label}</span>
+                  <button className="removeBtn" onClick={() => removeMonth(item.value)}>X</button>
                 </div>
               ))}
     
               {selectedProvince.map((item) => (
                         <div className="selectedItem"  key={item.value} >
                           <span>{item.label}</span>
-                          <button onClick={() => removeProvince(item.value)}>X</button>
+                          <button className="removeBtn" onClick={() => removeProvince(item.value)}>X</button>
                         </div>
               ))}
-
+{/* 
               {selectedDestinys.map((item) => (
                             <div className="selectedItem"  key={item.value} >
                               <span>{item.label}</span>
                               <button onClick={() => removeDestiny(item.value)}>X</button>
                             </div>
-              ))}
+              ))} */}
       </div>
 
     </div>

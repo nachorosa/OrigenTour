@@ -6,19 +6,19 @@
     cursor: pointer;
 }
 
-.detailDestiny1 {
+.paddingImg {
     padding: 4rem 0rem 2rem 6rem;
 }
 
-.detailDestiny2 h3 {
-    font-size: 20px;
+.textNight {
+    font-size: 2rem;
     font-weight: 600;
-    line-height: 28px;
+    line-height: 2.8rem;
     letter-spacing: 0em;
     text-align: left;
 }
 
-.detailDestiny2 h4 {
+.textMonth {
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 2rem;
@@ -26,12 +26,7 @@
     text-align: left;
 }
 
-.detailDestiny5 {
-    padding: 2rem 0;
-    display: flex;
-}
-
-.detailDestiny5 p {
+.textHotel {
     padding: 0 1rem;
     font-size: 1.6rem;
     font-weight: 400;
@@ -40,8 +35,8 @@
     text-align: left;
 }
 
-.detailDestiny6 {
-    height: 350px;
+.containerCarrousel {
+    height: 35rem;
     width: 100%;
 }
 
@@ -54,7 +49,7 @@
     padding: 4rem 2rem;
 }
 
-.detailDestiny7 {
+.containerDetailPrice {
     width: 90%;
     margin: 0 auto;
     padding: 2rem 0px;
@@ -65,7 +60,7 @@
     align-items: center;
 }
 
-.detailDestiny7 p {
+.textPriceTitle {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 20px;
@@ -74,7 +69,7 @@
     color: #FCFCFC;
 }
 
-.detailDestiny7 h3 {
+.textPrice {
     font-size: 2.8rem;
     font-weight: 600;
     letter-spacing: 0em;
@@ -82,8 +77,7 @@
     color: #FCFCFC ;
 }
 
-
-.detailDestiny8 {
+.containerBooking {
     width: 100%;
     padding: 2rem 0px;
     border-radius: 32px;
@@ -93,7 +87,7 @@
     align-items: center;
 }
 
-.detailDestiny8 p {
+.bookingTitle {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 20px;
@@ -101,7 +95,7 @@
     text-align: left;
 }
 
-.detailDestiny8 h3 {
+.bookingNumber {
     font-size: 2.8rem;
     font-weight: 600;
     line-height: 36px;
@@ -168,17 +162,12 @@
         cursor: pointer;
     }
 
-    .detailDestiny5 p {
+    .textHotel {
         font-size: 2rem;
         font-weight: 400;
         line-height: 2.8rem;
         letter-spacing: 0em;
         text-align: left;
-    }
-
-    .detailDestiny5 img {
-        width: 3rem;
-        height: 3rem;
     }
 
     .detailDescription {
@@ -206,27 +195,18 @@
         text-align: left;
     }
 
-    .detailDestiny6 {
+    .containerCarrousel {
         height: 350px;
         width: 45%;
         padding: 2rem;
         max-width: 43rem;
     }
 
-    .detailDestiny2 {
-        padding: 0 2rem;
+    .md-w-55 {
         width: 55%;
     }
 
-    .detailDestiny3 {
-        flex-direction: column;
-    }
-
-    .detailDestiny3 h2 {
-        font-size: 4rem;
-    }
-
-    .detailDestiny7 {
+    .containerDetailPrice {
         width: 100%;
         margin: 0 auto;
         padding: 2rem 0px;
@@ -238,7 +218,7 @@
         align-items: center;
     }
 
-    .detailDestiny7 p {
+    .textPriceTitle {
         font-size: 1.6rem;
         font-weight: 500;
         line-height: 20px;
@@ -246,7 +226,7 @@
         text-align: left;
     }
 
-    .detailDestiny7 h3 {
+    .textPrice {
         font-size: 2.8rem;
         font-weight: 600;
         letter-spacing: 0em;

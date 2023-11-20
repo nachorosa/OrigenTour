@@ -4,7 +4,7 @@
 
 .contact-form-container {
     box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.35);
-    border-radius: 20px;
+    border-radius: 2rem;
 }
 
 .contact-form-input input,
@@ -13,17 +13,17 @@ textarea {
     border: 1px solid #D1D5DB;
     background-color: #F3F4F6;
     outline: none;
-    padding: 5px;
+    padding: 0.5rem;
 }
 
 .submit-button button {
-    color: #fff !important;
-    font-size: 14px !important;
-    line-height: 20px !important;
-    font-weight: 500 !important;
-    background-color: #FF821C !important;
-    padding: 10px 24px !important;
-    border-radius: 16px !important;
+    color: #fff;
+    font-size: 1.4rem ;
+    line-height: 2rem ;
+    font-weight: 500 ;
+    background-color: #FF821C ;
+    padding: 1rem 2.4rem ;
+    border-radius: 1.6rem ;
 }
 
 .socials-container {
@@ -31,9 +31,9 @@ textarea {
 }
 
 .socials-item {
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 2.4rem;
     letter-spacing: 0em;
     text-align: left;
 }
@@ -42,7 +42,7 @@ textarea {
     color: #C1917D;
     font-weight: 500;
     font-size: 2rem;
-    line-height: 24px;
+    line-height: 2.4rem;
 }
 
 .socials-item img {
@@ -50,9 +50,9 @@ textarea {
 }
 
 .contact-title p {
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 2.4rem;
     letter-spacing: 0em;
     text-align: left;
 }
@@ -60,9 +60,9 @@ textarea {
 @media (min-width: 1024px) {
 
     .socials-item {
-        font-size: 18px;
+        font-size: 1.8rem;
         font-weight: 400;
-        line-height: 28px;
+        line-height: 2.8rem;
         letter-spacing: 0em;
         text-align: left;
     }
@@ -86,9 +86,9 @@ textarea {
     }
 
     .submit-button button {
-        font-size: 20px !important;
-        line-height: 28px !important;
-        font-weight: 600 !important;
-        padding: 18px 27px !important;
+        font-size: 2rem;
+        line-height: 2.8rem;
+        font-weight: 600;
+        padding: 1.8rem 2.7rem;
     }
 }

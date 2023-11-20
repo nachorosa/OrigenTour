@@ -2,72 +2,40 @@
     font-size: 10px;
 }
 
-.contenedorAbout {
-    display: block;
-    width: 100%;
+.text1-8rem {
+    font-size: 1.8rem;
 }
 
-.sectionAbout {
-    width: 100%;
+.height-2rem {
+    line-height: 2rem;
+} 
+
+.leading-2-4rem {
+    line-height: 2.4rem;
 }
 
-.sectionAbout img {
-    width: 100%;
-    max-height: 390px;
+.lineHeight2-8rem {
+    line-height: 2.8rem;
 }
 
-.textAbout {
-    padding: 2rem;
+.fontsize2rem {
+    font-size: 2rem;
 }
 
-.textAbout h2 {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-    padding-bottom: 1rem;
+.fontsize1-6rem {
+    font-size: 1.6rem;
 }
 
-.textAbout span {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 28px;
-    letter-spacing: 0em;
-    text-align: left;
-}
-
-.textAbout p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-}
-
-.textAbout h2 span {
-    display: block;
-}
-
-.containerInfoAbout{
-    width: 100%;
-    display: flex;
-    flex-direction: column-reverse
-}
-
-.containerMisionVision {
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
+.fontsize1-4rem{
+    font-size: 1.4rem;
 }
 
 .p-accordion-tab {
     padding-bottom: 2rem;
 }
 
-.containerMisionVisionAccordion{
+.bg-btn{
     background-color: #C1917D;
-    border-radius: 1rem;
 }
 
  .p-accordion-header-link {
@@ -92,102 +60,30 @@
     color: white;
 }
 
-.textContainerMisionVision {
-    background-color: white;
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: 0em;
-    text-align: left;
-    padding: 2rem;
+.max-w-50rem {
+    max-width: 50rem;
 }
 
-.mapContainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 500px;
-}
-
-.titleAbout {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
-    padding: 2rem;
-}
-  
-.titleAbout h2 {
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 28px;
-    letter-spacing: 0em;
-    text-align: left;
-}
-
-.titleAbout h3 {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0em;
-    text-align: left;
-    padding: 1rem 0;
-}
-
-.itemAbout {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1rem 0;
-}
-
-.itemAbout img{
-    width: 30px;
-}
-
-.itemAbout span{
-    font-size: 1.4rem;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
+.w-55 {
+    width: 55%;
 }
 
 /*! ##### TABLETS & LARGER SMARTPHONES #####*/
-@media (min-width: 530px) {  
-    .sectionAbout {
-        display: flex;
-        flex-direction: row-reverse;
-        min-height: 650px;
-    }
-
-    .containerInfoAbout {
-        flex-direction: row;
-        padding-bottom: 2rem;
-    }
-
-    .sectionAbout img {
+@media (min-width: 530px) {
+    
+    .md-w-45 {
         width: 45%;
-        max-height: 390px;
-        padding: 2rem;
     }
-
-    .containerCollapse {
+        
+    .md-w-55 {
         width: 55%;
     }
-
-    .titleAbout {
-        width: 55%;
+    
+    .maxHeight39rem {
+        max-height: 39rem;
     }
-
-    .containerMapAbout{
-        width: 45%;
-        display: flex;
-        justify-content: center;
+    
+    .md-minHeight65rem {
+        min-height: 65rem;
     }
-
-    .mapContainer{
-        border-radius: 1rem;
-    }
-
 }
