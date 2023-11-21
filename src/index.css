@@ -59,14 +59,14 @@ textarea{
 
 #fixedButton {
   position: fixed;
-  bottom: 10%;
+  bottom: 30%;
   right: 5%;
   padding: 10px !important;
   background-color: #25D366 !important;
   color: white !important;
   border-radius: 10px !important;
   font-weight: bold !important;
-  z-index: 1000;
+  z-index: 1000 !important;
 }
 
 @media (prefers-color-scheme: light) {

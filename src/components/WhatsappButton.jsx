@@ -1,9 +1,7 @@
-import React from 'react'
-
-const WhatsappButton = () => {
-  return (
-    <button id='fixedButton'>WhatsApp</button>
+  export const WhatsappButton = () => {
+    return (
+      <div>
+          <button id='fixedButton'>WhatsApp</button>
+      </div>
   )
 }
-
-export default WhatsappButton
