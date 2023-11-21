@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "../css/promotion.css"
 
 const listPromotionDestiny = [
@@ -72,16 +73,58 @@ const listPromotionDestiny = [
 ]
   
   export const CardPromotion = () => {
- 
-    return (
-            <div>
-                <h2 className="font-semibold tracking-normal px-8 titlePromotion">Principales Destinos</h2>
-                <div className="p-8 flex flex-nowrap justify-center items-center gap-8">
-                    {listPromotionDestiny.map((destinyPromotion) => (
-                        <>
-                        <a href={`/destinos/detalle`}>
-                        <div className="rounded-2xl flex w-full bg-white containerPromotion">
-                            <div className="containerPromotionImg">
+
+    const [promotionsPerPage, setPromotionsPerPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    
+    useEffect(() => {
+      const handleResize = () => {
+          if (window.innerWidth <= 1023) {
+            setPromotionsPerPage(1);
+          } else {
+            setPromotionsPerPage(3)
+            setCurrentPage(1);
+          }
+      }
+      
+      window.addEventListener('resize', handleResize);
+
+      handleResize(); 
+      
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+    
+
+  const indexOfLastPromotion = currentPage * promotionsPerPage;
+  const indexOfFirstPromotion = indexOfLastPromotion - promotionsPerPage;
+  const currentPromotions = listPromotionDestiny.slice(indexOfFirstPromotion, indexOfLastPromotion);
+
+  const totalPages = Math.ceil(listPromotionDestiny.length / promotionsPerPage);
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => (prevPage === totalPages ? 1 : prevPage + 1));
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prevPage) => (prevPage === 1 ? totalPages : prevPage - 1));
+  };
+  
+  return (
+    <div>
+      <h2 className="font-semibold tracking-normal px-8 titlePromotion">Principales Destinos</h2>
+      <div className="flex justify-center">
+        {totalPages > 1 && (
+        <div className="flex ">
+          <button className="p-6 bg-white" onClick={handlePrevPage}><img src="/src/img/arrow_back_ios_new.svg" alt="flecha atras"/></button>
+        </div>
+      )}
+      <div className="flex w-full justify-center gap-8 ">
+        {currentPromotions.map((destinyPromotion) => (
+          <a className="w-full" key={destinyPromotion.id} href={`/destinos/detalle`}>
+            <div className="rounded-2xl flex bg-white containerPromotion">
+            <div className="containerPromotionImg">
                                 <img className="w-full h-full object-cover rounded-l-2xl" src={destinyPromotion.imageSrc} alt={destinyPromotion.imageSrc} />
                             </div>
                             <div className="promotionText p-4">
@@ -95,10 +138,18 @@ const listPromotionDestiny = [
                                     <h4 className="font-thin tracking-normal">{destinyPromotion.fecha}</h4>
                                 </div>
                             </div>
-                        </div>
-                        </a></>
-                    ))}
-                </div>
             </div>
-  )
+          </a>
+        ))}
+      </div>
+      {totalPages > 1 && (
+        <div className="flex">
+          <button className="p-6 bg-white" onClick={handleNextPage}><img src="/src/img/arrow_forward_ios.svg" alt="flecha adelante"/></button>
+        </div>
+      )}
+      </div>
+    </div>
+  );
 }
+
+
