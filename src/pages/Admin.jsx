@@ -1,88 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import FormViaje from '../components/FormViaje'
 import '../css/admin.css'
 import FormEdit from '../components/FormEdit'
-
-const data = [
-    {
-        destino: "Villa Carlos Paz",
-        precio: 40000,
-        provincia: "Cordoba",
-        hotel: "Las Palmas"
-    },
-    {
-        destino: "San Carlos de Bariloche",
-        precio: 40000,
-        provincia: "Rio Negro",
-        hotel: "Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-    {
-        destino: "Villa Carlos Paz, San Carlos de Barilochesadasdadadasdasda",
-        precio: 40000,
-        provincia: "Cordoba, Santa Cruz",
-        hotel: "Las Palmas, Huemul"
-    },
-]
 
 const Admin = () => {
 
@@ -119,8 +38,8 @@ const Admin = () => {
                 "content-type": "application/json"
             }
         }).then(res => res.json())
-        .then(data => setViaje(data))
-        .then(() => togglePopup())
+            .then(data => setViaje(data))
+            .then(() => togglePopup())
     }
 
     const handleDelete = id => {
@@ -173,17 +92,27 @@ const Admin = () => {
                                     <tr class="hover:bg-gray-50">
                                         <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                                             <div class="text-sm">
-                                                <div class="2xl:text-5xl md:text-2xl font-medium text-gray-700">{d?.destino || "test"}</div>
+                                                <div class="2xl:text-5xl md:text-2xl font-medium text-gray-700">
+                                                    {d.destinos.map((destino, index) => (
+                                                        <h2 key={index}>
+                                                            {`${destino.destino}${index < d.destinos.length - 1 ? ' - ' : ''}`}
+                                                        </h2>))}
+                                                </div>
                                             </div>
                                         </th>
                                         <td class="px-6 py-4">
                                             <span
                                                 class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 2xl:text-5xl md:text-2xl font-semibold text-green-600"
                                             >
-                                                {d.precio}
+                                                {d.precio.toLocaleString('es-AR', {
+                                                    style: 'currency',
+                                                    currency: 'ARS',
+                                                    minimumFractionDigits: 0,
+                                                    maximumFractionDigits: 0,
+                                                })}
                                             </span>
                                         </td>
-                                        <td class="px-6 py-4 2xl:text-5xl md:text-2xl">{d.destinos.map(ds => (ds.provincia + " "))}</td>
+                                        <td class="px-6 py-4 2xl:text-5xl md:text-2xl">{d.destinos.map(ds => (ds.provincia + " - "))}</td>
                                         <td class="px-6 py-4">
                                             <div class="flex gap-2 flex-col">
                                                 {d.destinos.map(ds => (<span
@@ -214,11 +143,11 @@ const Admin = () => {
             {popup && (
                 <div onClick={closePopup} className='overlay'>
                     <div className=''>
-                        {edit ? <FormEdit popup={popup} onClose={onClose} viaje={viaje}/> : <FormViaje popup={popup} onClose={onClose} />}
+                        {edit ? <FormEdit popup={popup} onClose={onClose} viaje={viaje} /> : <FormViaje popup={popup} onClose={onClose} />}
                     </div>
                 </div>
             )
-        }
+            }
         </div>
     )
 }
