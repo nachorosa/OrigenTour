@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import DestinyIncludes from "../components/DestinyIncludes"
 import DestinyItinerary from "../components/DestinyItinerary"
 import { Carousel } from "flowbite-react"
+import { useParams } from "react-router-dom"
 
 // const destinationDetail = [
 //     {
@@ -73,8 +74,23 @@ export const DestinyDetail = () => {
     const [collapsableList, setCollapsableList] = useState({})
     const [collapsableItinerarioList, setCollapsableItinerarioList] = useState({})
     const [isMobile, setIsMobile] = useState(false)
+    const [viaje, setViaje] = useState({})
+    const {id} = useParams()
+    const [loading, isLoading] = useState(true)
+
+    const getViaje = () => {
+        fetch("http://localhost:8080/api/viajes/" + id, {
+            method: "GET",
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(res => res.json())
+        .then(data => setViaje(data))
+        .then(() => isLoading(false))
+    }
 
     useEffect(() => {
+        getViaje()
         const handleResize = () => {
             if (window.innerWidth < 768) {
                 setIsMobile(true);
@@ -125,14 +141,14 @@ export const DestinyDetail = () => {
     }
 
     return (
-
+        loading ? <div>cargando</div> :
         <div className="w-full">
             <img className="paddingImg cursor-pointer" src="/src/img/arrow_back.svg" alt="" />
             <div className="flex flex-col md:flex-row-reverse md:justify-around">
                 <div className="md-w-55 px-8">
                     <div className="destiny-title flex items-center justify-between py-8 md:flex-col md:items-start">
                         <h2 className="titlePage">Salta</h2>
-                        <h3 className="textNight">3 Noches</h3>
+                        <h3 className="textNight">{viaje.noches} Noches</h3>
                     </div>
                     <div>
                         <h3 className="textNight">Salidas:</h3>
@@ -141,10 +157,10 @@ export const DestinyDetail = () => {
                     </div>
                     <div className="flex py-8">
                         <img src="/src/img/bed.svg" alt="" />
-                        <p className="textHotel" >Hotel Posada Del Sol Salta, Alvarado 646, A4400 Salta</p>
+                        <p className="textHotel" >{viaje.destinos[0].hotel}</p>
                     </div>
                     {isMobile ? null :
-                        <p className="detailDescription md:p-0">Descubre la belleza sin igual de Salta, conocida como 'La Linda'. Esta encantadora ciudad en el noroeste de Argentina te espera con sus paisajes impresionantes, su rica cultura y su deliciosa gastronomía.</p>
+                        <p className="detailDescription md:p-0">{viaje.descripcion}</p>
                     }
                     {isMobile ? null :
                         <div className="itinerario_incluye w-full flex flex-col mt-12">
@@ -154,7 +170,7 @@ export const DestinyDetail = () => {
                             </div>
                             <div className="text-center">
                                 {content ?
-                                    <DestinyIncludes collapsablesServicios={collapsablesServicios} collapsableList={collapsableList} handleCollapsable={handleCollapsable} />
+                                    <DestinyIncludes collapsableList={collapsableList} servicios={viaje.servicios} handleCollapsable={handleCollapsable} />
                                     :
                                     <DestinyItinerary collapsablesItirenario={collapsablesItirenario} collapsableItinerarioList={collapsableItinerarioList} handleCollapsableItinerario={handleCollapsableItinerario} />}
                             </div>
@@ -178,7 +194,7 @@ export const DestinyDetail = () => {
                     {isMobile ? null : <div className="md:w-full md:mt-12">
                         <div className="containerDetailPrice">
                             <p className="textPriceTitle">Precio por persona</p>
-                            <h3 className="textPrice">$40.000</h3>
+                            <h3 className="textPrice">${viaje.precio}</h3>
                         </div>
                         <div className="containerBooking">
                             <p className="bookingTitle">Consultas y reservas</p>
@@ -187,7 +203,7 @@ export const DestinyDetail = () => {
                     </div>}
                 </div>
                 {isMobile ?
-                    <p className="detailDescription">Descubre la belleza sin igual de Salta, conocida como 'La Linda'. Esta encantadora ciudad en el noroeste de Argentina te espera con sus paisajes impresionantes, su rica cultura y su deliciosa gastronomía.</p>
+                    <p className="detailDescription">{viaje.descripcion}</p>
                     : null
                 }
             </div>
@@ -197,7 +213,7 @@ export const DestinyDetail = () => {
                         <div>
                             <div className="containerDetailPrice">
                                 <p>Precio por persona</p>
-                                <h3>$40.000</h3>
+                                <h3>${viaje.precio}</h3>
                             </div>
                             <div className="detailDestiny8">
                                 <p>Consultas y reservas</p>

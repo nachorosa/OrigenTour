@@ -20,7 +20,7 @@ experiencias: '/experiencias',
 nosotros: '/nosotros',
 contacto: '/contacto',
 detalle: '/detalle',
-destinoDetalle: '/destinos/detalle',
+destinoDetalle: '/destinos/detalle/:id',
 form: '/form',
 admin: '/admin'
 };

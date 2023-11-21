@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import FormViaje from '../components/FormViaje'
 import '../css/admin.css'
+import FormEdit from '../components/FormEdit'
 
 const data = [
     {
@@ -87,20 +88,57 @@ const Admin = () => {
 
     const [popup, setPopup] = useState(false)
     const [onClose, setOnClose] = useState(false)
+    const [viajes, setViajes] = useState([])
+    const [loading, isLoading] = useState(false)
+    const [viaje, setViaje] = useState({})
+    const [edit, isEdit] = useState(false)
+
+    useEffect(() => {
+        getViajes()
+    }, [])
+
+    const getViajes = () => {
+        fetch("http://localhost:8080/api/viajes", {
+            method: "GET",
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(res => res.json())
+            .then(data => setViajes(data))
+    }
 
     const togglePopup = () => {
         setPopup(!popup)
     }
 
+    const handleEdit = id => {
+        isEdit(true)
+        fetch("http://localhost:8080/api/viajes/ " + id, {
+            method: "GET",
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(res => res.json())
+        .then(data => setViaje(data))
+        .then(() => togglePopup())
+    }
+
+    const handleDelete = id => {
+        fetch("http://localhost:8080/api/viajes/" + id, {
+            method: "DELETE"
+        }).then(() => getViajes())
+    }
+
     const closePopup = (e) => {
         if (e.target.classList.contains('overlay')) {
-          setOnClose(true)
-          setTimeout(() => {
-            setOnClose(false)
-            setPopup(false);
-          }, 500);
+            setOnClose(true)
+            isEdit(false)
+            setTimeout(() => {
+                setOnClose(false)
+                setPopup(false);
+            }, 500);
         }
-      };
+    };
 
     useEffect(() => {
         popup ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
@@ -119,7 +157,7 @@ const Admin = () => {
                     </div>
                 </div>
                 <div className="admin-dashboard w-full flex items-center justify-center">
-                    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+                    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5 w-full">
                         <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
                             <thead class="bg-gray-50">
                                 <tr>
@@ -130,12 +168,12 @@ const Admin = () => {
                                     <th scope="col" class="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900"></th>
                                 </tr>
                             </thead>
-                            {data.map(d => (
+                            {viajes.map(d => (
                                 <tbody class="divide-y divide-gray-100 border-t border-gray-100">
                                     <tr class="hover:bg-gray-50">
                                         <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
                                             <div class="text-sm">
-                                                <div class="2xl:text-5xl md:text-2xl font-medium text-gray-700">{d.destino}</div>
+                                                <div class="2xl:text-5xl md:text-2xl font-medium text-gray-700">{d?.destino || "test"}</div>
                                             </div>
                                         </th>
                                         <td class="px-6 py-4">
@@ -145,24 +183,25 @@ const Admin = () => {
                                                 {d.precio}
                                             </span>
                                         </td>
-                                        <td class="px-6 py-4 2xl:text-5xl md:text-2xl">Cordoba, Bariloche</td>
+                                        <td class="px-6 py-4 2xl:text-5xl md:text-2xl">{d.destinos.map(ds => (ds.provincia + " "))}</td>
                                         <td class="px-6 py-4">
                                             <div class="flex gap-2 flex-col">
-                                                <span
+                                                {d.destinos.map(ds => (<span
                                                     class="2xl:text-4xl md:text-2xl inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 font-semibold text-blue-600"
                                                 >
-                                                    {d.hotel}
-                                                </span>
+                                                    {ds.hotel}
+                                                </span>))}
                                             </div>
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="flex justify-end gap-4">
-                                                <a x-data="{ tooltip: 'Delete' }" href="#">
+                                                <button onClick={() => handleDelete(d.id)}
+                                                >
                                                     <img className='2xl:w-16 lg:w-8 md:w-6' src="./src/img/delete.svg" alt="" />
-                                                </a>
-                                                <a x-data="{ tooltip: 'Edite' }" href="#">
+                                                </button>
+                                                <button onClick={() => handleEdit(d.id)}>
                                                     <img className='2xl:w-16 lg:w-8 md:w-6' src="./src/img/edit.svg" alt="" />
-                                                </a>
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -175,10 +214,11 @@ const Admin = () => {
             {popup && (
                 <div onClick={closePopup} className='overlay'>
                     <div className=''>
-                        <FormViaje popup={popup} onClose={onClose}/>
+                        {edit ? <FormEdit popup={popup} onClose={onClose} viaje={viaje}/> : <FormViaje popup={popup} onClose={onClose} />}
                     </div>
                 </div>
-            )}
+            )
+        }
         </div>
     )
 }

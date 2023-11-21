@@ -166,7 +166,7 @@ export const CardDestiny = () => {
                 </div>
                 <div className="flex items-center justify-between px-2">
                   <h3 className="cardDestinyPrice">${viaje.precio}</h3>
-                  <a className="cardDestinyDetail" href={`destinos/detalle/${index}`}>Mas Informacion</a>
+                  <a className="cardDestinyDetail" href={`destinos/detalle/${viaje.id}`}>Mas Informacion</a>
                 </div>
               </div>
             </div>
