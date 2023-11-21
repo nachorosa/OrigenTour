@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import "../css/footer.css"
 
-const FormViaje = ({popup, onClose}) => {
+const FormEdit = ({popup, onClose, viaje}) => {
     const [form, setForm] = useState({
         destinos: [],
         dias: 0,
@@ -34,6 +33,7 @@ const FormViaje = ({popup, onClose}) => {
         servicio: "",
         subServicios: ""
     })
+
 
     const handleInputs = (name, value) => {
         setForm({
@@ -129,6 +129,8 @@ const FormViaje = ({popup, onClose}) => {
     };
 
     const handleDiaChange = (dia, value) => {
+        console.log(value);
+
         setForm((prevForm) => ({
             ...prevForm,
             itinerario: [
@@ -141,6 +143,8 @@ const FormViaje = ({popup, onClose}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        
         const itinerarioString = form.itinerario.map((dia) => dia.texto);
         const serviciosCopy = servicios.filter(s => s.subServicios.length > 0)
 
@@ -156,21 +160,46 @@ const FormViaje = ({popup, onClose}) => {
     };
 
     useEffect(() => {
+        const newForm = { ...form };
+
+        const newItinerario = viaje.itinerario.map(v => ({ texto: v }));
+
+        // Completar los campos del formulario con los datos del objeto proporcionado
+        newForm.destinos = viaje.destinos || [];
+        newForm.dias = viaje.dias || 0;
+        newForm.noches = viaje.noches || 0;
+        newForm.itinerario = newItinerario || [];
+        newForm.servicios = viaje.servicios || [];
+        newForm.salidas = viaje.salidas || [];
+        newForm.precio = viaje.precio || 0;
+        newForm.descripcion = viaje.descripcion || "";
+        
+        setServicios(viaje.servicios)
+
+        console.log(newItinerario);
+    
+        // Actualizar el estado del formulario
+        setForm(newForm);
+    }, [])
+
+    useEffect(() => {
         // Esta lógica se ejecuta después de que el estado se ha actualizado
 
         if (shouldSendRequest) {
-            fetch("http://localhost:8080/api/viajes", {
-                method: 'POST',
-                body: JSON.stringify(form),
-                headers: {
-                    "content-type": "application/json"
-                }
-            })
-                .then(res => res.json())
-                .then(data => console.log(data));
+            handleEdit()
         }
         setShouldSendRequest(false);
     }, [form, shouldSendRequest]);
+
+    const handleEdit = () => {
+        fetch("http://localhost:8080/api/viajes/" + viaje.id, {
+            method: "PUT",
+            body: JSON.stringify(form),
+            headers: {
+                "content-type": "application/json"
+            }
+        })
+    }
 
     return (
         <div className={`p-10 bg-white ${onClose ? "popupOnClose" : "popupOnOpen"}`}>
@@ -260,6 +289,7 @@ const FormViaje = ({popup, onClose}) => {
                             </label>
                             <div className="mt-2">
                                 <select name='dias'
+                                    value={form.dias}
                                     onChange={(e) => { setDias(e.target.value), handleInputs(e.target.name, e.target.value) }}
                                     className="w-40 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
                                 >
@@ -273,6 +303,7 @@ const FormViaje = ({popup, onClose}) => {
                             </label>
                             <div className="mt-2">
                                 <select name='noches'
+                                    value={form.noches}
                                     onChange={(e) => { handleInputs(e.target.name, e.target.value) }}
                                     className=" w-40 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
                                 >
@@ -418,7 +449,7 @@ const FormViaje = ({popup, onClose}) => {
                                 </label>
                                 <div className="mt-2 ">
                                     <input type="number" name="precio"
-                                        // value={form.precio}
+                                        value={form.precio}
                                         onChange={e => handleInputs(e.target.name, e.target.value)}
                                         className=" w-96 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16 "
                                     />
@@ -433,7 +464,7 @@ const FormViaje = ({popup, onClose}) => {
                                     <div className="mt-2 ">
                                         <textarea
                                             name="descripcion"
-                                            // value={form.descripcion}
+                                            value={form.descripcion}
                                             onChange={e => handleInputs(e.target.name, e.target.value)}
                                             className=" w-full rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
                                             />
@@ -457,4 +488,4 @@ const FormViaje = ({popup, onClose}) => {
 }
 
 
-export default FormViaje
+export default FormEdit
