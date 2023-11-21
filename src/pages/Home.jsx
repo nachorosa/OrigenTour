@@ -8,9 +8,7 @@ export const Home = () => {
     <div>
         <CarouselComponent/>
         <WelcomeMessage/>
-        <div className="flex">
         <CardPromotion/>
-        </div>
         <CardMainDestination/>
     </div>
   )
