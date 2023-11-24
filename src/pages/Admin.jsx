@@ -141,7 +141,7 @@ const Admin = () => {
     };
 
     useEffect(() => {
-        popup ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
+        // popup ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
     }, [popup])
 
 

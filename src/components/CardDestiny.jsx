@@ -151,7 +151,7 @@ export const CardDestiny = () => {
           {viajes.map((viaje, index) => (
             <div key={index} className="relative containerCardDestiny">
               <p className="absolute top-1/2 text-center text-white cardDetailNight ">{viaje.dias} Dias - {viaje.noches} Noches</p>
-              <img className="rounded-t-lg w-full h-1/2 -z-1" src="./src/img/aboutUs.jpg" alt={""} />
+              <img className="rounded-t-lg w-full h-1/2 -z-1" src={viaje?.fotos[0] || "./src/img/aboutUs.jpg"} alt={""} />
               <div className="h-52 font-semibold tracking-normal cardDestinyData">
                 <div className="flex flex-row justify-between cardDestinyText ">
                   <h2 className="py-2">{viaje.destinos[0].destino}</h2>
