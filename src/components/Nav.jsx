@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { paths } from '../routes/paths';
 import "../css/nav.css"
 
 const hiddenLinks = ['destinoDetalle', 'admin'];
+  
+  const Nav = () => {
 
-const Nav = () => {
+    const location = useLocation();
+
   return (
     <Disclosure as="nav" className="bg-white sticky top-0 z-50">
       {({ open }) => (
@@ -47,7 +50,7 @@ const Nav = () => {
                           key={key}
                           to={paths[key]}
                           className={
-                            window.location.pathname === paths[key]
+                            location.pathname === paths[key]
                               ? key === 'contacto'
                                 ? 'navContactActive'
                                 : 'navActive'
@@ -73,7 +76,7 @@ const Nav = () => {
                     key={key}
                     to={paths[key]}
                     className={
-                      window.location.pathname === paths[key]
+                      location.pathname === paths[key]
                         ? key === 'contacto'
                           ? 'navContactActive'
                           : 'navActive'

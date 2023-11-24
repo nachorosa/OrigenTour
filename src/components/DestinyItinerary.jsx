@@ -8,7 +8,7 @@ const DestinyItinerary = ({ collapsablesItirenario, collapsableItinerarioList, h
           <div onClick={() => handleCollapsableItinerario(c.dia)} className="mt-10" key={c.dia}>
             <div className="colapsable-header flex items-center justify-between">
               <h2 className="p-6 capitalize">Dia {index + 1}</h2>
-              <span className="mb-6 collapsable-arrow">
+              <span className="p-6 collapsable-arrow">
                 {collapsableItinerarioList[c.dia] ? (
                   <img src="/src/img/arrow_forward_ios_up.svg" alt="flecha abierta" />
                 ) : (
@@ -18,7 +18,7 @@ const DestinyItinerary = ({ collapsablesItirenario, collapsableItinerarioList, h
             </div>
             {collapsableItinerarioList[c.dia] ? (
               <div className="colapsable-content">
-                <p className="mt-4 md:ml-6">{c}</p>
+                <p className="text-2xl p-5 text-justify	">{c}</p>
               </div>
             ) : (
               <div className="closed-content">

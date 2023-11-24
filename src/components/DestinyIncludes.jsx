@@ -18,8 +18,8 @@ const DestinyIncludes = ({ handleCollapsable, servicios }) => {
         {servicios.map((c, index) => (
           <div key={index} onClick={() => toggleCollapsable(c.servicio)} className="mt-10">
             <div className="colapsable-header flex items-center justify-between">
-              <h2 className="pl-4 pb-6 capitalize">{c.servicio}</h2>
-              <span className="mb-6 collapsable-arrow">{openCollapsables[c.servicio] ? <img src="/src/img/arrow_forward_ios_up.svg" alt="flecha abierta" /> : <img src="/src/img/arrow_forward_ios_down.svg" alt="flecha cerrado" />}</span>
+              <h2 className="p-6 capitalize">{c.servicio}</h2>
+              <span className="p-6 collapsable-arrow">{openCollapsables[c.servicio] ? <img src="/src/img/arrow_forward_ios_up.svg" alt="flecha abierta" /> : <img src="/src/img/arrow_forward_ios_down.svg" alt="flecha cerrado" />}</span>
             </div>
             {openCollapsables[c.servicio] ? (
               <div className="colapsable-content">

@@ -38,7 +38,16 @@
 .containerCarrousel {
     height: 35rem;
     width: 100%;
+    padding: 2rem;
 }
+
+.containerCarrousel div Button {
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+} 
 
 .detailDescription {
     font-size: 1.6rem;
@@ -46,7 +55,7 @@
     line-height: 2.4rem;
     letter-spacing: 0em;
     text-align: left;
-    padding: 4rem 2rem;
+    padding: 2rem;
 }
 
 .containerDetailPrice {
@@ -142,7 +151,6 @@
     list-style: disc;
 }
 
-
 @media (min-width: 768px) {
 
     .destiny-title h1 {
@@ -202,29 +210,12 @@
         max-width: 43rem;
     }
 
-
-    .containerCarrousel div Button {
-        top: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 1rem;
-    } 
+    .md-w-45 {
+        width: 45%;
+    }
 
     .md-w-55 {
         width: 55%;
-    }
-
-    .containerDetailPrice {
-        width: 100%;
-        margin: 0 auto;
-        padding: 2rem 0px;
-        border-radius: 32px;
-        background-color: #796151;
-        color: #FCFCFC;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
 
     .textPriceTitle {

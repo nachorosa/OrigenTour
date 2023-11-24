@@ -7,42 +7,9 @@ import { Carousel } from "@material-tailwind/react"
 import { format, utcToZonedTime } from 'date-fns-tz';
 import es from 'date-fns/esm/locale/es/index';
 
-const collapsablesServicios = [
-    {
-        id: 1,
-        name: "comida",
-        content: ["Desayunos bufe diarios en el hotel.", "Almuerzos durante las excursiones."]
-    },
-    {
-        id: 2,
-        name: "transporte",
-        content: ["Traslados desde y hacia el aeropuerto.", "Transporte privado para las excursiones."]
-    },
-    {
-        id: 3,
-        name: "actividades",
-        content: ["Degustacion de vinos en bodegas locales.", "Excursion a la Quebrada de Rio de las Conchas."]
-    },
-    {
-        id: 4,
-        name: "alojamineto",
-        content: ["Alojamiento en el Hotel Posada Del Sol Salta, un encantador hotel boutique con comodidades modernas y un ambiente acogedor."]
-    }
-]
+const collapsablesServicios = []
 
-const collapsablesItirenario = [
-    {
-        id: 1,
-        dia: 1,
-        descripcion: "Llegada a Salta, traslado al hotel y tarde libre para explorar."
-    },
-    {
-        id: 2,
-        dia: 2,
-        descripcion: "Llegada a Salta, traslado al hotel y tarde libre para explorar."
-    },
-]
-
+const collapsablesItirenario = []
 
 export const DestinyDetail = () => {
 
@@ -67,24 +34,24 @@ export const DestinyDetail = () => {
 
     useEffect(() => {
         getViaje()
-        // const handleResize = () => {
-        //     if (window.innerWidth < 768) {
-        //         setIsMobile(true);
-        //     } else {
-        //         setIsMobile(false);
-        //     }
-        // }
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setIsMobile(true);
+            } else {
+                setIsMobile(false);
+            }
+        }
 
-        // window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', handleResize);
 
-        // handleResize();
+        handleResize();
 
-        // return () => {
-        //     window.removeEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
 
-        // };
+        };
 
-    }, []);
+    }, [])
 
     const toggleContent = () => {
         setContent(!content)
@@ -176,22 +143,7 @@ export const DestinyDetail = () => {
                         {isMobile ? null :
                             <p className="detailDescription md:p-0">{viaje.descripcion}</p>
                         }
-                        {isMobile ? null :
-                            <div className="itinerario_incluye w-full flex flex-col mt-12">
-                                <div className="itinerario-incluye-headers flex justify-around text-2xl md:justify-around md:w-full md:gap-6 md:p-4 2xl:w-1/2 2xl:justify-start 2xl:gap-16 2xl:ml-4">
-                                    <h2 className={content ? "destiny-item-active" : null} onClick={toggleContent}>¿Qué incluye?</h2>
-                                    <h2 className={content ? null : "destiny-item-active"} onClick={toggleContent}>Itinerario</h2>
-                                </div>
-                                <div className="text-center">
-                                    {content ?
-                                        <DestinyIncludes collapsableList={collapsableList} servicios={viaje.servicios} handleCollapsable={handleCollapsable} />
-                                        :
-                                        <DestinyItinerary collapsablesItirenario={viaje.itinerario} collapsableItinerarioList={collapsableItinerarioList} handleCollapsableItinerario={handleCollapsableItinerario} />}
-                                </div>
-                            </div>
-                        }
                     </div>
-
                     <div className="containerCarrousel">
                         <Carousel className="rounded-xl" transition={{ duration: 2 }} autoplay={true} autoplayDelay={10000} loop={true}
                             navigation={({ setActiveIndex, activeIndex, length }) => (
@@ -201,64 +153,43 @@ export const DestinyDetail = () => {
                                             }`} onClick={() => setActiveIndex(i)} />))}
                                 </div>)}
                         >
-                            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
-                            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
-                            <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="image 2" className="h-full w-full object-cover" />
+                            {viaje.fotos.map((f, index) => (
+                                <img key={index} src={f} className="h-full w-full object-cover" alt={`Photo ${index + 1}`} />
+                            ))}
                         </Carousel>
-                        {isMobile ? null : <div className="md:w-full md:mt-12">
-                            <div className="containerDetailPrice">
-                                <p className="textPriceTitle">Precio por persona</p>
-                                <h3 className="textPrice">{viaje.precio.toLocaleString('es-AR', {
-                                    style: 'currency',
-                                    currency: 'ARS',
-                                    minimumFractionDigits: 0,
-                                    maximumFractionDigits: 0,
-                                })}</h3>
-                            </div>
-                            <div className="containerBooking">
-                                <p className="bookingTitle">Consultas y reservas</p>
-                                <h3 className="bookingNumber">11 2880 - 8745</h3>
-                            </div>
-                        </div>}
                     </div>
-
                     {isMobile ?
-                        <p className="detailDescription">{viaje.descripcion}</p>
-                        : null
+                        <p className="detailDescription md:p-0">{viaje.descripcion}</p> : null
                     }
                 </div>
-                <div>
-                    {isMobile ?
-                        <div>
-                            <div>
-                                <div className="containerDetailPrice">
-                                    <p>Precio por persona</p>
-                                    <h3>{viaje.precio.toLocaleString('es-AR', {
-                                        style: 'currency',
-                                        currency: 'ARS',
-                                        minimumFractionDigits: 0,
-                                        maximumFractionDigits: 0,
-                                    })}</h3>
-                                </div>
-                                <div className="detailDestiny8">
-                                    <p>Consultas y reservas</p>
-                                    <h3>11 2880 - 8745</h3>
-                                </div>
-                            </div>
-                            <div className="itinerario_incluye w-full flex flex-col">
-                                <div className="flex justify-around text-2xl">
-                                    <h2 className={`${content ? "destiny-item-active cursor-pointer" : null}`} onClick={toggleContent}>¿Qué incluye?</h2>
-                                    <h2 className={`${content ? null : "destiny-item-active cursor-pointer"}`} onClick={toggleContent}>Itinerario</h2>
-                                </div>
-                                <div className="text-center">
-                                    {content ?
-                                        <DestinyIncludes collapsablesServicios={collapsablesServicios} collapsableList={collapsableList} handleCollapsable={handleCollapsable} />
-                                        :
-                                        <DestinyItinerary collapsablesItirenario={viaje.itinerario} collapsableItinerarioList={collapsableItinerarioList} handleCollapsableItinerario={handleCollapsableItinerario} />}
-                                </div>
-                            </div>
+                <div className="flex flex-col md:flex-row">
+                    <div className="md-w-45 md:mt-12">
+                        <div className="containerDetailPrice">
+                            <p className="textPriceTitle">Precio por persona</p>
+                            <h3 className="textPrice">{viaje.precio.toLocaleString('es-AR', {
+                                style: 'currency',
+                                currency: 'ARS',
+                                minimumFractionDigits: 0,
+                                maximumFractionDigits: 0,
+                            })}</h3>
                         </div>
-                        : null}
+                        <div className="containerBooking">
+                            <p className="bookingTitle">Consultas y reservas</p>
+                            <h3 className="bookingNumber">11 2880 - 8745</h3>
+                        </div>
+                    </div>
+                    <div className=" itinerario_incluye w-full flex flex-col md-w-55 pr-4">
+                        <div className="flex justify-around text-2xl">
+                            <h2 className={`${content ? "destiny-item-active cursor-pointer" : null}`} onClick={toggleContent}>¿Qué incluye?</h2>
+                            <h2 className={`${content ? null : "destiny-item-active cursor-pointer"}`} onClick={toggleContent}>Itinerario</h2>
+                        </div>
+                        <div className="text-center">
+                            {content ?
+                                <DestinyIncludes collapsableList={collapsableList} servicios={viaje.servicios} handleCollapsable={handleCollapsable} />
+                                :
+                                <DestinyItinerary collapsablesItirenario={viaje.itinerario} collapsableItinerarioList={collapsableItinerarioList} handleCollapsableItinerario={handleCollapsableItinerario} />}
+                        </div>
+                    </div>
                 </div>
             </div>
     )
