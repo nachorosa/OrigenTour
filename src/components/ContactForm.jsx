@@ -1,6 +1,6 @@
 import '../css/contact.css'
 
-const ContactForm = ({isMobile}) => {
+const ContactForm = ({ isMobile }) => {
     return (
         <div className='w-full lg:w-1/2'>
             <div className='p-6 contact-form-container mx-auto'>

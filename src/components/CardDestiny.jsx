@@ -1,6 +1,7 @@
+import { format, utcToZonedTime } from 'date-fns-tz';
+import es from 'date-fns/esm/locale/es/index';
 import { useEffect, useState } from "react"
 import "../css/cardDestiny.css"
-
 
 export const CardDestiny = () => {
 
@@ -27,9 +28,9 @@ export const CardDestiny = () => {
               <div className="font-semibold tracking-normal cardDestinyData ">
                 <div className="h-40 flex flex-row justify-between cardDestinyText ">
                   {viaje.destinos.length === 1 ? (
-                    <h2 className="py-2">{viaje.destinos[0].destino}</h2>
+                    <h2>{viaje.destinos[0].destino}</h2>
                   ) : (
-                    <div>
+                    <div className="flex flex-wrap h-2">
                       {viaje.destinos.map((destino, index) => (
                         <h2 key={index}>
                           {`${destino.destino}${index < viaje.destinos.length - 1 ? ' - ' : ''}`}
@@ -38,21 +39,36 @@ export const CardDestiny = () => {
                     </div>
                   )}
                   <div className="flex flex-col">
-                    {viaje.salidas.length > 3 ? (
-                      <p>+3 Salidas</p>
+                    {viaje.salidas.length >= 5 ? (
+                      <p>+5 Meses</p>
                     ) : (
-                      viaje.salidas.map((fecha, index) => (
-                        <p key={index}>
-                          {new Date(fecha).toLocaleString('default', { month: 'long' })}
-                        </p>
-                      ))
+                      (() => {
+                        const groupedDates = {};
+                        viaje.salidas.forEach((fecha) => {
+                          const date = new Date(fecha);
+                          const zonedDate = utcToZonedTime(date, 'UTC');
+                          const monthYear = format(zonedDate, 'MMM', { locale: es, timeZone: 'UTC' });
+
+                          if (!groupedDates[monthYear]) {
+                            groupedDates[monthYear] = [];
+                          }
+
+                          groupedDates[monthYear].push(format(zonedDate, 'dd', { locale: es, timeZone: 'UTC' }));
+                        });
+
+                        return Object.entries(groupedDates).map(([monthYear, days]) => (
+                          <p key={monthYear}>
+                            {`${monthYear}: ${days.join(' - ')}`}
+                          </p>
+                        ));
+                      })()
                     )}
                   </div>
                 </div>
                 <div className="flex items-center py-2">
                   <img className="iconHotel" src="/src/img/bed.svg" alt="" />
                   {viaje.destinos.length > 1 ? (
-                    <p className="cardDestinyHotelText p-2" >+{viaje.destinos.length - 1} Hoteles</p>
+                    <p className="cardDestinyHotelText p-2" >Este paquete contiene mas de 1 hotel</p>
                   ) : (
                     viaje.destinos.map((destino, index) => (
                       <p key={index} className="cardDestinyHotelText p-2">
@@ -61,7 +77,8 @@ export const CardDestiny = () => {
                     ))
                   )}
                 </div>
-                <div className="flex items-center justify-between h-32">
+                <div style={{ bottom: "1rem", left: "0rem" }} className="absolute flex items-center justify-evenly text-center w-full">
+
                   <h3 className="cardDestinyPrice">
                     {viaje.precio.toLocaleString('es-AR', {
                       style: 'currency',

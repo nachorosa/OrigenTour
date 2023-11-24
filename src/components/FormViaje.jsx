@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import "../css/footer.css"
 
-const FormViaje = ({popup, onClose}) => {
+const FormViaje = ({ popup, onClose }) => {
     const [form, setForm] = useState({
         destinos: [],
         dias: 0,
@@ -58,7 +58,7 @@ const FormViaje = ({popup, onClose}) => {
 
     const handleEliminar = (name, value) => {
 
-        if(name === "destinos"){
+        if (name === "destinos") {
             const destino = JSON.parse(value)
             const index = form.destinos.findIndex(s => s.destino === destino.destino && s.hotel === destino.hotel && s.provincia === destino.provincia)
             const newArray = [...form.destinos.slice(0, index), ...form.destinos.slice(index + 1)];
@@ -68,7 +68,7 @@ const FormViaje = ({popup, onClose}) => {
             })
         }
 
-        if(name === "servicio"){
+        if (name === "servicio") {
             const servicio = JSON.parse(value)
             setServicios((prevServicios) => {
                 const updatedServicios = [...prevServicios];
@@ -86,7 +86,7 @@ const FormViaje = ({popup, onClose}) => {
             })
         }
 
-        if(name === "salidas"){
+        if (name === "salidas") {
             const fechas = [...form.salidas]
             const nuevasFechas = fechas.filter(f => f != value)
             setForm({
@@ -175,15 +175,15 @@ const FormViaje = ({popup, onClose}) => {
     return (
         <div className={`p-10 bg-white ${onClose ? "popupOnClose" : "popupOnOpen"}`}>
             <div className='flex flex-col'>
-                <div style={{boxShadow: "0px 20px 40px 0px rgba(0, 0, 0, 0.35)"}} className='p-6 rounded-3xl'>
-                    <div className='flex flex-col gap-10 items-end md:flex-row md:justify-between'>
+                <div style={{ boxShadow: "0px 20px 40px 0px rgba(0, 0, 0, 0.35)" }} className='p-6 rounded-3xl'>
+                    <div className='flex flex-col gap-10 items-center md:flex-row md:justify-between'>
                         <div className='flex flex-col gap-10 md:flex-row flex-wrap'>
-                            <div > 
+                            <div >
                                 <label htmlFor="first-name" className="text-3xl font-medium">
                                     Destino
                                 </label>
                                 <div className="mt-2">
-                                    <input  type="text" name='destino' value={destino.destino}
+                                    <input type="text" name='destino' value={destino.destino}
                                         onChange={e => handleDestino(e.target.name, e.target.value)}
                                         className="w-96 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16 "
                                     />
@@ -219,33 +219,32 @@ const FormViaje = ({popup, onClose}) => {
                                 </div>
                             </div>
 
-                            </div>
-                                <div className="">
-                                    <button type="submit"
-                                        onClick={() => setForm(prevForm => ({
-                                            ...prevForm,
-                                            destinos: [...prevForm.destinos, destino]
-                                        }))}
-                                        className="w-96 rounded-md bg-indigo-600 px-6 py-2 text-3xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    >
-                                        Agregar
-                                    </button>
-                                </div>
+                        </div>
+                        <div className="">
+                            <button type="submit"
+                                onClick={() => setForm(prevForm => ({
+                                    ...prevForm,
+                                    destinos: [...prevForm.destinos, destino]
+                                }))}
+                                className="w-96 rounded-md bg-indigo-600 px-6 py-2 text-3xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            >
+                                Agregar
+                            </button>
+                        </div>
 
                     </div>
                     {form.destinos.length > 0 ?
                         <div className='flex flex-wrap gap-2 max-w-full py-5'>
-                            {form.destinos != null ? form.destinos.map(d => (
-                                <div style={{ border: "1px solid #6b7280" }} className='flex mt-2 items-center max-w-max p-1 rounded-md'>
+                            {form.destinos != null ? form.destinos.map((d) => (
+                                <div key={d.id} style={{ border: "1px solid #6b7280" }} className='flex mt-2 items-center max-w-max p-1 rounded-md'>
                                     <div className='text-3xl mx-2'>
                                         {d.destino}, {d.hotel}, {d.provincia}
                                     </div>
                                     <div className='mx-2'>
                                         <button className='flex items-center cursor-pointer'
-                                        
-                                        onClick={() => handleEliminar("destinos", JSON.stringify({destino: d.destino, hotel: d.hotel, provincia: d.provincia}))}
+                                            onClick={() => handleEliminar("destinos", JSON.stringify({ destino: d.destino, hotel: d.hotel, provincia: d.provincia }))}
                                         >
-                                            <img  src="./src/img/cross.svg" alt="" />
+                                            <img src="./src/img/cross.svg" alt="" />
                                         </button>
                                     </div>
                                 </div>
@@ -263,7 +262,11 @@ const FormViaje = ({popup, onClose}) => {
                                     onChange={(e) => { setDias(e.target.value), handleInputs(e.target.name, e.target.value) }}
                                     className="w-40 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
                                 >
-                                    {cantidadDias.map(c => (<option value={c + 1}>{c + 1}</option>))}
+                                    {cantidadDias.map(c => (
+                                        <option key={c + 1} value={c + 1}>
+                                            {c + 1}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         </div>
@@ -276,7 +279,11 @@ const FormViaje = ({popup, onClose}) => {
                                     onChange={(e) => { handleInputs(e.target.name, e.target.value) }}
                                     className=" w-40 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
                                 >
-                                    {cantidadNoches.map(c => (<option value={c + 1}>{c + 1}</option>))}
+                                    {cantidadNoches.map(c => (
+                                        <option key={c + 1} value={c + 1}>
+                                            {c + 1}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         </div>
@@ -300,8 +307,8 @@ const FormViaje = ({popup, onClose}) => {
                             </div>
                         ))}
                     </div>
-                        <div className='flex flex-col items-end gap-5 md:flex-row md:justify-start py-5'>
-                            <div className='md:flex md:flex-row md:gap-10 flex-wrap	'>
+                    <div className='flex flex-col items-center gap-5 md:flex-row md:justify-start py-5'>
+                        <div className='md:flex md:flex-row md:gap-10 flex-wrap	'>
                             <div className='flex flex-col py-5 md:py-0'>
                                 <label htmlFor="first-name" className="text-3xl font-medium">
                                     Servicio
@@ -333,82 +340,82 @@ const FormViaje = ({popup, onClose}) => {
                                     />
                                 </div>
                             </div>
+                        </div>
+                        <div className="flex items-center justify-end gap-x-6">
+                            <button type="submit"
+                                onClick={() => handleServicios(servicio.servicio, servicio.subServicios)}
+                                className=" w-96 rounded-md bg-indigo-600 px-6 py-2 text-3xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            >
+                                Agregar
+                            </button>
+                        </div>
+                    </div>
+
+                    {servicios != null && servicios.length > 0 ? servicios.map((s, index) => (
+                        s.subServicios != 0 ?
+                            <div key={index} className='flex flex-col'>
+                                <div className='flex flex-col text-3xl font-medium py-5'>
+                                    {s.servicio}:
+                                </div>
+                                <div className='flex flex-col text-3xl font-medium gap-5'>
+                                    {s.subServicios.map((ss, subIndex) => (
+                                        <div key={subIndex} style={{ border: "1px solid #6b7280" }} className='flex mx-2 items-center max-w-max p-1 rounded-md '>
+                                            <span className='mx-2 text-3xl font-normal'>
+                                                {ss}
+                                            </span>
+                                            <div className='mx-2'>
+                                                <button className='flex items-center cursor-pointer'
+                                                    onClick={() => handleEliminar("servicio", JSON.stringify({ servicio: s, subServicio: ss }))}
+                                                >
+                                                    <img src="./src/img/cross.svg" alt="" />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div> : null
+                    )) : null}
+                    <div className='flex flex-col items-center md:items-start'>
+                        <div className='flex flex-col items-end gap-5 py-5 md:w-full md:justify-start md:flex-row' >
+                            <div className='flex flex-col '>
+                                <label htmlFor="first-name" className="text-3xl font-medium ">
+                                    Salidas
+                                </label>
+                                <div className="mt-2">
+                                    <input type="date" onChange={e => { setFechas([e.target.value], console.log(form)) }}
+                                        className="w-96 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
+                                    />
+                                </div>
                             </div>
-                            <div className="flex items-center justify-end gap-x-6">
-                                <button type="submit"
-                                    onClick={() => handleServicios(servicio.servicio, servicio.subServicios)}
-                                    className=" w-96 rounded-md bg-indigo-600 px-6 py-2 text-3xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            <div className="flex items-center justify-end gap-x-6 ">
+                                <button type="submit" value={fechas}
+                                    onClick={(e) => setForm(prevForm => ({
+                                        ...prevForm,
+                                        salidas: [...prevForm.salidas, e.target.value]
+                                    }))}
+                                    className="w-96 rounded-md bg-indigo-600 px-6 py-2 text-3xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
                                     Agregar
                                 </button>
                             </div>
                         </div>
-
-                    {servicios != null && servicios.length > 0 ? servicios.map(s => (
-                        s.subServicios != 0 ?
-                        <div className='flex flex-col'>
-                            <div className='flex flex-col text-3xl font-medium py-5'>
-                                {s.servicio}:
-                            </div>
-                            <div className='flex flex-col text-3xl font-medium gap-5'>
-                                {s.subServicios.map(ss => (
-                                    <div style={{ border: "1px solid #6b7280" }} className='flex mx-2 items-center max-w-max p-1 rounded-md '>
-                                        <span className='mx-2 text-3xl font-normal'>
-                                            {ss}
-                                        </span>
-                                        <div className='mx-2'>
-                                            <button className='flex items-center cursor-pointer'
-                                            onClick={() => handleEliminar("servicio", JSON.stringify({servicio: s, subServicio: ss }))}
-                                        >
-                                                <img src="./src/img/cross.svg" alt="" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div> : null
-                    )) : null}
-                    <div className='flex flex-col items-center md:items-start'>
-                        <div className='flex flex-col items-end gap-5 py-5 md:w-full md:justify-start md:flex-row' >
-                                <div className='flex flex-col '>
-                                    <label htmlFor="first-name" className="text-3xl font-medium ">
-                                        Salidas
-                                    </label>
-                                    <div className="mt-2">
-                                        <input type="date" onChange={e => { setFechas([e.target.value], console.log(form)) }}
-                                            className="w-96 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex items-center justify-end gap-x-6 ">
-                                    <button type="submit" value={fechas}
-                                        onClick={(e) => setForm(prevForm => ({
-                                            ...prevForm,
-                                            salidas: [...prevForm.salidas, e.target.value]
-                                        }))}
-                                        className="w-96 rounded-md bg-indigo-600 px-6 py-2 text-3xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                                    >
-                                        Agregar
-                                    </button>
-                                </div>
-                        </div>
                     </div>
 
                     <div className='flex flex-wrap gap-2 py-5'>
-                    {form.salidas != null ? form.salidas.map(f => (
-                                    <div style={{ border: "1px solid #6b7280" }} className='flex items-center max-w-max p-1 rounded-md'>
-                                    <span className='mx-2 text-3xl font-normal'>
-                                        {f}
-                                    </span>
-                                    <div className='mx-2'>
-                                        <button className='flex items-center cursor-pointer'
+                        {form.salidas != null ? form.salidas.map((f, index) => (
+                            <div key={index} style={{ border: "1px solid #6b7280" }} className='flex items-center max-w-max p-1 rounded-md'>
+                                <span className='mx-2 text-3xl font-normal'>
+                                    {f}
+                                </span>
+                                <div className='mx-2'>
+                                    <button className='flex items-center cursor-pointer'
                                         onClick={() => handleEliminar("salidas", f)}
-                                        >
-                                            <img src="./src/img/cross.svg" alt="" />
-                                        </button>
-                                    </div>
+                                    >
+                                        <img src="./src/img/cross.svg" alt="" />
+                                    </button>
                                 </div>
-                    )) : null}
+                            </div>
+                        )) : null}
                     </div>
                     <div className='flex flex-col md:flex-row gap-10'>
                         <div className='flex flex-col items-center'>
@@ -426,18 +433,18 @@ const FormViaje = ({popup, onClose}) => {
                             </div>
                         </div>
                         <div className='flex flex-col items-center w-full'>
-                                <div className="mt-2 w-full md:w-10/12">
-                                    <label htmlFor="first-name" className="block text-3xl font-medium">
-                                        Descripcion
-                                    </label>
-                                    <div className="mt-2 ">
-                                        <textarea
-                                            name="descripcion"
-                                            // value={form.descripcion}
-                                            onChange={e => handleInputs(e.target.name, e.target.value)}
-                                            className=" w-full rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
-                                            />
-                                    </div>
+                            <div className="mt-2 w-full md:w-10/12">
+                                <label htmlFor="first-name" className="block text-3xl font-medium">
+                                    Descripcion
+                                </label>
+                                <div className="mt-2 ">
+                                    <textarea
+                                        name="descripcion"
+                                        // value={form.descripcion}
+                                        onChange={e => handleInputs(e.target.name, e.target.value)}
+                                        className=" w-full rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -455,6 +462,5 @@ const FormViaje = ({popup, onClose}) => {
         </div>
     )
 }
-
 
 export default FormViaje

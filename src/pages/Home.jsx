@@ -6,10 +6,10 @@ import { CardMainDestination } from "../components/CardMainDestination"
 export const Home = () => {
   return (
     <div>
-        <CarouselComponent/>
-        <WelcomeMessage/>
-        <CardPromotion/>
-        <CardMainDestination/>
+      <CarouselComponent />
+      <WelcomeMessage />
+      <CardPromotion />
+      <CardMainDestination />
     </div>
   )
 }

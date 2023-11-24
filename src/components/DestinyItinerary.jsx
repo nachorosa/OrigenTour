@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const DestinyItinerary = ({ collapsablesItirenario, collapsableItinerarioList, handleCollapsableItinerario }) => {
   return (
@@ -29,6 +29,17 @@ const DestinyItinerary = ({ collapsablesItirenario, collapsableItinerarioList, h
       </div>
     </div>
   );
+};
+
+DestinyItinerary.propTypes = {
+  collapsablesItirenario: PropTypes.arrayOf(
+    PropTypes.shape({
+      dia: PropTypes.number.isRequired,
+      descripcion: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  collapsableItinerarioList: PropTypes.object.isRequired,
+  handleCollapsableItinerario: PropTypes.func.isRequired,
 };
 
 export default DestinyItinerary;

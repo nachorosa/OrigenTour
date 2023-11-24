@@ -33,7 +33,7 @@ const Contact = () => {
                         <h2 className="titlePage">Contactanos!</h2>
                         <p className='my-14'>¿Necesitas más información sobre nuestros emocionantes viajes en Argentina? Estamos a solo un mensaje de distancia. Pregunta sobre destinos, fechas o lo que necesites saber. Estamos aquí para asegurarnos de que tengas la mejor experiencia de viaje.</p>
                     </div>
-                        {isMobile ? <ContactForm isMobile={isMobile}/> : null}
+                    {isMobile ? <ContactForm isMobile={isMobile} /> : null}
                     <div className='py-20'>
                         <div className="contact-socials">
                             <div className="socials-container flex flex-col justify-center mx-auto">
@@ -48,7 +48,7 @@ const Contact = () => {
                                     </div>
                                     <div className='flex items-center gap-4'>
                                         <img src="./src/img/gmail.svg" alt="" />
-                                        <span className='text-2xl'>origenviajes@gmail.com</span>
+                                        <span className='text-2xl'>contacto@origentourandtravel.tur.ar</span>
                                     </div>
                                 </div>
                                 <div id='socials-item-second-block' className='flex flex-wrap lg:flex-nowrap lg:justify-evenly lg:items-center'>
@@ -65,7 +65,7 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                    {isMobile ? null : <ContactForm isMobile={isMobile}/>}
+                {isMobile ? null : <ContactForm isMobile={isMobile} />}
             </div>
         </>
     )

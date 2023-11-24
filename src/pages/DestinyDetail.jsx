@@ -4,6 +4,8 @@ import DestinyIncludes from "../components/DestinyIncludes"
 import DestinyItinerary from "../components/DestinyItinerary"
 import { useParams } from "react-router"
 import { Carousel } from "@material-tailwind/react"
+import { format, utcToZonedTime } from 'date-fns-tz';
+import es from 'date-fns/esm/locale/es/index';
 
 const collapsablesServicios = [
     {
@@ -119,13 +121,13 @@ export const DestinyDetail = () => {
         loading ? <div>cargando</div> :
             <div className="w-full">
                 <a href={`../../destinos`}><img className="paddingImg cursor-pointer" src="/src/img/arrow_back.svg" alt="" /></a>
-                <div className="flex flex-col md:flex-row-reverse md:justify-around">
+                <div className="flex flex-col md:flex-row-reverse md:justify-around pb-10">
                     <div className="md-w-55 px-8">
-                        <div className="destiny-title flex items-center justify-between py-8 md:flex-col md:items-start">
+                        <div className="destiny-title flex justify-between py-8 flex-col items-start gap-5">
                             {viaje.destinos.length === 1 ? (
                                 <h2 className="titlePage">{viaje.destinos[0].destino}</h2>
                             ) : (
-                                <div className="flex flex-col items-start">
+                                <div className="flex flex-wrap items-start">
                                     {viaje.destinos.map((destino, index) => (
                                         <h2 className="titlePage" key={index}>
                                             {`${destino.destino}${index < viaje.destinos.length - 1 ? ' - ' : ''}`}
@@ -137,39 +139,37 @@ export const DestinyDetail = () => {
                         </div>
                         <div>
                             <h3 className="textNight">Salidas:</h3>
-                            <h4 className="textMonth">{
-                                viaje.salidas.length > 0 && (
-                                    <p>
-                                        {new Date(viaje.salidas[0]).toLocaleString('default', { month: 'long' })}: {new Date(viaje.salidas[0]).getDate()}
-                                        {viaje.salidas.slice(1).reduce((accumulator, fecha, index) => {
-                                            const currentMonth = new Date(fecha).getMonth();
-                                            const previousMonth = new Date(viaje.salidas[index]).getMonth();
-                                            const separator = currentMonth !== previousMonth ? <br /> : ' - ';
+                            <div>
+                                {(() => {
+                                    const groupedDates = {};
+                                    viaje.salidas.forEach((fecha) => {
+                                        const date = new Date(fecha);
+                                        const zonedDate = utcToZonedTime(date, 'UTC');
 
-                                            return (
-                                                <>
-                                                    {accumulator}
-                                                    {separator}
-                                                    {index > 0 && currentMonth !== previousMonth && (
-                                                        new Date(fecha).toLocaleString('default', { month: 'long' }) + ': '
-                                                    )}
-                                                    {new Date(fecha).getDate()}
-                                                </>
-                                            );
-                                        }, '')}
-                                    </p>
-                                )
-                            }
+                                        const monthYear = format(zonedDate, 'MMMM yyyy', { locale: es, timeZone: 'UTC' });
 
-                            </h4>
+                                        if (!groupedDates[monthYear]) {
+                                            groupedDates[monthYear] = [];
+                                        }
+
+                                        groupedDates[monthYear].push(format(zonedDate, 'dd', { locale: es, timeZone: 'UTC' }));
+                                    });
+
+                                    return Object.entries(groupedDates).map(([monthYear, days]) => (
+                                        <h4 className="textMonth" key={monthYear}>
+                                            {`${monthYear}: ${days.join(' - ')}`}
+                                        </h4>
+                                    ));
+                                })()}
+                            </div>
                         </div>
                         <div className="flex py-8">
-                            <img src="/src/img/bed.svg" alt="" />
-                            <div className="flex flex-col">
+                            <div className="flex flex-col flex-wrap gap-5">
                                 {viaje.destinos.map((destino, index) => (
-                                    <p key={index} className="textHotel">
-                                        {destino.hotel}
-                                    </p>
+                                    <div className="flex flex-wrap" key={index}>
+                                        <img src="/src/img/bed.svg" alt="" />
+                                        <p className="textHotel">{destino.hotel}</p>
+                                    </div>
                                 ))}
                             </div>
                         </div>
@@ -195,9 +195,9 @@ export const DestinyDetail = () => {
                     <div className="containerCarrousel">
                         <Carousel className="rounded-xl" transition={{ duration: 2 }} autoplay={true} autoplayDelay={10000} loop={true}
                             navigation={({ setActiveIndex, activeIndex, length }) => (
-                                <div className="absolute bottom-5 left-2/4 z-50 flex -translate-x-2/4 gap-5">
+                                <div className="absolute bottom-5 left-2/4 z-50 flex -translate-x-2/4 gap-5 ">
                                     {new Array(length).fill("").map((_, i) => (
-                                        <span key={i} className={`block h-4 cursor-pointer rounded-2xl transition-all content-[''] ${activeIndex === i ? "w-8 bg-stone-300" : "w-4 bg-stone-300/75"
+                                        <span key={i} className={`block h-4 cursor-pointer  rounded-2xl transition-all content-[''] ${activeIndex === i ? "w-8 bg-stone-300" : "w-4 bg-stone-300/75  "
                                             }`} onClick={() => setActiveIndex(i)} />))}
                                 </div>)}
                         >
@@ -221,6 +221,7 @@ export const DestinyDetail = () => {
                             </div>
                         </div>}
                     </div>
+
                     {isMobile ?
                         <p className="detailDescription">{viaje.descripcion}</p>
                         : null
@@ -233,11 +234,11 @@ export const DestinyDetail = () => {
                                 <div className="containerDetailPrice">
                                     <p>Precio por persona</p>
                                     <h3>{viaje.precio.toLocaleString('es-AR', {
-                                    style: 'currency',
-                                    currency: 'ARS',
-                                    minimumFractionDigits: 0,
-                                    maximumFractionDigits: 0,
-                                })}</h3>
+                                        style: 'currency',
+                                        currency: 'ARS',
+                                        minimumFractionDigits: 0,
+                                        maximumFractionDigits: 0,
+                                    })}</h3>
                                 </div>
                                 <div className="detailDestiny8">
                                     <p>Consultas y reservas</p>

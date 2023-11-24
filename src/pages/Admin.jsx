@@ -48,6 +48,17 @@ const Admin = () => {
         }).then(() => getViajes())
     }
 
+    const handleFavorite = (id) => {
+        fetch(`http://localhost:8080/api/viajes/favorito/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(() => getViajes()) // Actualizar la lista de viajes después de marcar/desmarcar como favorito
+        .catch((error) => console.error('Error al marcar/desmarcar como favorito:', error));
+    };
+
     const closePopup = (e) => {
         if (e.target.classList.contains('overlay')) {
             setOnClose(true)
@@ -60,7 +71,7 @@ const Admin = () => {
     };
 
     useEffect(() => {
-        popup ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
+        // popup ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
     }, [popup])
 
 
@@ -76,22 +87,22 @@ const Admin = () => {
                     </div>
                 </div>
                 <div className="admin-dashboard w-full flex items-center justify-center">
-                    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5 w-full">
-                        <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
-                            <thead class="bg-gray-50">
+                    <div className="rounded-lg border border-gray-200 shadow-md m-5 w-full">
+                        <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
+                            <thead className="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900">Destino</th>
-                                    <th scope="col" class="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900">Precio</th>
-                                    <th scope="col" class="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900">Provincia</th>
-                                    <th scope="col" class="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900">Hotel</th>
-                                    <th scope="col" class="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900"></th>
+                                    <th scope="col" className="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900">Destino</th>
+                                    <th scope="col" className="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900">Precio</th>
+                                    <th scope="col" className="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900">Provincia</th>
+                                    <th scope="col" className="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900">Hotel</th>
+                                    <th scope="col" className="2xl:text-6xl md:text-2xl px-6 py-4 font-medium text-gray-900"></th>
                                 </tr>
                             </thead>
                             {viajes.map(d => (
-                                <tbody class="divide-y divide-gray-100 border-t border-gray-100">
-                                    <tr class="hover:bg-gray-50">
-                                        <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
-                                            <div class="text-sm">
+                                <tbody className="divide-y divide-gray-100 border-t border-gray-100">
+                                    <tr className="hover:bg-gray-50">
+                                        <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
+                                            <div className="text-sm">
                                                 <div class="2xl:text-5xl md:text-2xl font-medium text-gray-700">
                                                     {d.destinos.map((destino, index) => (
                                                         <h2 key={index}>
@@ -124,8 +135,10 @@ const Admin = () => {
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="flex justify-end gap-4">
-                                                <button onClick={() => handleDelete(d.id)}
-                                                >
+                                                <button onClick={() => handleFavorite(d.id)}>
+                                                    <img className='2xl:w-16 lg:w-8 md:w-6' src={d.favorite ? "./src/img/star-regular.svg" : "./src/img/star-solid.svg"} alt="" />
+                                                </button>
+                                                <button onClick={() => handleDelete(d.id)}>
                                                     <img className='2xl:w-16 lg:w-8 md:w-6' src="./src/img/delete.svg" alt="" />
                                                 </button>
                                                 <button onClick={() => handleEdit(d.id)}>
