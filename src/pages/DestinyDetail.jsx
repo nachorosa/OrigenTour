@@ -186,7 +186,7 @@ export const DestinyDetail = () => {
                                     {content ?
                                         <DestinyIncludes collapsableList={collapsableList} servicios={viaje.servicios} handleCollapsable={handleCollapsable} />
                                         :
-                                        <DestinyItinerary collapsablesItirenario={collapsablesItirenario} collapsableItinerarioList={collapsableItinerarioList} handleCollapsableItinerario={handleCollapsableItinerario} />}
+                                        <DestinyItinerary collapsablesItirenario={viaje.itinerario} collapsableItinerarioList={collapsableItinerarioList} handleCollapsableItinerario={handleCollapsableItinerario} />}
                                 </div>
                             </div>
                         }
@@ -254,7 +254,7 @@ export const DestinyDetail = () => {
                                     {content ?
                                         <DestinyIncludes collapsablesServicios={collapsablesServicios} collapsableList={collapsableList} handleCollapsable={handleCollapsable} />
                                         :
-                                        <DestinyItinerary collapsablesItirenario={collapsablesItirenario} collapsableItinerarioList={collapsableItinerarioList} handleCollapsableItinerario={handleCollapsableItinerario} />}
+                                        <DestinyItinerary collapsablesItirenario={viaje.itinerario} collapsableItinerarioList={collapsableItinerarioList} handleCollapsableItinerario={handleCollapsableItinerario} />}
                                 </div>
                             </div>
                         </div>

@@ -12,6 +12,7 @@ const FormViaje = ({ popup, onClose }) => {
         precio: 0,
         descripcion: ""
     })
+    const [fotos, setFotos] = useState([]);
 
     const [dias, setDias] = useState(0);
     const cantDias = 15;
@@ -95,6 +96,12 @@ const FormViaje = ({ popup, onClose }) => {
             })
         }
 
+        if(name === "fotos"){
+            const newFotos = [...fotos]
+            newFotos.splice(value, 1)
+            setFotos(newFotos)
+        }
+
     }
 
 
@@ -139,6 +146,16 @@ const FormViaje = ({ popup, onClose }) => {
         }));
     };
 
+    const handleFotos = e => {
+        const nuevasFotos = [...fotos];
+
+        for (let i = 0; i < e.target.files.length; i++) {
+          nuevasFotos.push(e.target.files[i]);
+        }
+    
+        setFotos(nuevasFotos);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const itinerarioString = form.itinerario.map((dia) => dia.texto);
@@ -159,12 +176,16 @@ const FormViaje = ({ popup, onClose }) => {
         // Esta lógica se ejecuta después de que el estado se ha actualizado
 
         if (shouldSendRequest) {
+
+            const formData = new FormData();
+            formData.append("viaje",JSON.stringify(form))
+            fotos.forEach((imagen) => {
+                formData.append(`foto`, imagen);
+              });
+
             fetch("http://localhost:8080/api/viajes", {
                 method: 'POST',
-                body: JSON.stringify(form),
-                headers: {
-                    "content-type": "application/json"
-                }
+                body: formData,
             })
                 .then(res => res.json())
                 .then(data => console.log(data));
@@ -327,7 +348,7 @@ const FormViaje = ({ popup, onClose }) => {
                             </div>
 
                             <div className='flex flex-col py-5 md:py-0'>
-                                <label htmlFor="first-name" className="block text-3xl font-medium    ">
+                                <label htmlFor="first-name" className="block text-3xl font-medium">
                                     Sub servicio
                                 </label>
                                 <div className="mt-2">
@@ -446,6 +467,35 @@ const FormViaje = ({ popup, onClose }) => {
                                     />
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div className='flex items-center md:items-end mt-6'>
+                        <div>
+                            <label for="cover-photo" className="block text-3xl font-medium">Cover photo</label>
+                            <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                                <div className="text-center">
+                                    <svg className="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+                                    </svg>
+                                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                                        <label for="file-upload" className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                            <span>Upload a file</span>
+                                            <input onChange={handleFotos} id="file-upload" name="file-upload" type="file" className="sr-only" multiple />
+                                        </label>
+                                        <p className="pl-1">or drag and drop</p>
+                                    </div>
+                                    <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='flex gap-2'>
+                            {fotos.length > 0 ? fotos.map((f, index) => (
+                                <div className='relative inline-block'>
+                                    <img className='rounded-lg x h-full object-cover' width={"200px"} src={URL.createObjectURL(f)} />
+                                    <button onClick={() => handleEliminar("fotos", index)} className='absolute top-0 right-0 border-none cursor-pointer text-white text-2xl bg-red-500 p-2 rounded-lg mr-2 mt-2'>x</button>
+                                </div>
+                            )) : null}
+
                         </div>
                     </div>
                     <div className="flex items-center justify-end gap-x-6 py-5">
