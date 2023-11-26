@@ -155,7 +155,6 @@ export const CardPromotion = () => {
           <div key={index} className="flex">
             {group.map((favorito, subIndex) => (
               <div key={subIndex} className="mr-4 w-1/3 h-1/3">
-                {/* Renderizar el contenido del favorito aquí */}
                 <a className="w-full" key={favorito.id} href={`destinos/detalle/${favorito.id}`}>
                   <div className="rounded-2xl flex bg-white containerPromotion">
                     <div className="containerPromotionImg">

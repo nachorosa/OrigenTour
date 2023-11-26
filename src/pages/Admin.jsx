@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import FormViaje from '../components/FormViaje'
 import '../css/admin.css'
 import FormEdit from '../components/FormEdit'
-import Swal from 'sweetalert2'
-import { useAuth } from '../context/AuthProvider'
 
 const Admin = () => {
 
@@ -14,10 +12,7 @@ const Admin = () => {
     const [viaje, setViaje] = useState({})
     const [edit, isEdit] = useState(false)
 
-    const { token, validateToken } = useAuth();
-
     useEffect(() => {
-        validateToken();
         getViajes()
     }, [])
 
@@ -25,7 +20,7 @@ const Admin = () => {
         fetch("http://localhost:8080/api/viajes", {
             method: "GET",
             headers: {
-                "content-type": "application/json",
+                "content-type": "application/json"
             }
         }).then(res => res.json())
             .then(data => setViajes(data))
@@ -35,59 +30,33 @@ const Admin = () => {
         setPopup(!popup)
     }
 
-    // const handleEdit = id => {
-    //     isEdit(true)
-    //     console.log(id);
-    //     fetch("http://localhost:8080/api/viajes/ " + id, {
-    //         method: "GET",
-    //         headers: {
-    //             "content-type": "application/json"
-    //         }
-    //     }).then(res => res.json())
-    //         .then(data => setViaje(data))
-    //         .then(() => togglePopup())
-    // }
+    const handleEdit = id => {
+        isEdit(true)
+        fetch("http://localhost:8080/api/viajes/ " + id, {
+            method: "GET",
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(res => res.json())
+            .then(data => setViaje(data))
+            .then(() => togglePopup())
+    }
 
     const handleDelete = id => {
-
-        Swal.fire({
-            title: "Seguro que desea eliminar el viaje?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            confirmButtonText: "Si",
-            cancelButtonColor: "#d33",
-            cancelButtonText: "No",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch("http://localhost:8080/api/viajes/" + id, {
-                    method: "DELETE",
-                    headers: {
-                        "authorization": "Bearer " + token,
-                        "content-type": "application/json"
-                    },
-                    credentials: "include"
-                }).then(() => getViajes())
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
-                });
-            }
-        });
-
+        fetch("http://localhost:8080/api/viajes/" + id, {
+            method: "DELETE"
+        }).then(() => getViajes())
     }
 
     const handleFavorite = (id) => {
         fetch(`http://localhost:8080/api/viajes/favoritos/${id}`, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
-                "authorization": "Bearer " + token,
                 'Content-Type': 'application/json',
             },
         })
-            .then(() => getViajes()) // Actualizar la lista de viajes después de marcar/desmarcar como favorito
-            .catch((error) => console.error('Error al marcar/desmarcar como favorito:', error));
+        .then(() => getViajes()) // Actualizar la lista de viajes después de marcar/desmarcar como favorito
+        .catch((error) => console.error('Error al marcar/desmarcar como favorito:', error));
     };
 
     const closePopup = (e) => {
@@ -130,11 +99,11 @@ const Admin = () => {
                                 </tr>
                             </thead>
                             {viajes.map(d => (
-                                <tbody className="divide-y divide-gray-100 border-t border-gray-100">
+                                <tbody key={d.id} className="divide-y divide-gray-100 border-t border-gray-100">
                                     <tr className="hover:bg-gray-50">
                                         <th className="flex gap-3 px-6 py-4 font-normal text-gray-900">
                                             <div className="text-sm">
-                                                <div class="2xl:text-5xl md:text-2xl font-medium text-gray-700">
+                                                <div className="2xl:text-5xl md:text-2xl font-medium text-gray-700">
                                                     {d.destinos.map((destino, index) => (
                                                         <h2 key={index}>
                                                             {`${destino.destino}${index < d.destinos.length - 1 ? ' - ' : ''}`}
@@ -142,9 +111,9 @@ const Admin = () => {
                                                 </div>
                                             </div>
                                         </th>
-                                        <td class="px-6 py-4">
+                                        <td className="px-6 py-4">
                                             <span
-                                                class="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 2xl:text-5xl md:text-2xl font-semibold text-green-600"
+                                                className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-1 2xl:text-5xl md:text-2xl font-semibold text-green-600"
                                             >
                                                 {d.precio.toLocaleString('es-AR', {
                                                     style: 'currency',
@@ -154,27 +123,27 @@ const Admin = () => {
                                                 })}
                                             </span>
                                         </td>
-                                        <td class="px-6 py-4 2xl:text-5xl md:text-2xl">{d.destinos.map(ds => (ds.provincia + " - "))}</td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex gap-2 flex-col">
-                                                {d.destinos.map(ds => (<span
-                                                    class="2xl:text-4xl md:text-2xl inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 font-semibold text-blue-600"
+                                        <td className="px-6 py-4 2xl:text-5xl md:text-2xl">{d.destinos.map(ds => (ds.provincia + " - "))}</td>
+                                        <td className="px-6 py-4">
+                                            <div className="flex gap-2 flex-col">
+                                                {d.destinos.map((ds, index) => (<span
+                                                   key={index} className="2xl:text-4xl md:text-2xl inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 font-semibold text-blue-600"
                                                 >
                                                     {ds.hotel}
                                                 </span>))}
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4">
-                                            <div class="flex justify-end gap-4">
+                                        <td className="px-6 py-4">
+                                            <div className="flex justify-end gap-4">
                                                 <button onClick={() => handleFavorite(d.id)}>
                                                     <img className='2xl:w-16 lg:w-8 md:w-6' src={d.favorite ? "./src/img/star-regular.svg" : "./src/img/star-solid.svg"} alt="" />
                                                 </button>
                                                 <button onClick={() => handleDelete(d.id)}>
                                                     <img className='2xl:w-16 lg:w-8 md:w-6' src="./src/img/delete.svg" alt="" />
                                                 </button>
-                                                {/* <button onClick={() => handleEdit(d.id)}>
+                                                <button onClick={() => handleEdit(d.id)}>
                                                     <img className='2xl:w-16 lg:w-8 md:w-6' src="./src/img/edit.svg" alt="" />
-                                                </button> */}
+                                                </button>
                                             </div>
                                         </td>
                                     </tr>
@@ -187,7 +156,7 @@ const Admin = () => {
             {popup && (
                 <div onClick={closePopup} className='overlay'>
                     <div className=''>
-                        {edit ? <FormEdit popup={popup} onClose={onClose} viaje={viaje} setPopup={setPopup} /> : <FormViaje popup={popup} onClose={onClose} setPopup={setPopup} />}
+                        {edit ? <FormEdit popup={popup} onClose={onClose} viaje={viaje} /> : <FormViaje popup={popup} onClose={onClose} />}
                     </div>
                 </div>
             )

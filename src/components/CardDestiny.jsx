@@ -38,31 +38,28 @@ export const CardDestiny = () => {
                       ))}
                     </div>
                   )}
-                  <div className="flex flex-col">
-                    {viaje.salidas.length >= 5 ? (
-                      <p>+5 Meses</p>
-                    ) : (
-                      (() => {
-                        const groupedDates = {};
-                        viaje.salidas.forEach((fecha) => {
-                          const date = new Date(fecha);
-                          const zonedDate = utcToZonedTime(date, 'UTC');
-                          const monthYear = format(zonedDate, 'MMM', { locale: es, timeZone: 'UTC' });
+                  <div className='flex flex-col' >
+                    {(() => {
+                      const groupedDates = {};
+                      viaje.salidas.forEach((fecha) => {
+                        const date = new Date(fecha);
+                        const zonedDate = utcToZonedTime(date, 'UTC');
 
-                          if (!groupedDates[monthYear]) {
-                            groupedDates[monthYear] = [];
-                          }
+                        const monthYear = format(zonedDate, 'MMM', { locale: es, timeZone: 'UTC' });
 
-                          groupedDates[monthYear].push(format(zonedDate, 'dd', { locale: es, timeZone: 'UTC' }));
-                        });
+                        if (!groupedDates[monthYear]) {
+                          groupedDates[monthYear] = [];
+                        }
 
-                        return Object.entries(groupedDates).map(([monthYear, days]) => (
-                          <p key={monthYear}>
-                            {`${monthYear}: ${days.join(' - ')}`}
-                          </p>
-                        ));
-                      })()
-                    )}
+                        groupedDates[monthYear].push(format(zonedDate, 'dd', { locale: es, timeZone: 'UTC' }));
+                      });
+
+                      return Object.entries(groupedDates).map(([monthYear, days]) => (
+                        <h4 className="textMonth" key={monthYear}>
+                          {`${monthYear}: ${days.join(' - ')}`}
+                        </h4>
+                      ));
+                    })()}
                   </div>
                 </div>
                 <div className="flex items-center py-2">
