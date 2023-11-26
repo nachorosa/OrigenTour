@@ -8,7 +8,7 @@ export const Home = () => {
     <div>
       <CarouselComponent />
       <WelcomeMessage />
-      <CardPromotion /> 
+      <CardPromotion />
       <CardMainDestination />
     </div>
   )

@@ -17,6 +17,7 @@ const FormViaje = ({ popup, onClose, setPopup }) => {
     const [fotos, setFotos] = useState([]);
 
     const { token } = useAuth();
+    const {token} = useAuth()
 
     useEffect(() => {
         console.log(form);
