@@ -32,7 +32,6 @@ export const CardPromotion = () => {
 
     getFavorito();
 
-
     handleResize();
     window.addEventListener('resize', handleResize);
 

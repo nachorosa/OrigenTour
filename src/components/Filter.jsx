@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import "../css/filter.css"
 
-export const Filter = () => {
+export const Filter = ({destinos}) => {
   const months = [
     { label: "Enero", value: "January" },
     { label: "Febrero", value: "February" },
@@ -45,16 +45,20 @@ export const Filter = () => {
     { label: "Tucumán", value: "tucuman" }
   ]
 
-  const destinys = [
-    { label: "NuevoDestino", value: "NuevoDestino" },
-    { label: "NuevoDestino2", value: "NuevoDestino2" },
-    { label: "NuevoDestino", value: "NuevoDestino" },
-    { label: "NuevoDestino2", value: "NuevoDestino2" },
-    { label: "NuevoDestino", value: "NuevoDestino" },
-    { label: "NuevoDestino2", value: "NuevoDestino2" },
-    { label: "NuevoDestino", value: "NuevoDestino" },
-    { label: "NuevoDestino2", value: "NuevoDestino2" },
-  ]
+  // const destinys = [
+  //   { label: "NuevoDestino", value: "NuevoDestino" },
+  //   { label: "NuevoDestino2", value: "NuevoDestino2" },
+  //   { label: "NuevoDestino", value: "NuevoDestino" },
+  //   { label: "NuevoDestino2", value: "NuevoDestino2" },
+  //   { label: "NuevoDestino", value: "NuevoDestino" },
+  //   { label: "NuevoDestino2", value: "NuevoDestino2" },
+  //   { label: "NuevoDestino", value: "NuevoDestino" },
+  //   { label: "NuevoDestino2", value: "NuevoDestino2" },
+  // ]
+
+  const uniqueDestinos = [...new Set(destinos)];
+
+  const destinys = uniqueDestinos.map(d => ({label: d, value: d}))
 
   const [selectedMonth, setSelectedMonth] = useState([])
   const [selectedProvince, setSelectedProvince] = useState([])
@@ -95,8 +99,8 @@ export const Filter = () => {
         ))}
         {selectedDestinys.map((item) => (
           <div className="selectedItem" key={item.value} >
-            <span>{item.label}</span>
-            <button onClick={() => removeDestiny(item.value)}>X</button>
+            <span>{item}</span>
+            <button onClick={() => removeDestiny(item)}>X</button>
           </div>
         ))}
       </div>

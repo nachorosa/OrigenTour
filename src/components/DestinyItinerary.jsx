@@ -5,18 +5,18 @@ const DestinyItinerary = ({ collapsablesItirenario, collapsableItinerarioList, h
     <div className="colapsables-container p-8 md:p-0 mt-6 md:mb-6 md:mt-0">
       <div className="colapsable-item">
         {collapsablesItirenario.map((c, index) => (
-          <div onClick={() => handleCollapsableItinerario(c.dia)} className="mt-10" key={c.dia}>
+          <div onClick={() => handleCollapsableItinerario(index)} className="mt-10" key={c.dia}>
             <div className="colapsable-header flex items-center justify-between">
               <h2 className="p-6 capitalize">Dia {index + 1}</h2>
               <span className="p-6 collapsable-arrow">
-                {collapsableItinerarioList[c.dia] ? (
+                {collapsableItinerarioList[index] ? (
                   <img src="/src/img/arrow_forward_ios_up.svg" alt="flecha abierta" />
                 ) : (
                   <img src="/src/img/arrow_forward_ios_down.svg" alt="flecha cerrado" />
                 )}
               </span>
             </div>
-            {collapsableItinerarioList[c.dia] ? (
+            {collapsableItinerarioList[index] ? (
               <div className="colapsable-content">
                 <p className="text-2xl p-5 text-justify	">{c}</p>
               </div>

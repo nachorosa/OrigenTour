@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import "../css/footer.css"
+import Swal from 'sweetalert2';
 
-const FormViaje = ({ popup, onClose }) => {
+const FormViaje = ({ popup, onClose, setPopup }) => {
     const [form, setForm] = useState({
         destinos: [],
         dias: 0,
@@ -13,6 +14,10 @@ const FormViaje = ({ popup, onClose }) => {
         descripcion: ""
     })
     const [fotos, setFotos] = useState([]);
+
+    useEffect(() => {
+        console.log(form);
+    }, [form])
 
     const [dias, setDias] = useState(0);
     const cantDias = 15;
@@ -161,21 +166,37 @@ const FormViaje = ({ popup, onClose }) => {
         const itinerarioString = form.itinerario.map((dia) => dia.texto);
         const serviciosCopy = servicios.filter(s => s.subServicios.length > 0)
 
-        // Actualizar el estado manteniendo la estructura original del itinerario
         setForm((prevForm) => ({
             ...prevForm,
             itinerario: itinerarioString,
             servicios: serviciosCopy,
         }));
 
-        // Establecer shouldSendRequest a true para indicar que se debe enviar la solicitud
         setShouldSendRequest(true);
     };
 
     useEffect(() => {
-        // Esta lógica se ejecuta después de que el estado se ha actualizado
 
         if (shouldSendRequest) {
+
+            for (const key in form) {
+                if (form.hasOwnProperty(key)) {
+                    if (Array.isArray(form[key]) && form[key].length === 0) {
+                        Swal.fire({
+                            title: `El campo ${key} no puede estar vacío`,
+                            icon: "question",
+                            width: 500
+                        });
+                        return;
+                    } else if (!Array.isArray(form[key]) && !form[key]) {
+                        Swal.fire({
+                            title: `El campo "${key}" no puede estar vacío`,
+                            icon: "question"
+                        });
+                        return;
+                    }
+                }
+            }
 
             const formData = new FormData();
             formData.append("viaje", JSON.stringify(form))
@@ -187,11 +208,46 @@ const FormViaje = ({ popup, onClose }) => {
                 method: 'POST',
                 body: formData,
             })
-                .then(res => res.json())
-                .then(data => console.log(data));
+                .then(res => {
+                    if (res.status === 200) {
+                        Swal.fire({
+                            title: "Viaje creado con exito",
+                            icon: "success"
+                        });
+                        setPopup(false)
+                        return res.json();
+                    } else {
+                        throw new Error(`Error al crear el viaje. Código de estado: ${res.status}`);
+                    }
+                })
+                .then(data => {
+                    // Aquí puedes manejar la respuesta del servidor después de una creación exitosa
+                    console.log("Viaje creado correctamente:", data);
+                })
+                .catch(error => {
+                    // Aquí puedes manejar cualquier error que ocurra durante la solicitud
+                    console.error("Error al crear el viaje:", error.message);
+                });
+
+
         }
+
         setShouldSendRequest(false);
-    }, [form, shouldSendRequest]);
+    }, [shouldSendRequest]);
+
+
+
+
+    const handleAddDestino = () => {
+        setForm(prevForm => {
+            const newForm = {
+                ...prevForm,
+                destinos: [...prevForm.destinos, destino]
+            };
+            console.log('Updated Form:', newForm); // Add this line for debugging
+            return newForm;
+        });
+    }
 
     return (
         <div className={`p-10 bg-white ${onClose ? "popupOnClose" : "popupOnOpen"}`}>
@@ -236,6 +292,7 @@ const FormViaje = ({ popup, onClose }) => {
                                         <option>Buenos aires</option>
                                         <option>Cordoba</option>
                                         <option>Santa Fe</option>
+                                        <option>Mendoza</option>
                                     </select>
                                 </div>
                             </div>
@@ -243,10 +300,7 @@ const FormViaje = ({ popup, onClose }) => {
                         </div>
                         <div className="">
                             <button type="submit"
-                                onClick={() => setForm(prevForm => ({
-                                    ...prevForm,
-                                    destinos: [...prevForm.destinos, destino]
-                                }))}
+                                onClick={handleAddDestino}
                                 className="w-96 rounded-md bg-indigo-600 px-6 py-2 text-3xl font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
                                 Agregar
@@ -283,6 +337,7 @@ const FormViaje = ({ popup, onClose }) => {
                                     onChange={(e) => { setDias(e.target.value), handleInputs(e.target.name, e.target.value) }}
                                     className="w-40 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
                                 >
+                                    <option selected disabled>0</option>
                                     {cantidadDias.map(c => (
                                         <option key={c + 1} value={c + 1}>
                                             {c + 1}
@@ -300,6 +355,7 @@ const FormViaje = ({ popup, onClose }) => {
                                     onChange={(e) => { handleInputs(e.target.name, e.target.value) }}
                                     className=" w-40 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16"
                                 >
+                                    <option selected disabled>0</option>
                                     {cantidadNoches.map(c => (
                                         <option key={c + 1} value={c + 1}>
                                             {c + 1}

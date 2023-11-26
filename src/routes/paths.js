@@ -6,6 +6,8 @@ const paths = {
     contacto: '/contacto',
     destinoDetalle: '/destinos/detalle/:id',
     admin: '/admin',
+    login: '/login',
+    salir: '/logout'
   };
   
   export { paths };
