@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import "../css/footer.css"
 import Swal from 'sweetalert2';
+import { useAuth } from '../context/AuthProvider';
 
 const FormViaje = ({ popup, onClose, setPopup }) => {
     const [form, setForm] = useState({
@@ -14,6 +15,8 @@ const FormViaje = ({ popup, onClose, setPopup }) => {
         descripcion: ""
     })
     const [fotos, setFotos] = useState([]);
+
+    const { token } = useAuth();
 
     useEffect(() => {
         console.log(form);
@@ -207,6 +210,9 @@ const FormViaje = ({ popup, onClose, setPopup }) => {
             fetch("http://localhost:8080/api/viajes", {
                 method: 'POST',
                 body: formData,
+                headers: {
+                    "authorization": "Bearer " + token
+                }
             })
                 .then(res => {
                     if (res.status === 200) {

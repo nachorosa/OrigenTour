@@ -64,9 +64,7 @@ const Admin = () => {
                     method: "DELETE",
                     headers: {
                         "authorization": "Bearer " + token,
-                        "content-type": "application/json"
                     },
-                    credentials: "include"
                 }).then(() => getViajes())
                 Swal.fire({
                     title: "Deleted!",

@@ -142,6 +142,8 @@ export const CardPromotion = () => {
     favoritosGroups.push(favoritos.slice(i, i + 3));
   }
 
+  console.log(favoritos);
+
   return (
     <div>
       <Carousel
@@ -166,7 +168,7 @@ export const CardPromotion = () => {
                         <p>
                           {favorito.destinos.map((destino, index) => (
                             <h2 key={index}>
-                              {`${destino.provincia.nombre}${index < favorito.destinos.length - 1 ? ' - ' : ''}`}
+                              {`${destino.provincia}${index < favorito.destinos.length - 1 ? ' - ' : ''}`}
                             </h2>
                           ))}
                         </p>
@@ -174,7 +176,7 @@ export const CardPromotion = () => {
                       <h2 className="promotionTitle font-bold mt-4 my-2">
                         {favorito.destinos.map((destino, index) => (
                           <h2 key={index}>
-                            {`${destino.nombre}${index < favorito.destinos.length - 1 ? ' - ' : ''}`}
+                            {`${destino.destino}${index < favorito.destinos.length - 1 ? ' - ' : ''}`}
                           </h2>
                         ))}
                       </h2>

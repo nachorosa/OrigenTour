@@ -1,5 +1,5 @@
 import { CarouselComponent } from "../components/CarouselComponent"
-// import { CardPromotion } from "../components/CardPromotion"
+import { CardPromotion } from "../components/CardPromotion"
 import { WelcomeMessage } from "../components/WelcomeMessage"
 import { CardMainDestination } from "../components/CardMainDestination"
 
@@ -8,7 +8,7 @@ export const Home = () => {
     <div>
       <CarouselComponent />
       <WelcomeMessage />
-      {/* <CardPromotion /> */}
+      <CardPromotion /> 
       <CardMainDestination />
     </div>
   )

@@ -5,30 +5,35 @@ import { Filter } from "../components/Filter"
 export const Destiny = () => {
 
   const [destinys, setDestinys] = useState([])
+  const [viajes, setViajes] = useState([])
 
   const getDestinys = () => {
     fetch("http://localhost:8080/api/viajes/destinos", {
       method: "GET"
     }).then(res => res.json())
-    .then(data => {
-      const destinysFormat = []
-      data.forEach(destiny => {
-        destinysFormat.push(destiny.nombre)
-      });
-      setDestinys(destinysFormat)
-    })
+    .then(data => setDestinys(data))
   }
 
+  const getViajes = () => {
+		fetch("http://localhost:8080/api/viajes", {
+			method: 'GET',
+			headers: {
+				"content-type": "application/json"
+			}
+		}).then(res => res.json())
+			.then(data => setViajes(data))
+  }
 
-  useEffect(() => {
-    getDestinys()
-  }, [])
+	useEffect(() => {
+      getViajes()
+      getDestinys()
+	}, [])
 
   return (
     <div>
       <h2 className="titlePage">Nuestros Destinos</h2>
-      <Filter destinos={destinys}/>
-      <CardDestiny />
+      <Filter destinos={destinys} setViajes={setViajes}/>
+      <CardDestiny viajes={viajes}/>
     </div>
   )
 }
