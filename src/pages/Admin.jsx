@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import FormViaje from '../components/FormViaje'
 import '../css/admin.css'
 import FormEdit from '../components/FormEdit'
+import Swal from 'sweetalert2'
+import { useAuth } from '../context/AuthProvider'
 
 const Admin = () => {
 
@@ -11,6 +13,7 @@ const Admin = () => {
     const [loading, isLoading] = useState(false)
     const [viaje, setViaje] = useState({})
     const [edit, isEdit] = useState(false)
+    const {token} = useAuth()
 
     useEffect(() => {
         getViajes()
@@ -72,9 +75,9 @@ const Admin = () => {
 
     const handleFavorite = (id) => {
         fetch(`http://localhost:8080/api/viajes/favoritos/${id}`, {
-            method: 'PUT',
+            method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'authorization': "Bearer " + token
             },
         })
         .then(() => getViajes()) // Actualizar la lista de viajes después de marcar/desmarcar como favorito
