@@ -4,6 +4,7 @@ import '../css/admin.css'
 import FormEdit from '../components/FormEdit'
 import Swal from 'sweetalert2'
 import { useAuth } from '../context/AuthProvider'
+import LoadingOval from '../components/LoadingOval'
 
 const Admin = () => {
 
@@ -13,7 +14,7 @@ const Admin = () => {
     const [loading, isLoading] = useState(false)
     const [viaje, setViaje] = useState({})
     const [edit, isEdit] = useState(false)
-    const {token} = useAuth()
+    const { token } = useAuth()
 
     useEffect(() => {
         getViajes()
@@ -80,8 +81,27 @@ const Admin = () => {
                 'authorization': "Bearer " + token
             },
         })
-        .then(() => getViajes()) // Actualizar la lista de viajes después de marcar/desmarcar como favorito
-        .catch((error) => console.error('Error al marcar/desmarcar como favorito:', error));
+            .then(res => {
+                if (res.status === 200) {
+                    Swal.fire({
+                        title: "El viaje ha sido marcado como favorito con exito!",
+                        icon: "success"
+                    });
+                    const updatedViajes = viajes.map(v => {
+                        if (v.id === id) {
+                            return { ...v, esFavorito: !v.esFavorito };
+                        }
+                        return v;
+                    });
+
+                    setViajes(updatedViajes);
+                } else {
+                    Swal.fire({
+                        title: "No ha sido posible marcar el viaje como favorito",
+                        icon: "error"
+                    });
+                }
+            })
     };
 
     const closePopup = (e) => {
@@ -101,6 +121,7 @@ const Admin = () => {
 
 
     return (
+        loading ? <LoadingOval/> : 
         <div className='content-baseline'>
             <div className="container mx-auto flex flex-col my-16 shadow rounded-lg">
                 <div className="admin-header w-3/4 flex items-center justify-between mx-auto my-6">
@@ -152,7 +173,7 @@ const Admin = () => {
                                         <td className="px-6 py-4">
                                             <div className="flex gap-2 flex-col">
                                                 {d.destinos.map((ds, index) => (<span
-                                                   key={index} className="2xl:text-4xl md:text-2xl inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 font-semibold text-blue-600"
+                                                    key={index} className="2xl:text-4xl md:text-2xl inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 font-semibold text-blue-600"
                                                 >
                                                     {ds.hotel}
                                                 </span>))}
@@ -161,14 +182,14 @@ const Admin = () => {
                                         <td className="px-6 py-4">
                                             <div className="flex justify-end gap-4">
                                                 <button onClick={() => handleFavorite(d.id)}>
-                                                    <img className='2xl:w-16 lg:w-8 md:w-6' src={d.favorite ? "./src/img/star-regular.svg" : "./src/img/star-solid.svg"} alt="" />
+                                                    <img className='2xl:w-16 lg:w-8 md:w-6' src={d.esFavorito ? "./src/img/star-solid.svg" : "./src/img/star-regular.svg"} alt="" />
                                                 </button>
                                                 <button onClick={() => handleDelete(d.id)}>
                                                     <img className='2xl:w-16 lg:w-8 md:w-6' src="./src/img/delete.svg" alt="" />
                                                 </button>
-                                                <button onClick={() => handleEdit(d.id)}>
+                                                {/* <button onClick={() => handleEdit(d.id)}>
                                                     <img className='2xl:w-16 lg:w-8 md:w-6' src="./src/img/edit.svg" alt="" />
-                                                </button>
+                                                </button> */}
                                             </div>
                                         </td>
                                     </tr>
@@ -181,7 +202,7 @@ const Admin = () => {
             {popup && (
                 <div onClick={closePopup} className='overlay'>
                     <div className=''>
-                        {edit ? <FormEdit popup={popup} onClose={onClose} viaje={viaje} /> : <FormViaje popup={popup} onClose={onClose} />}
+                        {edit ? <FormEdit popup={popup} onClose={onClose} viaje={viaje} /> : <FormViaje popup={popup} onClose={onClose} setPopup={setPopup} isLoading={isLoading}/>}
                     </div>
                 </div>
             )

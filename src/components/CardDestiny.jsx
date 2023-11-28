@@ -1,14 +1,17 @@
 import { format, utcToZonedTime } from 'date-fns-tz';
 import es from 'date-fns/esm/locale/es/index';
 import "../css/cardDestiny.css"
+import LoadingOval from './LoadingOval';
 
-export const CardDestiny = ({viajes}) => {
+export const CardDestiny = ({ viajes, loading }) => {
 
   return (
     <>
       <div className="px-8 pb-8">
         <div className="flex flex-wrap justify-center gap-8">
-          {viajes.map((viaje, index) => (
+          {loading ? <div className="spinner-container">
+            <LoadingOval/>
+          </div> : viajes.map((viaje, index) => (
             <div key={index} className="relative containerCardDestiny">
               <p style={{ top: "22.5rem" }} className="absolute text-center text-white cardDetailNight ">{viaje.dias} Dias - {viaje.noches} Noches</p>
               <img className="rounded-t-lg w-full h-1/2 -z-1" src={viaje?.fotos[0] || "./src/img/aboutUs.jpg"} alt={""} />

@@ -19,6 +19,7 @@
     "primereact": "^10.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-loader-spinner": "^5.4.5",
     "react-multi-select-component": "^4.3.4",
     "react-router-dom": "^6.18.0",
     "react-tailwindcss-select": "^1.8.5",

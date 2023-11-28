@@ -115,34 +115,16 @@
 //   );
 // };
  
-import { useEffect, useState } from 'react';
 import { Carousel } from '@material-tailwind/react';
 import "../css/promotion.css";
 
-export const CardPromotion = () => {
-  const [favoritos, setFavoritos] = useState([]);
-
-  useEffect(() => {
-    // Realiza la solicitud para obtener los favoritos
-    fetch("http://localhost:8080/api/viajes/favoritos", {
-      method: "GET",
-      headers: {
-        "content-type": "application/json"
-      }
-    })
-    .then((res) => res.json())
-    .then((data) => setFavoritos(data))
-    .catch((error) => console.error("Error fetching favoritos:", error));
-  }, []); // Se ejecuta solo una vez al montar el componente
+export const CardPromotion = ({favoritos}) => {
 
   const favoritosGroups = [];
 
-  // Dividir los favoritos en grupos de tres
   for (let i = 0; i < favoritos.length; i += 3) {
     favoritosGroups.push(favoritos.slice(i, i + 3));
   }
-
-  console.log(favoritos);
 
   return (
     <div>
@@ -154,13 +136,13 @@ export const CardPromotion = () => {
         loop={true}
       >
         {favoritosGroups.map((group, index) => (
-          <div key={index} className="flex">
+          <div key={index} className="flex p-8">
             {group.map((favorito, subIndex) => (
               <div key={subIndex} className="mr-4 w-1/3 h-1/3">
                 <a className="w-full" key={favorito.id} href={`destinos/detalle/${favorito.id}`}>
                   <div className="rounded-2xl flex bg-white containerPromotion">
                     <div className="containerPromotionImg">
-                      <img className="w-full h-full object-cover rounded-l-2xl" src={favorito.imageSrc} alt="" />
+                      <img className="w-full h-full object-cover rounded-l-2xl" src={favorito.fotos[0]} alt="" />
                     </div>
                     <div className="promotionText p-4">
                       <div className="flex justify-between items-center">

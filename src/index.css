@@ -67,3 +67,41 @@ textarea{
     background-color: #f9f9f9;  
   }
 }
+
+.contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;  /* Esto asegura que ocupe el 100% del alto de la pantalla */
+  background-color: #f8f8f8; /* Color de fondo blanco palido */
+}
+
+.spinner-container {
+  background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco pálido con opacidad */
+  padding: 20px; /* Agrega un poco de espacio alrededor del spinner */
+  border-radius: 8px; /* Ajusta según sea necesario */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente para el efecto de desenfoque */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlaySpinner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 1); /* Fondo blanco semitransparente para el efecto de desenfoque */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

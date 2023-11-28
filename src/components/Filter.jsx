@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import "../css/filter.css"
 
-export const Filter = ({ destinos, setViajes }) => {
+export const Filter = ({ destinos, setViajes, setLoading }) => {
     const months = [
         { label: "Enero", value: "1" },
         { label: "Febrero", value: "2" },
@@ -65,6 +65,8 @@ export const Filter = ({ destinos, setViajes }) => {
 
     const handleFilter = () => {
 
+        setLoading(true)
+
         const fecha = selectedMonth.length > 0 ? selectedMonth.map(m => (m.value)) : null
         const provincias = selectedProvince.length > 0 ? selectedProvince.map(p => (p.value)) : null
         const destinos = selectedDestinys.length > 0 ? selectedDestinys.map(d => (d.value)) : null
@@ -95,7 +97,7 @@ export const Filter = ({ destinos, setViajes }) => {
                 "Content-Type": "application/json"
             }
         }).then(res => res.json())
-        .then(data => setViajes(data))
+        .then(data => {setViajes(data), setLoading(false)})
     }
 
     return (
@@ -128,7 +130,6 @@ export const Filter = ({ destinos, setViajes }) => {
                         <button onClick={() => removeDestiny(item.value)}>X</button>
                     </div>
                 ))}
-
             </div>
         </div>
     )

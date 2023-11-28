@@ -3,7 +3,7 @@ import "../css/footer.css"
 import Swal from 'sweetalert2';
 import { useAuth } from '../context/AuthProvider';
 
-const FormViaje = ({ popup, onClose, setPopup }) => {
+const FormViaje = ({ popup, onClose, setPopup, isLoading }) => {
     const [form, setForm] = useState({
         destinos: [],
         dias: 0,
@@ -19,8 +19,8 @@ const FormViaje = ({ popup, onClose, setPopup }) => {
     const { token } = useAuth();
 
     useEffect(() => {
-        console.log(form);
-    }, [form])
+        console.log(popup);
+    }, [])
 
     const [dias, setDias] = useState(0);
     const cantDias = 15;
@@ -181,7 +181,6 @@ const FormViaje = ({ popup, onClose, setPopup }) => {
     useEffect(() => {
 
         if (shouldSendRequest) {
-
             for (const key in form) {
                 if (form.hasOwnProperty(key)) {
                     if (Array.isArray(form[key]) && form[key].length === 0) {
@@ -190,12 +189,14 @@ const FormViaje = ({ popup, onClose, setPopup }) => {
                             icon: "question",
                             width: 500
                         });
+                        setShouldSendRequest(false)
                         return;
                     } else if (!Array.isArray(form[key]) && !form[key]) {
                         Swal.fire({
                             title: `El campo "${key}" no puede estar vacío`,
                             icon: "question"
                         });
+                        setShouldSendRequest(false)
                         return;
                     }
                 }
@@ -207,6 +208,7 @@ const FormViaje = ({ popup, onClose, setPopup }) => {
                 formData.append(`foto`, imagen);
             });
 
+            isLoading(true)        
             fetch("http://localhost:8080/api/viajes", {
                 method: 'POST',
                 body: formData,
@@ -215,33 +217,23 @@ const FormViaje = ({ popup, onClose, setPopup }) => {
                 }
             })
                 .then(res => {
+                    
+                    isLoading(false)
                     if (res.status === 200) {
                         Swal.fire({
                             title: "Viaje creado con exito",
                             icon: "success"
-                        });
-                        setPopup(false)
+                        })
                         return res.json();
                     } else {
                         throw new Error(`Error al crear el viaje. Código de estado: ${res.status}`);
                     }
                 })
-                .then(data => {
-                    // Aquí puedes manejar la respuesta del servidor después de una creación exitosa
-                    console.log("Viaje creado correctamente:", data);
-                })
-                .catch(error => {
-                    // Aquí puedes manejar cualquier error que ocurra durante la solicitud
-                    console.error("Error al crear el viaje:", error.message);
-                });
-
-
+                setPopup(false)
         }
 
         setShouldSendRequest(false);
     }, [shouldSendRequest]);
-
-
 
 
     const handleAddDestino = () => {
@@ -250,7 +242,6 @@ const FormViaje = ({ popup, onClose, setPopup }) => {
                 ...prevForm,
                 destinos: [...prevForm.destinos, destino]
             };
-            console.log('Updated Form:', newForm); // Add this line for debugging
             return newForm;
         });
     }
