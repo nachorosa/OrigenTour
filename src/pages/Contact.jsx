@@ -27,7 +27,7 @@ const Contact = () => {
 
     return (
         <>
-            <div className='contact-container flex mb-16 p-10'>
+            <div className='contact-container flex mb-16 p-10 md:h-screen'>
                 <div className='w-full lg:w-1/2'>
                     <div className='contact-title w-full lg:px-10'>
                         <h2 className="titlePage">Contactanos!</h2>

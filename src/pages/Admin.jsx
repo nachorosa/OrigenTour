@@ -34,17 +34,17 @@ const Admin = () => {
         setPopup(!popup)
     }
 
-    const handleEdit = id => {
-        isEdit(true)
-        fetch("http://localhost:8080/api/viajes/ " + id, {
-            method: "GET",
-            headers: {
-                "content-type": "application/json"
-            }
-        }).then(res => res.json())
-            .then(data => setViaje(data))
-            .then(() => togglePopup())
-    }
+    // const handleEdit = id => {
+    //     isEdit(true)
+    //     fetch("http://localhost:8080/api/viajes/ " + id, {
+    //         method: "GET",
+    //         headers: {
+    //             "content-type": "application/json"
+    //         }
+    //     }).then(res => res.json())
+    //         .then(data => setViaje(data))
+    //         .then(() => togglePopup())
+    // }
 
     const handleDelete = id => {
 
@@ -122,7 +122,7 @@ const Admin = () => {
 
     return (
         loading ? <LoadingOval/> : 
-        <div className='content-baseline'>
+        <div className='content-baseline md:h-screen '>
             <div className="container mx-auto flex flex-col my-16 shadow rounded-lg">
                 <div className="admin-header w-3/4 flex items-center justify-between mx-auto my-6">
                     <div className="admin-header-title">
