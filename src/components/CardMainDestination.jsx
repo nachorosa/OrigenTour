@@ -70,7 +70,7 @@ export const CardMainDestination = () => {
       <div className="mt-6 grid gap-6 containerCardDestination">
         {destinations.map((destiny) => (
           <div key={destiny.id} className="relative">
-            <a href={`/destinos`}>
+            <Link to={`/destinos`}>
               <div className="w-full overflow-hidden cardDestination hover:opacity-75">
                 <img className="w-full h-full object-cover object-center" src={destiny.imageSrc} alt={destiny.imageAlt} />
                 <p className="absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal cardDestinationPlace">{destiny.lugar}</p>

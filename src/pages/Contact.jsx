@@ -43,7 +43,7 @@ const Contact = () => {
                                         <span className='text-2xl' >origen.viajes</span>
                                     </div>
                                     <div className='flex items-center gap-4'>
-                                        <img src="./src/img/whatsapp.svg" alt="" />
+                                        <img src="../img/Whatsapp.svg" alt="" />
                                         <span className='text-2xl'>11 2880 - 8745</span>
                                     </div>
                                     <div className='flex items-center gap-4'>

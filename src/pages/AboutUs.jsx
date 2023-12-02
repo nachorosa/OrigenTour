@@ -30,7 +30,7 @@ export const AboutUs = () => {
                     <h2 className='font-semibold tracking-normal text-left lineHeight2-8rem fontsize2rem'>Te esperamos en nuestras oficinas</h2>
                     <h3 className='tracking-normal text-left font-normal py-4 height-2rem fontsize1-6rem'>Las visitas son únicamente con cita previa.</h3>
                     <div className="flex items-center py-4 gap-6">
-                        <img className='w-12' src="./src/img/whatsapp.svg" alt="" />
+                        <img className='w-12' src="../img/Whatsapp.svg" alt="" />
                         <span className='text-left tracking-normal leading-2-4rem font-normal fontsize1-4rem' >11 2880 - 8745</span>
                     </div>
                     <div className="flex items-center py-4 gap-6">

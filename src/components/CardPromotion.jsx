@@ -30,7 +30,7 @@ export const CardPromotion = ({favoritos}) => {
  
   return (
     <div>
-      <h2 className="font-semibold tracking-normal px-8 titlePromotion">Principales Destinos</h2>     
+      <h2 className="font-semibold tracking-normal px-8 titlePromotion">Promociones</h2>     
       <Carousel
         className="rounded-xl"
         transition={{ duration: 2 }}
