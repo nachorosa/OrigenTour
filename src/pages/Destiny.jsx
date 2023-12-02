@@ -35,7 +35,7 @@ export const Destiny = () => {
     }, [])
 
     return (
-        <div>
+        <div className="md:h-screen">
             <h2 className="titlePage">Nuestros Destinos</h2>
             <Filter setLoading={setLoading} destinos={destinys} setViajes={setViajes} />
             <CardDestiny loading={loading} viajes={viajes} />

@@ -17,10 +17,9 @@ export const Filter = ({ destinos, setViajes, setLoading }) => {
         { label: "Noviembre", value: "11" },
         { label: "Diciembre", value: "12" }
     ]
-
+    
     const provinces = [
         { label: "Buenos Aires", value: "buenos aires" },
-        { label: "CABA (Ciudad Autónoma de Buenos Aires)", value: "caba" },
         { label: "Catamarca", value: "catamarca" },
         { label: "Chaco", value: "chaco" },
         { label: "Chubut", value: "chubut" },
@@ -44,12 +43,14 @@ export const Filter = ({ destinos, setViajes, setLoading }) => {
         { label: "Tierra del Fuego", value: "tierra del fuego" },
         { label: "Tucumán", value: "tucuman" }
     ]
-
+    
     const destinys = destinos.map(d => ({ label: d, value: d }))
-
+    
     const [selectedMonth, setSelectedMonth] = useState([])
     const [selectedProvince, setSelectedProvince] = useState([])
     const [selectedDestinys, setSelectedDestiny] = useState([])
+    
+    const filtersApplied = selectedMonth.length > 0 || selectedProvince.length > 0 || selectedDestinys.length > 0;
 
     const removeMonth = (value) => {
         setSelectedMonth(selectedMonth.filter((item) => item.value !== value))
@@ -62,15 +63,32 @@ export const Filter = ({ destinos, setViajes, setLoading }) => {
     const removeDestiny = (value) => {
         setSelectedDestiny(selectedDestinys.filter((item) => item.value !== value))
     }
+    
+    const handleClean = () => {
+
+        setSelectedMonth([]);
+        setSelectedProvince([]);
+        setSelectedDestiny([]);
+
+        let url = 'http://localhost:8080/api/viajes';
+
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(res => res.json())
+        .then(data => setViajes(data))
+    }
 
     const handleFilter = () => {
 
-        setLoading(true)
+    setLoading(true)
 
         const fecha = selectedMonth.length > 0 ? selectedMonth.map(m => (m.value)) : null
         const provincias = selectedProvince.length > 0 ? selectedProvince.map(p => (p.value)) : null
         const destinos = selectedDestinys.length > 0 ? selectedDestinys.map(d => (d.value)) : null
-
+     
         console.log(fecha, provincias, destinos);
 
         let url = ''
@@ -89,6 +107,8 @@ export const Filter = ({ destinos, setViajes, setLoading }) => {
             url = `http://localhost:8080/api/viajes/filtrar?fecha=${encodeURIComponent(fecha.join(','))}`
         } else if (provincias != null) {
             url = `http://localhost:8080/api/viajes/filtrar?provincia=${encodeURIComponent(provincias.join(','))}`
+        } else {
+            return
         }
 
         fetch(url, {
@@ -107,9 +127,16 @@ export const Filter = ({ destinos, setViajes, setLoading }) => {
                 <MultiSelect options={months} value={selectedMonth} onChange={setSelectedMonth} valueRenderer={() => "Meses"} />
                 <MultiSelect options={provinces} value={selectedProvince} onChange={setSelectedProvince} valueRenderer={() => "Provincias"} />
                 <MultiSelect options={destinys} value={selectedDestinys} onChange={setSelectedDestiny} valueRenderer={() => "Destinos"} />
+            </div>
+            <div className="flex gap-5 pt-4">
                 <div className="button-filter">
                     <button className="bg-orange-500 py-4 px-10 text-white rounded-xl text-xl font-bold" onClick={handleFilter}>Buscar</button>
                 </div>
+                {filtersApplied && (
+                    <div className="button-filter">
+                        <button className="bg-orange-500 py-4 px-10 text-white rounded-xl text-xl font-bold" onClick={handleClean}>Limpiar</button>
+                    </div>
+                )}
             </div>
             <div className="font-semibold flex flex-wrap gap-4 py-4">
                 {selectedMonth.map((item) => (

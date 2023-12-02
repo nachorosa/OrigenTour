@@ -35,17 +35,17 @@ const Admin = () => {
         setPopup(!popup)
     }
 
-    const handleEdit = id => {
-        isEdit(true)
-        fetch("http://localhost:8080/api/viajes/ " + id, {
-            method: "GET",
-            headers: {
-                "content-type": "application/json"
-            }
-        }).then(res => res.json())
-            .then(data => setViaje(data))
-            .then(() => togglePopup())
-    }
+    // const handleEdit = id => {
+    //     isEdit(true)
+    //     fetch("http://localhost:8080/api/viajes/ " + id, {
+    //         method: "GET",
+    //         headers: {
+    //             "content-type": "application/json"
+    //         }
+    //     }).then(res => res.json())
+    //         .then(data => setViaje(data))
+    //         .then(() => togglePopup())
+    // }
 
     const handleDelete = id => {
 
@@ -126,16 +126,12 @@ const Admin = () => {
 
 
     return (
-        loading ? <LoadingOval /> :
-            <div className='content-baseline'>
-                <div className="container mx-auto flex flex-col my-16 shadow rounded-lg">
-                    <div className="admin-header w-3/4 flex items-center justify-between mx-auto my-6">
-                        <div className="admin-header-title">
-                            <h1>Viajes</h1>
-                        </div>
-                        <div>
-                            <button onClick={() => togglePopup()} className='text-2xl bg-indigo-600 text-white py-2 px-4 rounded-lg'>Crear viaje</button>
-                        </div>
+        loading ? <LoadingOval/> : 
+        <div className='content-baseline md:h-screen '>
+            <div className="container mx-auto flex flex-col my-16 shadow rounded-lg">
+                <div className="admin-header w-3/4 flex items-center justify-between mx-auto my-6">
+                    <div className="admin-header-title">
+                        <h1>Viajes</h1>
                     </div>
                     <div className="admin-dashboard w-full flex items-center justify-center">
                         <div className="rounded-lg border border-gray-200 shadow-md m-5 w-full">
@@ -212,6 +208,7 @@ const Admin = () => {
                     </div>
                 )
                 }
+            </div>
             </div>
     )
 }

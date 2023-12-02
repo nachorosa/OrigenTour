@@ -5,7 +5,7 @@ import "../css/aboutUs.css"
 export const AboutUs = () => {
 
     return (
-        <div className="block w-full">
+        <div className="block w-full md:h-screen">
             <div className="w-full flex flex-col md:flex-row-reverse md-minHeight65rem">
                 <img className='w-full maxHeight39rem md-w-45 md:p-8' src="./src/img/aboutUs.jpg" alt="" />
                 <div className='md-w-55'>
