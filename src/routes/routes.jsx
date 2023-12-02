@@ -1,7 +1,6 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { lazy } from 'react';
 import { paths } from './paths';
-import Login from '../pages/Login';
 import { useAuth } from '../context/AuthProvider';
 import ProtectedRoutes from './ProtectedRoutes';
 
@@ -13,6 +12,7 @@ const AboutUs = lazy(() => import('../pages/AboutUs'))
 const Contact = lazy(() => import('../pages/Contact'))
 const DestinyDetail = lazy(() => import('../pages/DestinyDetail'))
 const Admin = lazy(() => import('../pages/Admin'))
+const Login = lazy(() => import('../pages/Login'))
 
 const AppRoutes = () => {
     const location = useLocation()
@@ -43,7 +43,6 @@ const AppRoutes = () => {
                     <Route path={paths.login} element={<Login />} />
                 </Routes>
             }
-
         </>
     )
 }

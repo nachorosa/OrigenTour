@@ -6,43 +6,43 @@ const destinations = [
     id: 1,
     provincia: 'Buenos Aires',
     lugar: "Mar del plata",
-    href: '../pages/Destiny.jsx',
-    imageSrc: '/src/img/cardMainDestiny/mardelplata.jpg',
+    href: '',
+    imageSrc: '/destinos',
     imageAlt: "Mar del plata",
   },
   {
     id: 2,
     provincia: 'Buenos Aires',
     lugar: "Villa gesell",
-    href: '../pages/Destiny.jsx',
+    href: '/destinos',
     imageSrc: '/src/img/cardMainDestiny/villagessel.jpg',
     imageAlt: "Villa gesell",
   }, {
     id: 3,
     provincia: 'Cordoba',
     lugar: "Carlos paz",
-    href: '../pages/Destiny.jsx',
+    href: '/destinos',
     imageSrc: '/src/img/cardMainDestiny/carlospaz.jpg',
     imageAlt: "Carlos paz",
   }, {
     id: 4,
     provincia: 'Neuquen',
     lugar: "Caviahue",
-    href: '../pages/Destiny.jsx',
+    href: '/destinos',
     imageSrc: '/src/img/cardMainDestiny/caviahue.jpg',
     imageAlt: "Caviahue",
   }, {
     id: 5,
     provincia: 'Salta',
     lugar: "Salta",
-    href: '../pages/Destiny.jsx',
+    href: '/destinos',
     imageSrc: '/src/img/cardMainDestiny/salta.jpg',
     imageAlt: "salta",
   }, {
     id: 6,
     provincia: 'Buenos Aires',
     lugar: "Pinamar",
-    href: '../pages/Destiny.jsx',
+    href: '/destinos',
     imageSrc: '/src/img/cardMainDestiny/pinamar.jpg',
     imageAlt: "pinamar",
   },
@@ -50,7 +50,7 @@ const destinations = [
     id: 7,
     provincia: 'Buenos Aires',
     lugar: "San bernardo",
-    href: '../pages/Destiny.jsx',
+    href: '/destinos',
     imageSrc: '/src/img/cardMainDestiny/sanbernardo.jpg',
     imageAlt: "sanbernardo",
   },
@@ -58,7 +58,7 @@ const destinations = [
     id: 8,
     provincia: 'Mendoza',
     lugar: "Mendoza",
-    href: '../pages/Destiny.jsx',
+    href: '/destinos',
     imageSrc: '/src/img/cardMainDestiny/mendoza.jpg',
     imageAlt: "mendoza",
   },
@@ -71,13 +71,13 @@ export const CardMainDestination = () => {
       <div className="mt-6 grid gap-6 containerCardDestination">
         {destinations.map((destiny) => (
           <div key={destiny.id} className="relative">
-            <Link to={`/destinos`}>
+            <a href={destiny.href}>
               <div className="w-full overflow-hidden cardDestination hover:opacity-75">
                 <img className="w-full h-full object-cover object-center" src={destiny.imageSrc} alt={destiny.imageAlt} />
                 <p className="absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal cardDestinationPlace">{destiny.lugar}</p>
                 <p className="absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal cardDestinationPlace cardDestinationProvince">{destiny.provincia}</p>
               </div>
-            </Link>
+            </a>
           </div>
         ))}
       </div>
