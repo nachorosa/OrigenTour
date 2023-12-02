@@ -1,133 +1,36 @@
-// import { useEffect, useState } from "react";
-// import "../css/promotion.css";
-
-// export const CardPromotion = () => {
-//   const [favorito, setFavorito] = useState([]);
-//   const [promotionsPerPage, setPromotionsPerPage] = useState(3);
-//   const [currentPage, setCurrentPage] = useState(1);
-
-//   const getFavorito = () => {
-//     fetch("http://localhost:8080/api/viajes/favoritos", {
-//       method: "GET",
-//       headers: {
-//         "content-type": "application/json"
-//       }
-//     })
-//       .then((res) => res.json())
-//       .then((data) => setFavorito(data))
-//       .catch((error) => console.error("Error fetching favoritos:", error));
-//   };
-
-//   useEffect(() => {
-//     const handleResize = () => {
-//       if (window.innerWidth <= 1023) {
-//         setPromotionsPerPage(1);
-//       } else {
-//         setPromotionsPerPage(3);
-//         setCurrentPage(1);
-//       }
-//     };
-
-//     getFavorito();
-
-//     handleResize();
-//     window.addEventListener('resize', handleResize);
-
-//     return () => {
-//       window.removeEventListener('resize', handleResize);
-//     };
-//   }, []);
-
-//   const handleNextPage = () => {
-//     setCurrentPage((prevPage) => (prevPage === totalPages ? 1 : prevPage + 1));
-//   };
-
-//   const handlePrevPage = () => {
-//     setCurrentPage((prevPage) => (prevPage === 1 ? totalPages : prevPage - 1));
-//   };
-
-//   const startIdx = (currentPage - 1) * promotionsPerPage;
-//   const endIdx = startIdx + promotionsPerPage;
-//   const currentPromotions = favorito.slice(startIdx, endIdx);
-
-//   const totalPages = Math.ceil(favorito.length / promotionsPerPage);
-
-//   return (
-//     <div>
-//       <h2 className="font-semibold tracking-normal px-8 titlePromotion">Principales Destinos</h2>
-//       <div className="flex justify-center">
-//         {totalPages > 1 && (
-//           <div className="flex">
-//             <button className="p-6 bg-white" onClick={handlePrevPage}><img src="/src/img/arrow_back_ios_new.svg" alt="flecha atras" /></button>
-//           </div>
-//         )}
-//         <div className="flex w-full justify-center gap-8">
-//           {favorito.length > 0 ? (
-//             currentPromotions.map((destinyPromotion) => (
-//               <a className="w-full" key={destinyPromotion.id} href={`destinos/detalle/${destinyPromotion.id}`}>
-//                 <div className="rounded-2xl flex bg-white containerPromotion">
-//                   <div className="containerPromotionImg">
-//                     <img className="w-full h-full object-cover rounded-l-2xl" src='/src/img/cordoba.svg' alt="" />
-//                   </div>
-//                   <div className="promotionText p-4">
-//                     <div className="flex justify-between items-center">
-//                       <p>
-//                         {destinyPromotion.destinos.map((destino, index) => (
-//                           <h2 key={index}>
-//                             {`${destino.provincia.nombre}${index < destinyPromotion.destinos.length - 1 ? ' - ' : ''}`}
-//                           </h2>
-//                         ))}
-//                       </p>
-//                     </div>
-//                     <h2 className="promotionTitle font-bold mt-4 my-2">
-//                       {destinyPromotion.destinos.map((destino, index) => (
-//                         <h2 key={index}>
-//                           {`${destino.nombre}${index < destinyPromotion.destinos.length - 1 ? ' - ' : ''}`}
-//                         </h2>
-//                       ))}
-//                     </h2>
-//                     <div className="flex flex-col justify-between	 promotionInfo">
-//                       <h3 className="font-bold tracking-normal" >
-//                         {destinyPromotion.precio.toLocaleString('es-AR', {
-//                           style: 'currency',
-//                           currency: 'ARS',
-//                           minimumFractionDigits: 0,
-//                           maximumFractionDigits: 0,
-//                         })}
-//                       </h3>
-//                       <h4 className="font-thin tracking-normal">{destinyPromotion.salidas[0]}</h4>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </a>
-//             ))
-//           ) : (
-//             <p>Cargando favoritos...</p>
-//           )}
-//         </div>
-//         {totalPages > 1 && (
-//           <div className="flex">
-//             <button className="p-6 bg-white" onClick={handleNextPage}><img src="/src/img/arrow_forward_ios.svg" alt="flecha adelante" /></button>
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
- 
-import { Carousel } from '@material-tailwind/react';
-import "../css/promotion.css";
+import { Carousel } from '@material-tailwind/react'
+import "../css/promotion.css"
+import { utcToZonedTime } from 'date-fns-tz'
+import { format } from 'date-fns'
+import { es } from 'date-fns/locale'
+import { useEffect, useState } from 'react';
 
 export const CardPromotion = ({favoritos}) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+     handleResize();
+
+     window.addEventListener('resize', handleResize);
+
+     return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const favoritosGroups = [];
 
-  for (let i = 0; i < favoritos.length; i += 3) {
-    favoritosGroups.push(favoritos.slice(i, i + 3));
+  for (let i = 0; i < favoritos.length; i += isMobile ? 1 : 3) {
+    favoritosGroups.push(favoritos.slice(i, i + (isMobile ? 1 : 3)));
   }
-
+ 
   return (
     <div>
+      <h2 className="font-semibold tracking-normal px-8 titlePromotion">Principales Destinos</h2>     
       <Carousel
         className="rounded-xl"
         transition={{ duration: 2 }}
@@ -138,7 +41,7 @@ export const CardPromotion = ({favoritos}) => {
         {favoritosGroups.map((group, index) => (
           <div key={index} className="flex p-8">
             {group.map((favorito, subIndex) => (
-              <div key={subIndex} className="mr-4 w-1/3 h-1/3">
+              <div key={subIndex} className={`mr-4 ${isMobile ? 'w-full h-full' : 'w-1/3 h-1/3'}`}>
                 <a className="w-full" key={favorito.id} href={`destinos/detalle/${favorito.id}`}>
                   <div className="rounded-2xl flex bg-white containerPromotion">
                     <div className="containerPromotionImg">
@@ -146,15 +49,19 @@ export const CardPromotion = ({favoritos}) => {
                     </div>
                     <div className="promotionText p-4">
                       <div className="flex justify-between items-center">
-                        <p>
-                          {favorito.destinos.map((destino, index) => (
-                            <h2 key={index}>
-                              {`${destino.provincia}${index < favorito.destinos.length - 1 ? ' - ' : ''}`}
-                            </h2>
-                          ))}
+                        <p className='flex flex-wrap h-2'>
+                        {
+                          favorito.destinos.map((destino, index) => (
+                            index === 0 || destino.provincia !== favorito.destinos[index - 1].provincia ? (
+                              <h2 key={index}>
+                                {`${destino.provincia}${index < favorito.destinos.length - 1 ? ' - ' : ''}`}
+                              </h2>
+                            ) : null
+                          ))
+                        }
                         </p>
                       </div>
-                      <h2 className="promotionTitle font-bold mt-4 my-2">
+                      <h2 className="promotionTitle font-bold mt-4 my-2 flex flex-wrap h-2">
                         {favorito.destinos.map((destino, index) => (
                           <h2 key={index}>
                             {`${destino.destino}${index < favorito.destinos.length - 1 ? ' - ' : ''}`}
@@ -170,7 +77,31 @@ export const CardPromotion = ({favoritos}) => {
                             maximumFractionDigits: 0,
                           })}
                         </h3>
-                        <h4 className="font-thin tracking-normal">{favorito.salidas[0]}</h4>
+                        {(() => {
+                          const groupedDates = {};
+                          favorito.salidas.forEach((fecha) => {
+                            const date = new Date(fecha)
+                            const zonedDate = utcToZonedTime(date, 'UTC')
+                            const monthYear = format(zonedDate, 'MMM', { locale: es, timeZone: 'UTC' })
+
+                            if (!groupedDates[monthYear]) {
+                              groupedDates[monthYear] = []
+                            }
+                          })
+
+                          const months = Object.keys(groupedDates);
+
+                          return (
+                            <div className='flex flex-wrap'>
+                              {months.map((month, index) => (
+                                <h4 className="textMonth flex flex-wrap" key={month}>
+                                  <h4 key={month} className="textMonth">{` ${month} `}</h4>
+                                  {index < months.length - 1 && ', '}
+                                </h4>
+                              ))}
+                            </div>
+                          );
+                        })()}
                       </div>
                     </div>
                   </div>
@@ -181,5 +112,5 @@ export const CardPromotion = ({favoritos}) => {
         ))}
       </Carousel>
     </div>
-  );
-};
+  )
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 const Login = () => {
 
@@ -30,7 +30,7 @@ const Login = () => {
 
 
     return (
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 h-full md:h-screen">
+        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 h-full md:min-h-screen">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img
                     className="mx-auto h-10 w-auto"

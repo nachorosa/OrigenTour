@@ -36,7 +36,7 @@ const Admin = () => {
 
     // const handleEdit = id => {
     //     isEdit(true)
-    //     fetch("http://localhost:8080/api/viajes/ " + id, {
+    //     fetch("https://origen-tour.fly.dev/api/viajes/ " + id, {
     //         method: "GET",
     //         headers: {
     //             "content-type": "application/json"
@@ -122,7 +122,7 @@ const Admin = () => {
 
     return (
         loading ? <LoadingOval/> : 
-        <div className='content-baseline md:h-screen '>
+        <div className='content-baseline md:min-h-screen'>
             <div className="container mx-auto flex flex-col my-16 shadow rounded-lg">
                 <div className="admin-header w-3/4 flex items-center justify-between mx-auto my-6">
                     <div className="admin-header-title">
@@ -201,7 +201,7 @@ const Admin = () => {
             </div>
             {popup && (
                 <div onClick={closePopup} className='overlay'>
-                    <div className=''>
+                    <div className='bg-red-500'>
                         {edit ? <FormEdit popup={popup} onClose={onClose} viaje={viaje} /> : <FormViaje popup={popup} onClose={onClose} setPopup={setPopup} isLoading={isLoading}/>}
                     </div>
                 </div>

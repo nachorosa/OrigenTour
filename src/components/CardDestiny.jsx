@@ -23,7 +23,7 @@ export const CardDestiny = ({ viajes, loading }) => {
                     <div className="flex flex-wrap h-2">
                       {viaje.destinos.map((destino, index) => (
                         <h2 key={index}>
-                          {`${destino.destino}${index < viaje.destinos.length - 1 ? ' - ' : ''}`}
+                          {`${destino.destino}${index < viaje.destinos.length - 1 ? ' - ' : ' '}`}
                         </h2>
                       ))}
                     </div>
@@ -55,7 +55,7 @@ export const CardDestiny = ({ viajes, loading }) => {
                 <div className="flex items-center py-2">
                   <img className="iconHotel" src="/src/img/bed.svg" alt="" />
                   {viaje.destinos.length > 1 ? (
-                    <p className="cardDestinyHotelText p-2" >Este paquete contiene mas de 1 hotel</p>
+                    <p className="cardDestinyHotelText p-2" >Este paquete contiene más de 1 hotel</p>
                   ) : (
                     viaje.destinos.map((destino, index) => (
                       <p key={index} className="cardDestinyHotelText p-2">

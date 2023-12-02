@@ -87,13 +87,14 @@
 }
 
 .containerBooking {
-    width: 100%;
+    width: 50%;
     padding: 2rem 0px;
     border-radius: 32px;
     color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .bookingTitle {
@@ -151,6 +152,16 @@
     list-style: disc;
 }
 
+.reserve-button{
+    color: #fff;
+    font-size: 1.6rem ;
+    line-height: 2rem ;
+    font-weight: bold ;
+    background-color: #FF821C ;
+    padding: 1rem 2.4rem ;
+    border-radius: 1.6rem ;
+}
+
 @media (min-width: 768px) {
 
     .destiny-title h1 {
@@ -204,9 +215,6 @@
     }
 
     .containerCarrousel {
-        height: 350px;
-        width: 45%;
-        padding: 2rem;
         max-width: 43rem;
     }
 
