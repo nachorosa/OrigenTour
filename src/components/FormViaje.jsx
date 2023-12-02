@@ -3,7 +3,7 @@ import "../css/footer.css"
 import Swal from 'sweetalert2';
 import { useAuth } from '../context/AuthProvider';
 
-const FormViaje = ({ popup, onClose, setPopup, isLoading }) => {
+const FormViaje = ({ popup, onClose, setPopup, isLoading, csrfToken }) => {
     const [form, setForm] = useState({
         destinos: [],
         dias: 0,
@@ -213,8 +213,10 @@ const FormViaje = ({ popup, onClose, setPopup, isLoading }) => {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    "authorization": "Bearer " + token
-                }
+                    "authorization": "Bearer " + token,
+                    "X-XSRF-TOKEN": csrfToken,
+                },
+                credentials: "include"
             })
                 .then(res => {
                     
