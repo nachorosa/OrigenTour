@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "../css/mainDestination.css"
 
 const destinations = [
@@ -76,7 +77,7 @@ export const CardMainDestination = () => {
                 <p className="absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal cardDestinationPlace">{destiny.lugar}</p>
                 <p className="absolute left-0 w-full p-2 text-white z-10 font-semibold tracking-normal cardDestinationPlace cardDestinationProvince">{destiny.provincia}</p>
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>
