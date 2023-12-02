@@ -5,61 +5,15 @@ import "../css/experience.css"
 const destinations = [
     {
         id: 1,
-        lugar: 'Misisones',
-        fecha: "21 de Septiembre 2023",
+        lugar: 'Salta',
+        fecha: '21 de Septiembre 2023',
         href: '#',
-        imageSrc: '/src/img/cataratas.jpg',
-        imageAlt: "cataratas",
-        imgs: ["https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm"]
-    },
-    {
-        id: 2,
-        lugar: 'Misisones',
-        fecha: "21 de Septiembre 2023",
-        href: '#',
-        imageSrc: '/src/img/cataratas.jpg',
-        imageAlt: "cataratas",
-        imgs: []
-    },
-    {
-        id: 3,
-        lugar: 'Misisones',
-        fecha: "21 de Septiembre 2023",
-        href: '#',
-        imageSrc: '/src/img/cataratas.jpg',
-        imageAlt: "cataratas",
-        imgs: []
-    },
+        imageSrc: '/src/img/experience/salta210923/salta.jpg',
+        imageAlt: 'salta',
+        folder: '/src/img/experience/salta210923/',
+        imageRange: { start: 1, end: 119 },
+      },
 
-    {
-        id: 4,
-        lugar: 'Misisones',
-        fecha: "21 de Septiembre 2023",
-        href: '#',
-        imageSrc: '/src/img/cataratas.jpg',
-        imageAlt: "cataratas",
-        imgs: []
-    },
-
-    {
-        id: 5,
-        lugar: 'Misisones',
-        fecha: "21 de Septiembre 2023",
-        href: '#',
-        imageSrc: '/src/img/cataratas.jpg',
-        imageAlt: "cataratas",
-        imgs: []
-    },
-
-    {
-        id: 6,
-        lugar: 'Misisones',
-        fecha: "22 de Septiembre 2023",
-        href: '#',
-        imageSrc: '/src/img/cataratas.jpg',
-        imageAlt: "cataratas",
-        imgs: []
-    },
     // More experience...
 ]
 
@@ -82,10 +36,23 @@ export const CardExperience = () => {
         }
     };
 
-    const imgs = [
-        "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm",
-        "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm",
-    ]
+    const getImagePaths = (folder, range) => {
+        const imagePaths = [];
+      
+        for (let i = range.start; i <= range.end; i++) {
+          const imagePath = `${folder}salta2109 (${i}).jpg`;
+          imagePaths.push(imagePath);
+        }
+      
+        // img/experience/salta210923/salta2109 (1).jpg
+
+        return imagePaths;
+      };
+
+    // const imgs = [
+        // "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm"
+        // "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm", "https://lh3.googleusercontent.com/pw/ADCreHfDIAg4rYFapNNrVJaICvNdtQrb10MPHznwn7-FIMzKIFhrWb6SqGGZLsf44ZqcKKg6zJSNCCIdHn0VZf3Slh72kwYoxxnQVuDIcD8oKqyamGZIXzCSqg3W-W8wmaMr5rflW8lipcQTW30dGIzoRIa3=w722-h963-s-no-gm",
+    // ]
 
     return (
         <div>
@@ -102,7 +69,7 @@ export const CardExperience = () => {
                 ))}
             </div>
             {contenedorVisible && (
-                <Dropdown contenedorVisible={contenedorVisible} toggleContenedor={toggleContenedor} imgs={imgs} onCloseAnimation={onCloseAnimation}></Dropdown>
+                <Dropdown contenedorVisible={contenedorVisible} toggleContenedor={toggleContenedor} imgs={getImagePaths(viaje.folder, viaje.imageRange)}  onCloseAnimation={onCloseAnimation}></Dropdown>
             )}
         </div>
     )

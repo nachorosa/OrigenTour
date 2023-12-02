@@ -193,7 +193,7 @@ const FormEdit = ({ popup, onClose, viaje }) => {
     }, [form, shouldSendRequest]);
 
     const handleEdit = () => {
-        fetch("http://localhost:8080/api/viajes/" + viaje.id, {
+        fetch("https://api.origentourandtravel.tur.ar/api/viajes/" + viaje.id, {
             method: "PUT",
             body: JSON.stringify(form),
             headers: {

@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
 
     const validateToken = () => {
         if (token != null) {
-            fetch("http://localhost:8080/api/auth/validate", {
+            fetch("https://api.origentourandtravel.tur.ar/api/auth/validate", {
                 method: "POST",
                 headers: {
                     "authorization": "Bearer " + token

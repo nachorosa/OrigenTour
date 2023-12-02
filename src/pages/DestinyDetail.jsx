@@ -25,7 +25,7 @@ export const DestinyDetail = () => {
 
     
     const getViaje = () => {
-        fetch("http://localhost:8080/api/viajes/" + id, {
+        fetch("https://api.origentourandtravel.tur.ar/api/viajes/" + id, {
           method: "GET",
           headers: {
             "content-type": "application/json"

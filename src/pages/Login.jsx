@@ -15,7 +15,7 @@ const Login = () => {
 
         e.preventDefault();
 
-        fetch("http://localhost:8080/api/auth/login", {
+        fetch("https://api.origentourandtravel.tur.ar/api/auth/login", {
             method: "POST",
             body: JSON.stringify(user),
             headers: {

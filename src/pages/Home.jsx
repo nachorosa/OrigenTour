@@ -10,7 +10,7 @@ export const Home = () => {
   const [favoritos, setFavoritos] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/viajes/favoritos", {
+    fetch("https://api.origentourandtravel.tur.ar/api/viajes/favoritos", {
       method: "GET",
       headers: {
         "content-type": "application/json"

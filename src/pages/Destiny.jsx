@@ -9,7 +9,7 @@ export const Destiny = () => {
     const [loading, setLoading] = useState(false);
 
     const getDestinys = () => {
-        fetch("http://localhost:8080/api/viajes/destinos", {
+        fetch("https://api.origentourandtravel.tur.ar/api/viajes/destinos", {
             method: "GET"
         }).then(res => res.json())
             .then(data => setDestinys(data))
@@ -17,7 +17,7 @@ export const Destiny = () => {
 
     const getViajes = () => {
         setLoading(true)
-        fetch("http://localhost:8080/api/viajes", {
+        fetch("https://api.origentourandtravel.tur.ar/api/viajes", {
             method: 'GET',
             headers: {
                 "content-type": "application/json"

@@ -70,7 +70,7 @@ export const Filter = ({ destinos, setViajes, setLoading }) => {
         setSelectedProvince([]);
         setSelectedDestiny([]);
 
-        let url = 'http://localhost:8080/api/viajes';
+        let url = 'https://api.origentourandtravel.tur.ar/api/viajes';
 
         fetch(url, {
             method: "GET",
@@ -94,19 +94,19 @@ export const Filter = ({ destinos, setViajes, setLoading }) => {
         let url = ''
 
         if (fecha != null && destinos != null && provincias != null) {
-            url = `http://localhost:8080/api/viajes/filtrar?fecha=${encodeURIComponent(fecha.join(','))}&destino=${encodeURIComponent(destinos.join(','))}&provincia=${encodeURIComponent(provincias.join(','))}`
+            url = `https://api.origentourandtravel.tur.ar/api/viajes/filtrar?fecha=${encodeURIComponent(fecha.join(','))}&destino=${encodeURIComponent(destinos.join(','))}&provincia=${encodeURIComponent(provincias.join(','))}`
         } else if (fecha != null && destinos != null) {
-            url = `http://localhost:8080/api/viajes/filtrar?fecha=${encodeURIComponent(fecha.join(','))}&destino=${encodeURIComponent(destinos.join(','))}`
+            url = `https://api.origentourandtravel.tur.ar/api/viajes/filtrar?fecha=${encodeURIComponent(fecha.join(','))}&destino=${encodeURIComponent(destinos.join(','))}`
         } else if (fecha != null && provincias != null) {
-            url = `http://localhost:8080/api/viajes/filtrar?fecha=${encodeURIComponent(fecha.join(','))}&provincia=${encodeURIComponent(provincias.join(','))}`
+            url = `https://api.origentourandtravel.tur.ar/api/viajes/filtrar?fecha=${encodeURIComponent(fecha.join(','))}&provincia=${encodeURIComponent(provincias.join(','))}`
         } else if (destinos != null && provincias != null) {
-            url = `http://localhost:8080/api/viajes/filtrar?destino=${encodeURIComponent(destinos.join(','))}&provincia=${encodeURIComponent(provincias.join(','))}`
+            url = `https://api.origentourandtravel.tur.ar/api/viajes/filtrar?destino=${encodeURIComponent(destinos.join(','))}&provincia=${encodeURIComponent(provincias.join(','))}`
         } else if (destinos != null) {
-            url = `http://localhost:8080/api/viajes/filtrar?destino=${encodeURIComponent(destinos.join(','))}`
+            url = `https://api.origentourandtravel.tur.ar/api/viajes/filtrar?destino=${encodeURIComponent(destinos.join(','))}`
         } else if (fecha != null) {
-            url = `http://localhost:8080/api/viajes/filtrar?fecha=${encodeURIComponent(fecha.join(','))}`
+            url = `https://api.origentourandtravel.tur.ar/api/viajes/filtrar?fecha=${encodeURIComponent(fecha.join(','))}`
         } else if (provincias != null) {
-            url = `http://localhost:8080/api/viajes/filtrar?provincia=${encodeURIComponent(provincias.join(','))}`
+            url = `https://api.origentourandtravel.tur.ar/api/viajes/filtrar?provincia=${encodeURIComponent(provincias.join(','))}`
         } else {
             return
         }
