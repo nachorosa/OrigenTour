@@ -23,26 +23,26 @@ export const DestinyDetail = () => {
     const [loading, isLoading] = useState(true)
     const [whatsappLink, setWhatsappLink] = useState('');
 
-    
+
     const getViaje = () => {
         fetch("https://api.origentourandtravel.tur.ar/api/viajes/" + id, {
-          method: "GET",
-          headers: {
-            "content-type": "application/json"
-          }
+            method: "GET",
+            headers: {
+                "content-type": "application/json"
+            }
         })
-          .then(res => res.json())
-          .then(data => {
-            setViaje(data);
-    
-            const phoneNumber = '+541128808745';
-            const message = encodeURIComponent(`Hola, me interesa el viaje a ${phoneNumber}, de ${data.noches} Noches, que sale $${data.precio}, me podrias brindar mas informacion!`);
-            const link = `https://api.whatsapp.com/send?phone=${data.destinos[0].destino}&text=${message}`;
-            setWhatsappLink(link);
+            .then(res => res.json())
+            .then(data => {
+                setViaje(data);
 
-          })
-          .then(() => isLoading(false));
-      };
+                const phoneNumber = '+541128808745';
+                const message = encodeURIComponent(`Hola, me interesa el viaje a ${phoneNumber}, de ${data.noches} Noches, que sale $${data.precio}, me podrias brindar mas informacion!`);
+                const link = `https://api.whatsapp.com/send?phone=${data.destinos[0].destino}&text=${message}`;
+                setWhatsappLink(link);
+
+            })
+            .then(() => isLoading(false));
+    };
 
     useEffect(() => {
         getViaje()
@@ -95,8 +95,8 @@ export const DestinyDetail = () => {
         })
     }
 
-    return (      
-        loading ? <LoadingOval/> :
+    return (
+        loading ? <LoadingOval /> :
             <div className="w-full md:min-h-screen">
                 <a href={`../../destinos`}><img className="paddingImg cursor-pointer" src="/src/img/arrow_back.svg" alt="" /></a>
                 <div className="flex flex-col md:flex-row-reverse pb-10">
@@ -121,9 +121,17 @@ export const DestinyDetail = () => {
                                 {(() => {
                                     const groupedDates = {};
                                     viaje.salidas.forEach((fecha) => {
-                                        const date = new Date(fecha);
-                                        const zonedDate = utcToZonedTime(date, 'UTC');
+                                        let date;
 
+                                        if (Array.isArray(fecha)) {
+                                            // Si es un array, construir una fecha a partir de sus elementos
+                                            date = new Date(fecha[0], fecha[1] - 1, fecha[2]);
+                                        } else {
+                                            // Si no es un array, asumir que es una cadena de fecha ISO 8601
+                                            date = new Date(fecha);
+                                        }
+
+                                        const zonedDate = utcToZonedTime(date, 'UTC');
                                         const monthYear = format(zonedDate, 'MMMM yyyy', { locale: es, timeZone: 'UTC' });
 
                                         if (!groupedDates[monthYear]) {
@@ -139,6 +147,7 @@ export const DestinyDetail = () => {
                                         </h4>
                                     ));
                                 })()}
+
                             </div>
                         </div>
                         <div className="flex py-8">

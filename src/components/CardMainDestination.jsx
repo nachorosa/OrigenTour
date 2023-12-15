@@ -6,8 +6,8 @@ const destinations = [
     id: 1,
     provincia: 'Buenos Aires',
     lugar: "Mar del plata",
-    href: '',
-    imageSrc: '/destinos',
+    href: '/destinos',
+    imageSrc: '/src/img/cardMainDestiny/mardelplata.jpg',
     imageAlt: "Mar del plata",
   },
   {

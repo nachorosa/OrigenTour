@@ -10,7 +10,7 @@ export const CardDestiny = ({ viajes, loading }) => {
       <div className="px-8 pb-8">
         <div className="flex flex-wrap justify-center gap-8">
           {loading ? <div className="spinner-container">
-            <LoadingOval/>
+            <LoadingOval />
           </div> : viajes.map((viaje, index) => (
             <div key={index} className="relative containerCardDestiny">
               <p style={{ top: "22.5rem" }} className="absolute text-center text-white cardDetailNight ">{viaje.dias} Dias - {viaje.noches} Noches</p>
@@ -32,9 +32,17 @@ export const CardDestiny = ({ viajes, loading }) => {
                     {(() => {
                       const groupedDates = {};
                       viaje.salidas.forEach((fecha) => {
-                        const date = new Date(fecha);
-                        const zonedDate = utcToZonedTime(date, 'UTC');
+                        let date;
 
+                        if (Array.isArray(fecha)) {
+                          // Si es un array, construir una fecha a partir de sus elementos
+                          date = new Date(fecha[0], fecha[1] - 1, fecha[2]);
+                        } else {
+                          // Si no es un array, asumir que es una cadena de fecha ISO 8601
+                          date = new Date(fecha);
+                        }
+
+                        const zonedDate = utcToZonedTime(date, 'UTC');
                         const monthYear = format(zonedDate, 'MMM', { locale: es, timeZone: 'UTC' });
 
                         if (!groupedDates[monthYear]) {

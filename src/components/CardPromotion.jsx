@@ -3,7 +3,9 @@ import "../css/promotion.css"
 import { utcToZonedTime } from 'date-fns-tz'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
+import 'core-js'
+ 
 
 export const CardPromotion = ({favoritos}) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,6 +25,9 @@ export const CardPromotion = ({favoritos}) => {
   }, []);
 
   const favoritosGroups = [];
+
+  console.log("prueba aca", favoritosGroups)
+
 
   for (let i = 0; i < favoritos.length; i += isMobile ? 1 : 3) {
     favoritosGroups.push(favoritos.slice(i, i + (isMobile ? 1 : 3)));
@@ -80,14 +85,32 @@ export const CardPromotion = ({favoritos}) => {
                         {(() => {
                           const groupedDates = {};
                           favorito.salidas.forEach((fecha) => {
-                            const date = new Date(fecha)
-                            const zonedDate = utcToZonedTime(date, 'UTC')
-                            const monthYear = format(zonedDate, 'MMM', { locale: es, timeZone: 'UTC' })
-
-                            if (!groupedDates[monthYear]) {
-                              groupedDates[monthYear] = []
+                            console.log("Fecha original:", fecha);
+                        
+                            let date;
+                        
+                            if (Array.isArray(fecha)) {
+                                // Si es un array, construir una fecha a partir de sus elementos
+                                date = new Date(fecha[0], fecha[1] - 1, fecha[2]);
+                            } else {
+                                // Si no es un array, asumir que es una cadena de fecha ISO 8601
+                                date = new Date(fecha);
                             }
-                          })
+                        
+                            if (!isNaN(date.getTime())) {
+                                console.log("Fecha convertida:", date.toLocaleString('es-AR', { timeZone: 'UTC', month: 'short' }));
+                        
+                                const monthYear = date.toLocaleString('es-AR', { timeZone: 'UTC', month: 'short' });
+                        
+                                if (!groupedDates[monthYear]) {
+                                    groupedDates[monthYear] = [];
+                                }
+                            } else {
+                                console.error("Fecha inválida:", fecha);
+                            }
+                        });
+                        
+                         
 
                           const months = Object.keys(groupedDates);
 
