@@ -3,6 +3,31 @@ import "../css/footer.css"
 import Swal from 'sweetalert2';
 import { useAuth } from '../context/AuthProvider';
 
+const provinces = [
+    { label: "Buenos Aires", value: "buenos aires" },
+    { label: "Catamarca", value: "catamarca" },
+    { label: "Chaco", value: "chaco" },
+    { label: "Chubut", value: "chubut" },
+    { label: "Córdoba", value: "cordoba" },
+    { label: "Corrientes", value: "corrientes" },
+    { label: "Entre Ríos", value: "entre rios" },
+    { label: "Formosa", value: "formosa" },
+    { label: "Jujuy", value: "jujuy" },
+    { label: "La Pampa", value: "la pampa" },
+    { label: "La Rioja", value: "la rioja" },
+    { label: "Mendoza", value: "mendoza" },
+    { label: "Misiones", value: "misiones" },
+    { label: "Neuquén", value: "neuquen" },
+    { label: "Río Negro", value: "rio negro" },
+    { label: "Salta", value: "salta" },
+    { label: "San Juan", value: "san juan" },
+    { label: "San Luis", value: "san luis" },
+    { label: "Santa Cruz", value: "santa cruz" },
+    { label: "Santa Fe", value: "santa fe" },
+    { label: "Santiago del Estero", value: "santiago del estero" },
+    { label: "Tierra del Fuego", value: "tierra del fuego" },
+    { label: "Tucumán", value: "tucuman" }]
+
 const FormViaje = ({ popup, onClose, setPopup, isLoading, csrfToken }) => {
     const [form, setForm] = useState({
         destinos: [],
@@ -288,10 +313,11 @@ const FormViaje = ({ popup, onClose, setPopup, isLoading, csrfToken }) => {
                                         className=" w-96 rounded-md border-0 ring-1 ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-3xl   h-16  "
                                     >
                                         <option selected disabled>Seleccionar</option>
-                                        <option>Buenos aires</option>
-                                        <option>Cordoba</option>
-                                        <option>Santa Fe</option>
-                                        <option>Mendoza</option>
+                                        {provinces.map((province, index) => (
+                                        <option key={index} value={province.value}>
+                                            {province.label}
+                                        </option>
+                                        ))}
                                     </select>
                                 </div>
                             </div>

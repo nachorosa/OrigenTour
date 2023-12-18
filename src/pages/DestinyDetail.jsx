@@ -36,8 +36,8 @@ export const DestinyDetail = () => {
                 setViaje(data);
 
                 const phoneNumber = '+541128808745';
-                const message = encodeURIComponent(`Hola, me interesa el viaje a ${phoneNumber}, de ${data.noches} Noches, que sale $${data.precio}, me podrias brindar mas informacion!`);
-                const link = `https://api.whatsapp.com/send?phone=${data.destinos[0].destino}&text=${message}`;
+                const message = encodeURIComponent(`Hola, me interesa el viaje a ${data.destinos[0].destino}, de ${data.noches} Noches, que sale $${data.precio}, me podrias brindar mas informacion!`);
+                const link = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
                 setWhatsappLink(link);
 
             })

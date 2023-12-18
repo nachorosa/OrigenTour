@@ -53,7 +53,7 @@ textarea{
 
 #fixedButton {
   position: fixed;
-  bottom: 30% ; 
+  bottom: 15% ; 
   right: 0 ;
   z-index: 1000 ;
   background-color: transparent;
