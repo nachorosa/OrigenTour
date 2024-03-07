@@ -194,6 +194,9 @@ export const DestinyDetail = () => {
                                 minimumFractionDigits: 0,
                                 maximumFractionDigits: 0,
                             })}</h3>
+                            {viaje.destinos[0].provincia === 'Internacional' && (
+                            <p className="textPriceTitle">*Precio en Dolares*</p>
+                        )}
                         </div>
                         <div className="flex">
                             <div className="containerBooking">

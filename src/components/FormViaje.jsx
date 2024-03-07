@@ -26,7 +26,8 @@ const provinces = [
     { label: "Santa Fe", value: "santa fe" },
     { label: "Santiago del Estero", value: "santiago del estero" },
     { label: "Tierra del Fuego", value: "tierra del fuego" },
-    { label: "Tucumán", value: "tucuman" }]
+    { label: "Tucumán", value: "tucuman" },
+    { label: "Internacional", value: "internacional" }]
 
 const FormViaje = ({ popup, onClose, setPopup, isLoading, csrfToken }) => {
     const [form, setForm] = useState({

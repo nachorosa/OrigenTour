@@ -41,7 +41,8 @@ export const Filter = ({ destinos, setViajes, setLoading }) => {
         { label: "Santa Fe", value: "santa fe" },
         { label: "Santiago del Estero", value: "santiago del estero" },
         { label: "Tierra del Fuego", value: "tierra del fuego" },
-        { label: "Tucumán", value: "tucuman" }
+        { label: "Tucumán", value: "tucuman" },
+        { label: "Internacional", value: "internacional" }
     ]
     
     const destinys = destinos.map(d => ({ label: d, value: d }))
